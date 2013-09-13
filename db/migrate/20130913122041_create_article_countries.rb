@@ -1,7 +1,7 @@
 class CreateArticleCountries < ActiveRecord::Migration
   def change
     create_table :article_countries do |t|
-      t.references :tour, index: true
+      t.references :country, index: true
       t.references :article, index: true
 
       t.timestamps
