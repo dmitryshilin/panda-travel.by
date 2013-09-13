@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  day_of: 2013-09-13
+  price: 9.99
+  special: MyString
+  currency: MyString
+  deadline_date: 2013-09-13
+  tour_id: 
+
+two:
+  day_of: 2013-09-13
+  price: 9.99
+  special: MyString
+  currency: MyString
+  deadline_date: 2013-09-13
+  tour_id: 
