@@ -12,6 +12,10 @@
 /db/*.sqlite3-journal
 db/schema.rb
 Gemfile.lock
+doc/
+*.swp
+*~
+.DS_Store
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
