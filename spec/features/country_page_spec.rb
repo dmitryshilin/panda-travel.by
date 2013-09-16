@@ -5,7 +5,7 @@ describe 'Страница страны' do
   subject { page }
 
   before(:each) do
-    #visit country_path
+    # visit country_path
   end
   it 'должна быть доступна'
   it 'должна иметь верный заголовок'

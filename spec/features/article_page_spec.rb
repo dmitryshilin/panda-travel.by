@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'Страница статьи' do
   before(:each) do
-    #visit article_path
+    # visit article_path
   end
   it 'должна быть доступна'
   it 'должна иметь верный заголовок'
