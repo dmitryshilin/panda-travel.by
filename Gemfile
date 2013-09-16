@@ -45,6 +45,7 @@ end
 
 group :development do
   gem 'guard-rspec'
+  gem 'rubocop'
 end
 
 # Use ActiveModel has_secure_password

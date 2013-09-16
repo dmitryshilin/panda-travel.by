@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Страница страны" do
+describe 'Страница страны' do
 
   subject { page }
 
@@ -17,4 +17,3 @@ describe "Страница страны" do
   it 'можно опубликовать в twitter'
   it 'должна иметь ссылку "Распечатать страницу"'
 end
-
