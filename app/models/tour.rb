@@ -9,4 +9,5 @@ class Tour < ActiveRecord::Base
   has_many :steps
   has_many :visas, through: :visa_tours
   has_many :visa_tours
+  has_many :orders
 end
