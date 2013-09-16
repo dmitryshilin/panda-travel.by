@@ -84,20 +84,4 @@ describe 'Домашняя страница' do
         it 'должен иметь описание'
       end
     end
-
-    it 'should have country part' do
-      pending
-    end
-
-    it 'should have footer' do
-      pending
-    end
-
-    it 'should have proppper articles part' do
-      pending
-    end
-
-    it 'should have proppper country part' do
-      pending
-    end
 end
