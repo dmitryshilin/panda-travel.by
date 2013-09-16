@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'На всех страницах' do
   subject { page }
   # before { visit root_path }
-  describe 'заголовок' do
+  describe 'Header' do
     it 'должен иметь лого'
     it 'должен иметь курс валюты'
   end
@@ -29,7 +29,7 @@ describe 'На всех страницах' do
     end
   end
 
-  describe 'футер' do
+  describe 'footer' do
     it 'должен иметь приглашение'
     it 'должен содержать адрес'
     it 'должен содержать телефоны'
