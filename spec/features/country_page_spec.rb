@@ -5,7 +5,7 @@ describe 'Страница страны' do
   subject { page }
 
   before(:each) do
-    visit country_path
+    #visit country_path
   end
   it 'должна быть доступна'
   it 'должна иметь верный заголовок'
@@ -16,4 +16,34 @@ describe 'Страница страны' do
   it 'можно опубликовать в vk'
   it 'можно опубликовать в twitter'
   it 'должна иметь ссылку "Распечатать страницу"'
+  describe 'Новости компании' do
+    it 'должны присутствовать'
+    it 'должны иметь правильный заголовок' do
+      pending
+      should have_css('h2', text: 'Новости компании')
+    end
+  end
+  describe 'Страна месяца' do
+    it 'должна присутствовать'
+    it 'должна иметь правильный заголовок' do
+      pending
+      should have_css('h2', text: 'Страна месяца')
+    end
+  end
+  describe 'виджет Страны' do
+    it 'должен присутствовать'
+    it 'должен иметь правильный заголовок' do
+      pending
+      should have_css('h2', text: 'Страны')
+    end
+    it 'должен содержать страны'
+  end
+  describe 'Смотрите также' do
+    it 'должен присутствовать'
+    it 'должен иметь правильный заголовок' do
+      pending
+      should have_css('h2', text: 'Смотрите также')
+    end
+    it 'должен содержать туры'
+  end
 end
