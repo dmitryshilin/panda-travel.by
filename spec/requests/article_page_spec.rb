@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Страница статьи'   do
+describe 'Страница статьи' do
   before(:each) do
     visit article_path
   end
