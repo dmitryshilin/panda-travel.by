@@ -1,12 +1,15 @@
 FactoryGirl.define do
-  #sequence(:random_string) { |n| LoremIpsum.generate }
 
   factory :news do
-    sequence(:short_title) {|n| "short_title-#{n}"}
-    sequence(:title) {|n| "title-#{n}"}
-    sequence(:content) {|n| "content-#{n}"}
-    trait(:published) { published true }
-    trait(:unpublished) { published false }
-
+    short_title { Forgery::LoremIpsum.sentence  }
+    title { Forgery::LoremIpsum.sentences(3) }
+    content { Forgery::LoremIpsum.paragraphs(10) }
+    published true
+    factory :published_news do
+       published true
+    end
+    factory :unpublished_news do
+       published false
+    end
   end
 end
