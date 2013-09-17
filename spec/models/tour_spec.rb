@@ -16,7 +16,7 @@ describe Tour do
       should have_many(:attaches)
     end
     it { should have_many(:visas).through(:visa_tours) }
-    end
+  end
 
   context '#validations' do
 
