@@ -4,7 +4,7 @@ class CreateOrders < ActiveRecord::Migration
       t.string :name
       t.string :phone
       t.string :email
-      t.text :note
+      t.text :notation
       t.references :tour, index: true
 
       t.timestamps
