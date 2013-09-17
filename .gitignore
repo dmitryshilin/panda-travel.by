@@ -20,3 +20,5 @@ doc/
 /log/*.log
 /tmp
 .idea
+
+Gemfile.lock

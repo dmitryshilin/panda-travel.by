@@ -4,8 +4,8 @@ class CreateTours < ActiveRecord::Migration
       t.string :short_title
       t.string :title
       t.text :description
-      t.integer :rating
-      t.boolean :published
+      t.integer :rating, default: 0
+      t.boolean :published, default: false
 
       t.timestamps
     end

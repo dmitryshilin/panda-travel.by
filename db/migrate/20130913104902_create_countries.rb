@@ -3,7 +3,7 @@ class CreateCountries < ActiveRecord::Migration
     create_table :countries do |t|
       t.string :title
       t.text :description
-      t.integer :rating
+      t.integer :rating, default: 0
 
       t.timestamps
     end
