@@ -4,4 +4,8 @@ class Manager < ActiveRecord::Base
   has_many :manager_tours
   accepts_nested_attributes_for :contacts, allow_destroy: true
   has_attached_file :avatar, styles: {thumb: "100x100>"}
+
+  validates_presence_of :name
+  validates_length_of :name, within: 10..50
+
 end

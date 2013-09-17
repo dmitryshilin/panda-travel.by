@@ -63,7 +63,7 @@ describe 'Домашняя страница' do
 
       it 'должен присутствовать виджет новости' do
         # within('company-news') do
-          # describe 'Новости' do
+          # describe 'News' do
         pending
         it 'должны быть 3 последних новости'
         it 'должна присутствовать ссылка' do
