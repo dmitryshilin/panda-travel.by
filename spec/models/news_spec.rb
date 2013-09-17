@@ -9,16 +9,16 @@ describe News do
 
   describe 'структура' do
     it 'должна содержать поле title' do
-       one_news.title.should be
+      one_news.should respond_to(:title)
     end
     it 'должна содержать поле short_title' do
-      one_news.short_title.should be
+      one_news.should respond_to(:short_title)
     end
     it 'должна содержать поле content' do
-      one_news.content.should be
+      one_news.should respond_to(:content)
     end
     it 'должна содержать поле published' do
-      one_news.published.should be
+      one_news.should respond_to(:published)
     end
   end
 
