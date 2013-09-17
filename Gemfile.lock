@@ -201,9 +201,13 @@ PLATFORMS
 DEPENDENCIES
   capybara
   coffee-rails (~> 4.0.0)
+<<<<<<< HEAD
   database_cleaner (~> 1.1.1)!
   factory_girl_rails
   forgery
+=======
+  factory_girl_rails
+>>>>>>> 011b96c7d3535f1e55334e6d80801cc545854bab
   guard-rspec
   jbuilder (~> 1.2)
   jquery-rails
