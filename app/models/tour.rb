@@ -1,5 +1,7 @@
 class Tour < ActiveRecord::Base
   has_many :checkpoints
+  has_many :managers, through: :manager_tours
+  has_many :manager_tours
   has_many :countries, through: :country_tours
   has_many :country_tours
   has_many :date_prices
@@ -10,4 +12,5 @@ class Tour < ActiveRecord::Base
   has_many :visas, through: :visa_tours
   has_many :visa_tours
   has_many :orders
+  validate
 end
