@@ -1,3 +1,64 @@
+GIT
+  remote: git://github.com/ernie/ransack.git
+  revision: 3250d339bed60ae6c152e5c1827e13aab72dd8be
+  specs:
+    ransack (1.0.0)
+      actionpack (>= 3.0)
+      activerecord (>= 3.0)
+      polyamorous (~> 0.6.0)
+
+GIT
+  remote: git://github.com/gregbell/active_admin.git
+  revision: ac4918ef99cf0272eb5f744b7e3f3fc7cde5811f
+  branch: rails4
+  specs:
+    activeadmin (0.6.0)
+      arbre (>= 1.0.1)
+      bourbon (>= 1.0.0)
+      coffee-rails (>= 3.2.0)
+      devise (>= 3.0.2)
+      formtastic (>= 2.3.0.rc2)
+      inherited_resources (>= 1.4.1)
+      jquery-rails (>= 3.0.0)
+      jquery-ui-rails (>= 4.0.0)
+      kaminari (>= 0.13.0)
+      rails (>= 3.2.0)
+      ransack (>= 1.0.0)
+      sass-rails (>= 3.2.0)
+
+GIT
+  remote: git://github.com/josevalim/inherited_resources.git
+  revision: cf9c44845c6af46739978fdca8ed06ea840d01a1
+  specs:
+    inherited_resources (1.4.1)
+      has_scope (~> 0.6.0.rc)
+      responders (~> 1.0.0.rc)
+
+GIT
+  remote: git://github.com/justinfrench/formtastic.git
+  revision: cd6cb88f28ea7444267802ced8e5ec0f5cfd0f90
+  specs:
+    formtastic (2.3.0.rc2)
+      actionpack (>= 3.0)
+
+GIT
+  remote: git://github.com/plataformatec/devise.git
+  revision: c323065b57277e175af21a693a115c55f98936e6
+  specs:
+    devise (3.1.0)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
+
+GIT
+  remote: git://github.com/plataformatec/responders.git
+  revision: 6b57da9efb85c79157434a85c1bc34b2b4231aaa
+  specs:
+    responders (1.0.0.rc)
+      railties (>= 3.2, < 5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -25,10 +86,16 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
+    arbre (1.0.1)
+      activesupport (>= 3.0.0)
     arel (4.0.0)
     ast (1.1.0)
     atomic (1.1.14)
     backports (3.3.4)
+    bcrypt-ruby (3.1.2)
+    bourbon (3.1.8)
+      sass (>= 3.2.0)
+      thor
     builder (3.1.4)
     capybara (2.1.0)
       mime-types (>= 1.16)
@@ -65,6 +132,9 @@ GEM
     guard-rspec (3.0.3)
       guard (>= 1.8)
       rspec (~> 2.13)
+    has_scope (0.6.0.rc)
+      actionpack (>= 3.2, < 5)
+      activesupport (>= 3.2, < 5)
     hike (1.2.3)
     i18n (0.6.5)
     jbuilder (1.5.1)
@@ -73,7 +143,13 @@ GEM
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (4.0.4)
+      jquery-rails
+      railties (>= 3.1.0)
     json (1.8.0)
+    kaminari (0.14.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     listen (1.3.1)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -89,9 +165,12 @@ GEM
     multi_json (1.8.0)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
+    orm_adapter (0.4.0)
     parser (2.0.0.pre8)
       ast (~> 1.1)
       slop (~> 3.4, >= 3.4.5)
+    polyamorous (0.6.4)
+      activerecord (>= 3.0)
     polyglot (0.3.3)
     powerpack (0.0.8)
     pry (0.9.12.2)
@@ -183,6 +262,8 @@ GEM
     uglifier (2.2.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    warden (1.2.3)
+      rack (>= 1.0)
     websocket (1.0.7)
     xpath (2.0.0)
       nokogiri (~> 1.3)
@@ -191,13 +272,19 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activeadmin!
   capybara
   coffee-rails (~> 4.0.0)
+  devise!
   factory_girl_rails
+  formtastic!
   guard-rspec
+  inherited_resources!
   jbuilder (~> 1.2)
   jquery-rails
   rails (= 4.0.0)
+  ransack!
+  responders!
   rspec-rails
   rubocop
   sass-rails (~> 4.0.0)

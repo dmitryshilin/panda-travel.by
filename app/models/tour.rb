@@ -10,4 +10,5 @@ class Tour < ActiveRecord::Base
   has_many :visas, through: :visa_tours
   has_many :visa_tours
   has_many :orders
+  accepts_nested_attributes_for :images, allow_destroy: true
 end
