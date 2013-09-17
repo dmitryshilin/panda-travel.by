@@ -4,7 +4,7 @@ class CreateNews < ActiveRecord::Migration
       t.string :short_title
       t.string :title
       t.text :content
-      t.boolean :published
+      t.boolean :published, default: false
 
       t.timestamps
     end
