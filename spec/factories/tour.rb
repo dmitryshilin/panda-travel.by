@@ -2,18 +2,18 @@ require 'factory_girl'
 
 FactoryGirl.define do
   factory :tour, class: Tour do
-    short_title 'Париж - Минск - Браслав'
-    title 'Париж - Минск - БраславПариж - Минск - БраславПариж - Минск - Браслав'
-    description 'Париж - Минск - БраславПариж - Минск - БраславПариж - Минск - БраславПариж - Минск - БраславПариж - Минск - БраславПариж - Минск - БраславПариж - Минск - Браслав'
+    short_title { Forgery::LoremIpsum.sentence }
+    title { Forgery::LoremIpsum.sentence(3) }
+    description { Forgery::LoremIpsum.sentence(10) }
     rating 100
     published false
   end
 
   factory :empty_title_tour, class: Tour do
-    short_title 'Париж - Минск - Браслав'
-    title ''
-    description 'Париж - Минск - БраславПариж - Минск - БраславПариж - Минск - БраславПариж - Минск - БраславПариж - Минск - БраславПариж - Минск - БраславПариж - Минск - Браслав'
+    short_title { Forgery::LoremIpsum.sentence }
+    title
+    description { Forgery::LoremIpsum.sentence(10) }
     rating 100
-    published false
+    published true
   end
 end
