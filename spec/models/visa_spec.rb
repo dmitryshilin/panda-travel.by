@@ -13,7 +13,9 @@ describe Visa do
       it { should validate_presence_of(value) }
     end
     it { should ensure_length_of(:title).is_at_least(5).is_at_most(50) }
-    it { should ensure_length_of(:description).is_at_least(50).is_at_most(1000) }
+    it do
+      should ensure_length_of(:description).is_at_least(50).is_at_most(1000)
+    end
     it 'should be valid' do
       good_visa.should be_valid
     end

@@ -6,10 +6,10 @@ FactoryGirl.define do
     content { Forgery::LoremIpsum.paragraphs(10) }
     published true
     factory :published_news do
-       published true
+      published true
     end
     factory :unpublished_news do
-       published false
+      published false
     end
   end
 end

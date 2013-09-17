@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :attach do
     tour nil
-    title "MyString"
-    url "MyString"
+    title 'MyString'
+    url 'MyString'
   end
 end
