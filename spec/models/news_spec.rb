@@ -29,19 +29,20 @@ describe News do
         expect(one_news).to be_valid, one_news.errors.full_messages.join(',')
       end
     end
-    #it 'при длине поля title более 255 символов должно выбрасываться исключение'
-    #it 'при пустом поле title должно выбрасываться исключение'
-    #it 'при длине поля content более 65535 символов должно выбрасываться исключение'
-    #it 'при пустом поле content должно выбрасываться исключение'
-    #it 'при наличии в поле content стоп слов должно выбрасываться исключение'
     it 'при успешном сохранении статьи должен возвращаться объект типа News' do
       News.all.should_not be_empty
     end
   end
 
   describe 'удаление из БД по заданному ID' do
-    it 'при успешном удалении должно возвращаться значение TRUE'
-    it 'при не успешном удалении должно выбрасываться исключение'
+    it 'при успешном удалении должно возвращаться значение TRUE' do
+      News.last.destroy.should be_true
+    end
+
+    it 'удаленный объект не должен существовать' do
+      News.last.destroy
+      News.exists?(9).should be_false
+    end
   end
 
   describe 'поиск новостей в БД' do
@@ -52,11 +53,14 @@ describe News do
       end
     end
     it 'колличество новостей должно быть равно 9' do
-      News.count.should be 9
+      News.count.should  eq(9)
     end
-    it 'для существующего ID должен возвращаться объект News'
-    it 'для несуществующего ID должно выбрасываться исключение' do
-      News.find_by_id(100).expected(ActiveRecord::RecordNotFound)
+    it 'для существующего ID должен возвращаться объект News' do
+      News.find_by_id(8).should be
+    end
+
+    it 'для несуществующего ID должен возвращать nil' do
+      News.find_by_id(100).should eq(nil)
     end
   end
 
