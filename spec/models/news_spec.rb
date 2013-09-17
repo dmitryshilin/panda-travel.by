@@ -6,7 +6,6 @@ describe News do
   let(:published) { News.published }
   let(:one_news) { FactoryGirl.build(:news) }
 
-
   describe 'структура' do
     it 'должна содержать поле title' do
       one_news.should respond_to(:title)
@@ -21,7 +20,6 @@ describe News do
       one_news.should respond_to(:published)
     end
   end
-
 
   describe 'сохранение новости в БД' do
     it 'должен быть валидным' do
