@@ -12,5 +12,10 @@ class Tour < ActiveRecord::Base
   has_many :visas, through: :visa_tours
   has_many :visa_tours
   has_many :orders
-  validate
+  validates_length_of :short_title, minimum: 20, maximum: 50
+  validates_length_of :title, minimum: 50, maximum: 150
+  validates_length_of :description, minimum: 200, maximum: 1000
+  validates :short_title, :title, :description, :published, presence: true
+  validates :short_title, :title, uniqueness: true
+  scope :published, -> { where(published: true) }
 end
