@@ -5,6 +5,7 @@ class CreateArticles < ActiveRecord::Migration
       t.string :title
       t.text :content
       t.boolean :published
+      t.attachment :poster
 
       t.timestamps
     end

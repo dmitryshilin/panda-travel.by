@@ -41,9 +41,9 @@ ActiveAdmin.register Tour do
       row :countries do
         raw tour.countries.map { |x| link_to x.title, admin_country_path(x.slug) }.join(', ')
       end
-      if tour.manager.present?
+      if tour.managers.present?
         row :manager do
-          raw tour.manager.map { |x| link_to x.name, admin_manager_path(x.id) }.join(', ')
+          raw tour.managers.map { |x| link_to x.name, admin_manager_path(x.id) }.join(', ')
         end
       end
       row :description do
@@ -76,11 +76,11 @@ ActiveAdmin.register Tour do
       f.input :rest_types, as: :check_boxes
       f.input :managers, as: :check_boxes
       f.input :description
-      #f.has_many :images do |x|
-      #  x.input :_destroy, as: :boolean, required: false, label: 'Remove' if x.object.id.present?
-      #  x.input :title
-      #  x.input :image, as: :file, hint: f.template.image_tag(x.object.image.url(:medium)), input_html: {value: x.object.image.url(:medium)}
-      #end
+      f.has_many :images do |x|
+        x.input :_destroy, as: :boolean, required: false, label: 'Remove' if x.object.id.present?
+        x.input :title
+        x.input :image, as: :file, hint: f.template.image_tag(x.object.image.url(:medium)), input_html: {value: x.object.image.url(:medium)}
+      end
       f.buttons
     end
   end
