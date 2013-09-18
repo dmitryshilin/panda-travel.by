@@ -1,6 +1,4 @@
 PandatRavelBy::Application.routes.draw do
-  #get "news/index"
-  #get "news/show"
   resources :news, only: [:index, :show]
 
   devise_for :admin_users, ActiveAdmin::Devise.config
