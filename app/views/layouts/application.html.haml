@@ -5,8 +5,10 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    = render 'layouts/header'
-    = render 'layouts/mainmenu'
+    %header.container
+      = render 'layouts/header'
+      = render 'layouts/mainmenu'
+      = render 'layouts/adress'
     .container
       = yield
       = render 'layouts/footer'
