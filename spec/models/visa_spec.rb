@@ -16,6 +16,7 @@ describe Visa do
     it do
       should ensure_length_of(:description).is_at_least(50).is_at_most(1000)
     end
+
     it 'should be valid' do
       good_visa.should be_valid
     end

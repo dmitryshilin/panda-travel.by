@@ -1,0 +1,20 @@
+%h1 Каталог туров
+
+%table
+  %thead
+    %tr
+      %th Название
+      %th Описание
+      %th Цена
+      <th></th>
+  %tbody
+    - @tours.each do |tour|
+      %tr
+        %td
+          = tour.short_title
+        %td
+          = tour.description
+        %td
+          = tour.price
+        %td
+          =link_to 'Заказать', '#'
