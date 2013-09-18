@@ -22,5 +22,9 @@ describe 'Страница новостей' do
     it { should have_no_content(unpub_news.short_title) }
   end
 
+  context 'имеет ссылку на новость' do
+    it { should have_link(pub_news.short_title) }
+  end
+
   it 'отображает footer'
 end

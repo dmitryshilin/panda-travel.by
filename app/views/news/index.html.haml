@@ -2,4 +2,4 @@
 %ul
 - @all_news.each do |n|
   %li
-    = n.short_title
+    = link_to n.short_title, news_path(n)

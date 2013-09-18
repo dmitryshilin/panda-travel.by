@@ -1,6 +1,8 @@
 PandatRavelBy::Application.routes.draw do
-  get "news/index"
-  get "news/show"
+  #get "news/index"
+  #get "news/show"
+  resources :news, only: [:index, :show]
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.

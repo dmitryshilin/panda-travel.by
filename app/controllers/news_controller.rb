@@ -4,5 +4,6 @@ class NewsController < ApplicationController
   end
 
   def show
+    @news = News.published.find(params[:id])
   end
 end
