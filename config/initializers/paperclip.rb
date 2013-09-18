@@ -1,3 +1,3 @@
 Paperclip::Attachment.default_options.update(
-    url: "/system/:class/:attachment/:id/:style/:basename"
+    url: '/system/:class/:attachment/:id/:style/:basename'
 )

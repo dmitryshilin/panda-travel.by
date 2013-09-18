@@ -3,7 +3,7 @@ class CreateAttaches < ActiveRecord::Migration
     create_table :attaches do |t|
       t.references :tour, index: true
       t.string :title
-      t.string :url
+      t.attachment :document
 
       t.timestamps
     end
