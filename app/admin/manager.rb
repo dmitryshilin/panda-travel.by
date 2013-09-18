@@ -15,6 +15,11 @@ ActiveAdmin.register Manager do
       row :number_of_tours do
         manager.tours.count
       end
+      if manager.avatar.present?
+        row :avatar do
+          image_tag(manager.avatar.url(:thumb))
+        end
+      end
       row :created_at do
         manager.created_at.strftime("%e %B %Y")
       end
@@ -33,10 +38,22 @@ ActiveAdmin.register Manager do
   form html: {multipart: true} do |f|
     f.inputs do
       f.input :name
+      if f.object.avatar.present?
+        f.input :avatar, hint: f.template.image_tag(f.object.avatar.url(:thumb)), as: :file
+        f.input :avatar_delete
+      else
+        f.input :avatar
+      end
       f.has_many :contacts do |x|
         x.input :_destroy, as: :boolean, required: false, label: 'Remove' if x.object.id.present?
         x.input :contact_type
         x.input :description
+        if x.object.logo.present?
+          x.input :logo, hint: x.template.image_tag(x.object.logo.url(:original)), as: :file
+          x.input :logo_delete, as: :boolean, label: 'Remove'
+        else
+          x.input :logo
+        end
       end
       f.buttons
     end
@@ -44,7 +61,7 @@ ActiveAdmin.register Manager do
 
   controller do
     def permitted_params
-      params.permit manager: [:name, contacts_attributes: [:id, :contact_type, :description, :_destroy]]
+      params.permit manager: [:name, :avatar, :avatar_delete, contacts_attributes: [:id, :contact_type, :description, :_destroy, :logo, :logo_delete]]
     end
   end
 
