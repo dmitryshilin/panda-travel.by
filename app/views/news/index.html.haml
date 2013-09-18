@@ -1,2 +1,5 @@
-%h1 News#index
-%p= @news.first.title
+%h1 Новости компании
+%ul
+- @all_news.each do |n|
+  %li
+    = n.short_title

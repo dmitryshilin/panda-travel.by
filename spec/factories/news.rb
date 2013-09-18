@@ -12,4 +12,18 @@ FactoryGirl.define do
       published false
     end
   end
+
+  factory :pub_news, class: News do
+    short_title 'short_title1'
+    title 'title'
+    content 'content'
+    published true
+  end
+
+  factory :unpub_news, class: News do
+    short_title 'short_title2'
+    title 'title2'
+    content 'content2'
+    published false
+  end
 end
