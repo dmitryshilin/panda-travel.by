@@ -5,12 +5,11 @@ ActiveAdmin.register Country do
     column :title, sortable: 'title' do |country|
       link_to country.title, admin_country_path(country)
     end
-
-    #column :flag do |country|
-    #  if country.flag.count != 0
-    #    image_tag(country.flag.url(:small))
-    #  end
-    #end
+    column :flag do |country|
+      if country.flag.present?
+        image_tag(country.flag.url(:original))
+      end
+    end
     column :number_of_tours do |country|
       country.tours.count
     end
@@ -21,11 +20,11 @@ ActiveAdmin.register Country do
     attributes_table do
       row :rating
       row :title
-      #if country.flag.count != 0
-      #  row :flag do
-      #    image_tag(country.flag.url(:small))
-      #  end
-      #end
+      if country.flag.present?
+        row :flag do
+          image_tag(country.flag.url(:original))
+        end
+      end
       row :description do
         raw country.description
       end
@@ -39,18 +38,19 @@ ActiveAdmin.register Country do
     f.inputs do
       f.input :title
       f.input :description
-      #if f.object.flag.count != 0
-      #  f.input :flag, hint: f.template.image_tag(f.object.flag.url(:small)), as: :file
-      #else
-      #  f.input :flag
-      #end
+      if f.object.flag.present?
+        f.input :flag, hint: f.template.image_tag(f.object.flag.url(:original)), as: :file
+        f.input :flag_delete, as: :boolean, label: 'Remove'
+      else
+        f.input :flag
+      end
       f.buttons
     end
   end
 
   controller do
     def permitted_params
-      params.permit country: [:title, :description, :rating]
+      params.permit country: [:title, :description, :rating, :flag, :flag_delete]
     end
   end
 

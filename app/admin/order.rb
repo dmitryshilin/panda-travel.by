@@ -9,9 +9,9 @@ ActiveAdmin.register Order do
     end
     column :phone
     column :email
-    #column :tour do |order|
-    #  link_to order.tour.title, admin_tour_path(order.tour.id)
-    #end
+    column :tour do |order|
+      link_to order.tour.title, admin_tour_path(order.tour.id)
+    end
     column :created_at do |order|
       order.created_at.strftime("%e %B %Y")
     end
@@ -33,9 +33,9 @@ ActiveAdmin.register Order do
       row :phone
       row :email
       row :notation
-      #row :tour do
-      #  order.tour.title
-      #end
+      row :tour do
+        order.tour.title
+      end
       row :created_at do
         order.created_at.strftime("%e %B %Y")
       end

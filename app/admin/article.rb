@@ -19,6 +19,13 @@ ActiveAdmin.register Article do
     column :title do |article|
       link_to article.title, admin_article_path(article)
     end
+    column :poster do |article|
+      if article.poster.present?
+        status_tag("Yes", :ok)
+      else
+        status_tag("No", :error)
+      end
+    end
     default_actions
   end
 
@@ -39,6 +46,11 @@ ActiveAdmin.register Article do
       row :created_at do
         article.created_at.strftime("%e %B %Y")
       end
+      if article.poster.present?
+        row :poster do
+          image_tag(article.poster.url(:thumb))
+        end
+      end
     end
   end
 
@@ -48,13 +60,19 @@ ActiveAdmin.register Article do
       f.input :title
       f.input :published, as: :boolean
       f.input :content
+      if f.object.poster.present?
+        f.input :poster, hint: f.template.image_tag(f.object.poster.url(:thumb)), as: :file
+        f.input :poster_delete, as: :boolean, label: 'Remove'
+      else
+        f.input :poster
+      end
       f.buttons
     end
   end
 
   controller do
     def permitted_params
-      params.permit article: [:short_title, :title, :content, :published]
+      params.permit article: [:short_title, :title, :content, :published, :poster, :poster_delete]
     end
   end
 end
