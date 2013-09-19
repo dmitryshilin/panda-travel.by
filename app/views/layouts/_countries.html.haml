@@ -1,0 +1,28 @@
+.countries.clearfix
+  %h2 Страны
+  - if @europe.size !=0
+    %ul
+      %h3 Европа
+      - 15.times do
+        - @europe.each do |country|
+          %li= link_to "#{country.title}", country_path(country), title: "#{country.title}", :style => "background: url('#{country.flag.url(:original)}') no-repeat;"
+  - if @asia.size !=0
+    %ul
+      %h3 Азия
+      - @asia.each do |country|
+        %li= link_to "#{country.title}", country_path(country), title: "#{country.title}", :style => "background: url('#{country.flag.url(:original)}') no-repeat;"
+  - if @africa.size !=0
+    %ul
+      %h3 Африка
+      - @africa.each do |country|
+        %li= link_to "#{country.title}", country_path(country), title: "#{country.title}", :style => "background: url('#{country.flag.url(:original)}') no-repeat;"
+  - if @america.size !=0
+    %ul
+      %h3 Южная Америка
+      - @america.each do |country|
+        %li= link_to "#{country.title}", country_path(country), title: "#{country.title}", :style => "background: url('#{country.flag.url(:original)}') no-repeat;"
+  - if @also.size !=0
+    %ul
+      %h3 А также
+      - @also.each do |country|
+        %li= link_to "#{country.title}", country_path(country), title: "#{country.title}", :style => "background: url('#{country.flag.url(:original)}') no-repeat;"
