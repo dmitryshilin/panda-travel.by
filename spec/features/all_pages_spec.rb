@@ -20,6 +20,7 @@ describe 'На всех страницах' do
     end
   end
 
+  # let(:resttype) { FactoryGirl.create_list(:resttype) }
   it 'footer' do
     within('#footer') do
       should have_text('Приезжайте, звоните, пишите')
@@ -32,6 +33,7 @@ describe 'На всех страницах' do
       should have_link('Визы', href: visas_path)
       should have_link('Путеводитель', href: articles_path)
       should have_link('Контакты', href: contacts_path)
+      should have_text('солнце')
     end
   end
 
