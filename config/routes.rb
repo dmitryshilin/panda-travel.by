@@ -1,11 +1,17 @@
 PandatRavelBy::Application.routes.draw do
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  resources :tours, only: [:index, :show]
+  resources :tours, only: [:index, :show] do
+    resources :orders, only: [:new, :create]
+  end
   resources :articles, only: [:index, :show]
   resources :visas, only: [:index, :show]
   resources :contacts, only: [:index]
+
+
+  match '/modal/:name(/:model/:id)', to: 'application#modal', via: 'get', :as => :modal
 
   # match '/articles', to: 'articles#index', via: 'get'
   # match '/articles/:id', to: 'articles#show', via: 'get'

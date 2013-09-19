@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe "tours/show.html.erb" do
+describe "orders/create.html.haml" do
   pending "add some examples to (or delete) #{__FILE__}"
 end

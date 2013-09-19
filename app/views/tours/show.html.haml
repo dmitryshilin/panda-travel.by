@@ -1,0 +1,3 @@
+%h1 Tours#show
+%p Find me in app/views/tours/show.html.erb
+= link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), :class => "b-modal"
