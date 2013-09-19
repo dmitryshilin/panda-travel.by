@@ -1,4 +1,5 @@
 PandatRavelBy::Application.routes.draw do
+  resources :countries, only: [:index, :show]
   resources :news, only: [:index, :show]
 
   devise_for :admin_users, ActiveAdmin::Devise.config
