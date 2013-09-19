@@ -1,2 +1,5 @@
-%h1 Visas#index
-%p Find me in app/views/visas/index.html.haml
+%h1 Визы
+%ul
+- @visas.each do |v|
+  %li
+    = link_to v.title, visa_path(v)

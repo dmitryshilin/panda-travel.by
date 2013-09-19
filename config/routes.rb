@@ -4,11 +4,13 @@ PandatRavelBy::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   resources :tours, only: [:index, :show] do
-    resources :orders, only: [:new, :create]
+    resources :orders, only: [:create]
   end
   resources :articles, only: [:index, :show]
   resources :visas, only: [:index, :show]
   resources :contacts, only: [:index]
+  resources :countries, only: [:index, :show]
+  resources :news, only: [:index, :show]
 
 
   match '/modal/:name(/:model/:id)', to: 'application#modal', via: 'get', :as => :modal

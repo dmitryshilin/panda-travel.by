@@ -1,0 +1,5 @@
+%h1 Страны
+%ul
+- @countries.each do |c|
+  %li
+    = link_to c.title, country_path(c)
