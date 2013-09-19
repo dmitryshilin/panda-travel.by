@@ -2,6 +2,7 @@ ActiveAdmin.register Country do
 
   index do
     column :rating
+    column :region, sortable: 'region'
     column :title, sortable: 'title' do |country|
       link_to country.title, admin_country_path(country)
     end
@@ -19,6 +20,7 @@ ActiveAdmin.register Country do
   show title: "Country" do |country|
     attributes_table do
       row :rating
+      row :region
       row :title
       if country.flag.present?
         row :flag do
@@ -36,6 +38,7 @@ ActiveAdmin.register Country do
 
   form html: {multipart: true} do |f|
     f.inputs do
+      f.input :region, collection: ['Европа','Азия','Африка','Южная Америка','А также']
       f.input :title
       f.input :description
       if f.object.flag.present?
@@ -50,7 +53,7 @@ ActiveAdmin.register Country do
 
   controller do
     def permitted_params
-      params.permit country: [:title, :description, :rating, :flag, :flag_delete]
+      params.permit country: [:title, :description, :rating, :region, :flag, :flag_delete]
     end
   end
 
