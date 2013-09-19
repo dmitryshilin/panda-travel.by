@@ -1,7 +1,8 @@
 class Visa < ActiveRecord::Base
   has_many :tours, through: :visa_tours
   has_many :visa_tours
-  validates_presence_of :title, :description
-  validates_length_of :title, within: 5..50
-  validates_length_of :description, within: 5..1000
+
+  validates :title, :description, presence: true
+  validates :title, length: { in: 5..50 }
+  validates :description, length: { in: 5..1000 }
 end
