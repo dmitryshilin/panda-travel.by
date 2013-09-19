@@ -3,9 +3,8 @@
   - if @europe.size !=0
     %ul
       %h3 Европа
-      - 15.times do
-        - @europe.each do |country|
-          %li= link_to "#{country.title}", country_path(country), title: "#{country.title}", :style => "background: url('#{country.flag.url(:original)}') no-repeat;"
+      - @europe.each do |country|
+        %li= link_to "#{country.title}", country_path(country), title: "#{country.title}", :style => "background: url('#{country.flag.url(:original)}') no-repeat;"
   - if @asia.size !=0
     %ul
       %h3 Азия
