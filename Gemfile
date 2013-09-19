@@ -74,3 +74,4 @@ end
 # gem 'debugger', group: [:development, :test]
 gem 'rubocop'
 gem 'haml-rails'
+gem 'mysql2'

@@ -18,4 +18,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def getresttypes
+    @resttypes ||= RestType.all
+  end
 end
