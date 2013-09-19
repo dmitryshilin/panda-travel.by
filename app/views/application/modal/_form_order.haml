@@ -1,0 +1,20 @@
+- @order = @obj.orders.build
+.modal-dialog
+  .modal-content
+    .modal-header
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+      %h4.modal-title Заказ тура
+    = simple_form_for [@obj, @order], :url => tour_orders_path(@obj), :remote => true, :html => { :method => :post, :class => 'form-horizontal' } do |f|
+      = f.error_notification
+      .modal-body
+        .alert.hide
+
+        .form-inputs
+          = f.input :name, placeholder: 'Ваше имя', label: 'Ваше имя:'
+          = f.input :phone, placeholder: '+375 29 203 55 93',label: 'Ваш номер телефона:'
+          = f.input :email, placeholder: 'Email', label: 'Email'
+          = f.input :notation, as: :text, placeholder: 'дата тура и любая другая информация', label: 'Примечание:'
+
+      .modal-footer
+        %button.btn{"data-dismiss" => "modal", type: "button"} Закрыть
+        = f.button :submit,value: 'Заказать', :class => 'btn order-submit'

@@ -2,46 +2,38 @@ require 'spec_helper'
 
 describe 'На всех страницах' do
   subject { page }
-  # before { visit root_path }
-  describe 'Header' do
-    it 'должен иметь лого'
-    it 'должен иметь курс валюты'
+  before { visit root_path }
+  it 'should have good Header' do
+    should have_css('#navb')
+    within('#navb') do
+      should have_css('#logo')
+      should have_css('#currency')
+    end
   end
 
-  describe 'Главное меню' do
-    it 'должно иметь ссылку Каталог туров' do
-      pending
+  it 'Главное меню' do
+    within('#mainmenu') do
       should have_link('Каталог туров', href: tours_path)
-    end
-    it 'должно иметь ссылку Визы' do
-      pending
       should have_link('Визы', href: visas_path)
-    end
-
-    it 'должно иметь ссылку Путеводитель' do
-      pending
-      should have_link('Путеводитель', href: some_odd_name_path)
-    end
-
-    it 'должно иметь ссылку Контакты' do
-      pending
+      should have_link('Путеводитель', href: articles_path)
       should have_link('Контакты', href: contacts_path)
     end
   end
 
-  describe 'footer' do
-    it 'должен иметь приглашение'
-    it 'должен содержать адрес'
-    it 'должен содержать телефоны'
-    it 'должен содержать другие контакты'
-    it 'должен иметь лого'
-    it 'должен иметь строку с реквизитами'
-    it 'должен иметь ссылки' do
-      pending
+  # let(:resttype) { FactoryGirl.create_list(:resttype) }
+  it 'footer' do
+    within('#footer') do
+      should have_text('Приезжайте, звоните, пишите')
+      # it 'должен содержать адрес'
+      # it 'должен содержать телефоны'
+      # it 'должен содержать другие контакты'
+      should have_css('#logo')
+      # it 'должен иметь строку с реквизитами'
       should have_link('Каталог туров', href: tours_path)
       should have_link('Визы', href: visas_path)
-      should have_link('Путеводитель', href: some_odd_name_path)
+      should have_link('Путеводитель', href: articles_path)
       should have_link('Контакты', href: contacts_path)
+      should have_text('солнце')
     end
   end
 

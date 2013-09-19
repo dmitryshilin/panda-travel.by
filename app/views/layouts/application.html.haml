@@ -7,9 +7,13 @@
   %body
     %header.container
       = render 'layouts/header'
-      = render 'layouts/mainmenu'
-      = render 'layouts/adress'
+      #navigational-bar
+        = render 'layouts/mainmenu'
+        = render 'layouts/adress'
     .container
       = yield
       = render 'layouts/footer'
       = debug(params) if Rails.env.development?
+
+    #ajax-modal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
+

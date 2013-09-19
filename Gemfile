@@ -26,7 +26,7 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
-
+gem 'bootstrap-sass'
 # For active admin
 gem 'devise',              github: 'plataformatec/devise'
 gem 'responders',          github: 'plataformatec/responders'
@@ -36,7 +36,7 @@ gem 'activeadmin',         github: 'gregbell/active_admin', branch: 'rails4'
 gem 'formtastic',          github: 'justinfrench/formtastic'
 
 gem 'paperclip', '~> 3.0'
-
+gem 'simple_form'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -74,3 +74,4 @@ end
 # gem 'debugger', group: [:development, :test]
 gem 'rubocop'
 gem 'haml-rails'
+gem 'mysql2'
