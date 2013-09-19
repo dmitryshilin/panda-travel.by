@@ -4,6 +4,7 @@ class ToursController < ApplicationController
   end
 
   def byresttypes
+    # raise params[:rest_type_id].to_s
     @tours = RestType.find(params[:rest_type_id]).try(:tours)
     render :index
   end

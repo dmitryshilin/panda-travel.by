@@ -16,4 +16,4 @@
     %ul.list-unstyled
       - @resttypes.each do |x|
         %li
-          =link_to x.title, "/resttypes/#{ params[resttype: x.id] }"
+          =link_to x.title, "/resttypes/#{ params[rest_type_id: x.id] }"
