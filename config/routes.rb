@@ -5,18 +5,13 @@ PandatRavelBy::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  resources :tours, only: [:index, :show]
+  resources :tours, only: [:index, :show] do
+    get '/resttypes/:rest_type_id', to: 'tours#byresttypes'
+  end
+
   resources :articles, only: [:index, :show]
   resources :visas, only: [:index, :show]
   resources :contacts, only: [:index]
-
-  # match '/articles', to: 'articles#index', via: 'get'
-  # match '/articles/:id', to: 'articles#show', via: 'get'
-  # match '/contacts', to: 'contacts#index', via: 'get'
-  # match '/tours', to: 'tours#index', via: 'get'
-  # match '/tours/:id', to: 'tours#show', via: 'get'
-  # match '/visas', to: 'visas#index', via: 'get'
-  # match '/visas/:id', to: 'visas#show', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

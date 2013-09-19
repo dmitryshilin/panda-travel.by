@@ -1,13 +1,14 @@
 class ToursController < ApplicationController
-
   def index
     @tours = Tour.published
   end
 
+  def byresttypes
+    @tours = RestType.find(params[:rest_type_id]).try(:tours)
+    render :index
+  end
+
   def show
     @tour = Tour.find(params[:id])
-    unless @tour.published
-      raise 'Restrict'
-    end
   end
 end

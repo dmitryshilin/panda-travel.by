@@ -13,8 +13,7 @@
       %li
         =link_to 'Контакты', contacts_path
   #third-col.col-md-3
-    - @resttypes = RestType.all
     %ul.list-unstyled
       - @resttypes.each do |x|
         %li
-          =link_to x.title, '#'
+          =link_to x.title, "/resttypes/#{ params[resttype: x.id] }"
