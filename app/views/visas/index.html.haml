@@ -1,5 +1,4 @@
 %h1 Визы
 %ul
-- @visas.each do |v|
-  %li
-    = link_to v.title, visa_path(v)
+- @visas.each do |visa|
+  %li= link_to visa.title, visa_path(visa), title: visa.title
