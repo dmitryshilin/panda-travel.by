@@ -15,7 +15,7 @@ PandatRavelBy::Application.routes.draw do
   resources :news, only: [:index, :show]
 
 
-  match '/modal/:name(/:model/:id)', to: 'application#modal', via: 'get', :as => :modal
+  get '/modal/:name(/:model/:id)', to: 'application#modal', :as => :modal
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
