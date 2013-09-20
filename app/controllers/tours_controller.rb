@@ -1,6 +1,6 @@
 class ToursController < ApplicationController
   def index
-    @tours = Tour.published
+    @tours = Tour.all
   end
 
   def byresttypes
