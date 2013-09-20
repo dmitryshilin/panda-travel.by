@@ -1,6 +1,6 @@
 class Tour < ActiveRecord::Base
-  include Tire::Model::Search
-  include Tire::Model::Callbacks
+  # include Tire::Model::Search
+  # include Tire::Model::Callbacks
 
   has_many :checkpoints
   has_many :managers, through: :manager_tours

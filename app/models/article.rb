@@ -1,6 +1,6 @@
 class Article < ActiveRecord::Base
-  include Tire::Model::Search
-  include Tire::Model::Callbacks
+  # include Tire::Model::Search
+  # include Tire::Model::Callbacks
   has_many :article_countries
   has_many :countries, through: :article_countries
   has_attached_file :poster, styles: {thumb: "100x100#"}
