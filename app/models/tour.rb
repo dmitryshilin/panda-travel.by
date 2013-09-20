@@ -29,7 +29,4 @@ class Tour < ActiveRecord::Base
   validates :short_title, :title, uniqueness: true
   scope :published, -> { where(published: true) }
 
-  def self.blablabla
-  end
-
 end
