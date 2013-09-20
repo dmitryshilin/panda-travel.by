@@ -1,4 +1,15 @@
 %h1= @country.title
+%ul.list-unstyled.list-inline
+  %li
+    = link_to 'Информация о стране', '#'
+  %li
+    = link_to 'Туры', '#'
+  %li
+    = link_to 'Визы', '#'
 %p
   Content:
   = @country.description
+  - @country.tours.each do |tour|
+    = tour.title
+  - @country.visas.each do |visa|
+    = visa.title

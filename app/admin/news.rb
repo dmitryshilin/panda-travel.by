@@ -16,7 +16,7 @@ ActiveAdmin.register News do
       end
     end
     column :short_title do |news|
-      link_to news.title, admin_news_path(news)
+      link_to news.short_title, admin_news_path(news)
     end
     column :created_at do |news|
       news.created_at.strftime("%e %B %Y")

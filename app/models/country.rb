@@ -3,6 +3,8 @@ class Country < ActiveRecord::Base
   has_many :article_countries
   has_many :tours, through: :country_tours
   has_many :country_tours
+  has_many :visas, through: :country_visa
+  has_many :country_visa
   has_attached_file :flag
   has_destroyable_file :flag
 
