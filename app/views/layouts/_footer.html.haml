@@ -13,6 +13,7 @@
       %li
         =link_to 'Контакты', contacts_path
   #third-col.col-md-3
+    / - @resttypes = get_rest_types
     %ul.list-unstyled
       - @resttypes.each do |x|
         %li
