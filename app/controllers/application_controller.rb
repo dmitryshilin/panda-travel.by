@@ -4,10 +4,11 @@ class ApplicationController < ActionController::Base
   # check_authorization
   protect_from_forgery with: :exception
   before_action :constant
+
   layout :choose_layout
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url, :alert => exception.message
+    redirect_to '/', :alert => exception.message
   end
 
   def constant
@@ -16,6 +17,7 @@ class ApplicationController < ActionController::Base
     @africa = Country.where('region = ?', 'Африка')
     @america = Country.where('region = ?', 'Южная Америка')
     @also = Country.where('region = ?', 'А также')
+    @resttypes ||= RestType.all
   end
 
   def choose_layout
@@ -30,8 +32,7 @@ class ApplicationController < ActionController::Base
       @obj = @model.classify.constantize.find @id
     end
   end
-
-  def get_rest_types
-    @resttypes ||= RestType.all
+  def current_ability
+    @current_ability ||= Ability.new(current_admin_user)
   end
 end

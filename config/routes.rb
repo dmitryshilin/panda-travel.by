@@ -1,5 +1,6 @@
 PandatRavelBy::Application.routes.draw do
 
+  get "static_pages/contacts"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
@@ -14,7 +15,7 @@ PandatRavelBy::Application.routes.draw do
   resources :countries, only: [:index, :show]
   resources :news, only: [:index, :show]
 
-
+  #get 'static_pages/contacts'
   get '/modal/:name(/:model/:id)', to: 'application#modal', :as => :modal
 
   # The priority is based upon order of creation: first created -> highest priority.
