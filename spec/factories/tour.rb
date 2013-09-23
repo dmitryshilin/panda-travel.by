@@ -2,8 +2,8 @@ require 'factory_girl'
 
 FactoryGirl.define do
   factory :tour, class: Tour do
-    short_title { Forgery::LoremIpsum.sentence }
-    title { Forgery::LoremIpsum.sentence(3) }
+    short_title { Forgery::LoremIpsum.words(5) }
+    title { Forgery::LoremIpsum.words(10) }
     description { Forgery::LoremIpsum.sentence(10) }
     rating 100
     published false

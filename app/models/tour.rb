@@ -1,6 +1,6 @@
 class Tour < ActiveRecord::Base
-  # include Tire::Model::Search
-  # include Tire::Model::Callbacks
+  include Tire::Model::Search
+  include Tire::Model::Callbacks
 
   has_many :checkpoints
   has_many :managers, through: :manager_tours
@@ -28,8 +28,5 @@ class Tour < ActiveRecord::Base
   validates :short_title, :title, :description, presence: true
   validates :short_title, :title, uniqueness: true
   scope :published, -> { where(published: true) }
-
-  def self.blablabla
-  end
 
 end
