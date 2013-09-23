@@ -3,6 +3,8 @@ require 'spec_helper'
 
 describe ToursController do
 
+  let (:published_tour) { FactoryGirl.create(:published_tour) }
+
   describe "GET 'index'" do
     it "returns http success" do
       get 'index'
@@ -10,19 +12,15 @@ describe ToursController do
     end
   end
 
-# describe "GET #show" do
-#   it "assigns the requested contact to @contact" do
-#     # tour = FactoryGirl.create(:tour)
-#     get :show, id: 1
-#     response.should be_success
-#   end
-# end
-
   describe "GET 'show'" do
     it "returns http success" do
-      tour = FactoryGirl.create(:tour)
-      get 'show', id: tour.id
+      get 'show', id: published_tour
       response.should be_success
+    end
+
+    it 'should render propper tour' do
+      get :show, id: published_tour
+      assigns(:tour).should eq(published_tour)
     end
   end
 

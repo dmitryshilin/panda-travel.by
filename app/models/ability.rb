@@ -12,8 +12,8 @@ class Ability
     #    can :manage, :all
     else
       can :read, Article, published: true
-      #can :read, News, published: true
-      #can :read, Tour, published: true
+      can :read, News, published: true
+      can :read, Tour, published: true
     end
 
     # The first argument to `can` is the action you are giving the user

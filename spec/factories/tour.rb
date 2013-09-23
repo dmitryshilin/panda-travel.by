@@ -1,18 +1,24 @@
 require 'factory_girl'
 
 FactoryGirl.define do
-  factory :tour, class: Tour do
-    short_title { Forgery::LoremIpsum.words(5) }
-    title { Forgery::LoremIpsum.words(10) }
-    description { Forgery::LoremIpsum.sentence(10) }
+
+  factory :tour do
+    short_title { Forgery::LoremIpsum.words(3) }
+    title { Forgery::LoremIpsum.sentences(2) }
+    description { Forgery::LoremIpsum.paragraphs(3) }
     rating 100
-    published false
+    factory :published_tour do
+      published true
+    end
+    factory :unpublished_tour do
+      published false
+    end
   end
 
   factory :empty_title_tour, class: Tour do
-    short_title { Forgery::LoremIpsum.sentence }
+    short_title { Forgery::LoremIpsum.words(3) }
     title
-    description { Forgery::LoremIpsum.sentence(10) }
+    description { Forgery::LoremIpsum.paragraphs(3) }
     rating 100
     published true
   end
