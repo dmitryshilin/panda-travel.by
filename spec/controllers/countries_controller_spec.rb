@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe CountriesController do
+  # Using let with bang ('!') is obligatory here
+  # otherwise test won't pass
   let!(:country) { FactoryGirl.create(:country) }
 
   describe 'GET #index' do
