@@ -1,2 +1,6 @@
-%h1 Articles#index
-%p Find me in app/views/articles/index.html.haml
+%h1 Articles
+- @articles.each do |article|
+  - if can? :read, article
+    %dl
+      %dt= link_to article.short_title, article_path(article), title: article.short_title
+      %dd= raw strip_tags(article.content).truncate(300)
