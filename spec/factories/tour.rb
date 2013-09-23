@@ -22,9 +22,5 @@ FactoryGirl.define do
     rating 100
     published true
   end
-
-  factory :accounts_manager, class: AdminUser do
-    email '123@123.by'
-    password '12345678'
-  end
 end
+
