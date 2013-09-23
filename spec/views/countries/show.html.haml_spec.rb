@@ -1,5 +1,11 @@
 require 'spec_helper'
 
 describe "countries/show.html.haml" do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:country) { FactoryGirl.build(:country) }
+
+  it 'displays country description' do
+    assign(:country, country)
+    render
+    expect(rendered).to match country.description
+  end
 end
