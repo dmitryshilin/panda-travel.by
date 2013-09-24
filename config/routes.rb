@@ -4,7 +4,7 @@ PandatRavelBy::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  get '/resttypes/:rest_type_id', to: 'tours#byresttypes', :as => :resttypes
+  get '/resttypes/:rest_type_id', to: 'tours#byresttypes', as: :resttypes
 
   resources :tours, only: [:index, :show] do
     resources :orders, only: [:create]
@@ -17,7 +17,7 @@ PandatRavelBy::Application.routes.draw do
   resources :news, only: [:index, :show]
 
   #get 'static_pages/contacts'
-  get '/modal/:name(/:model/:id)', to: 'application#modal', :as => :modal
+  get '/modal/:name(/:model/:id)', to: 'application#modal', as: :modal
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
