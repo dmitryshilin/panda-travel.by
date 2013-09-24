@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
     @america = Country.where('region = ?', 'Южная Америка')
     @also = Country.where('region = ?', 'А также')
     @resttypes ||= RestType.all
+    @some_news = News.last(3)
   end
 
   def choose_layout

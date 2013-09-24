@@ -13,3 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree ./import
+
+$('#myTab a').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+})
