@@ -5,5 +5,6 @@ class NewsController < ApplicationController
 
   def show
     @news = News.published.find(params[:id])
+    authorize! :read, @news
   end
 end

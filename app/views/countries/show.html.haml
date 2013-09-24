@@ -1,15 +1,20 @@
 %h1= @country.title
-%ul.list-unstyled.list-inline
+%ul#myTab.nav.nav-tabs
+  %li.active
+    %a{'data-toggle' => 'tab', href: '#country-info'} Информация о стране
   %li
-    = link_to 'Информация о стране', '#'
+    %a{'data-toggle' => 'tab', href: '#country-tours'} Туры #{@country.tours.size}
   %li
-    = link_to 'Туры', '#'
-  %li
-    = link_to 'Визы', '#'
-%p
-  Content:
-  = @country.description
-  - @country.tours.each do |tour|
-    = tour.title
-  - @country.visas.each do |visa|
-    = visa.title
+    %a{'data-toggle' => 'tab', href: '#country-visas'} Визы
+.tab-content
+  #country-info.tab-pane.active
+    %p= raw @country.description
+  #country-tours.tab-pane
+    - @country.tours.each do |tour|
+      %p= tour.title
+  #country-visas.tab-pane
+    - @country.visas.each do |visa|
+      %p= visa.title
+=render 'layouts/also'
+=render 'layouts/news'
+=render 'layouts/countries'

@@ -13,14 +13,22 @@ describe 'Страница страны' do
   context 'имеет заголовок страны' do
     it { should have_css('h1', text: country.title) }
   end
-  it 'имеет ссылку на туры страны'
-  it 'имеет ссылку на визы страны'
+  it 'имеет ссылку на туры страны' do
+    should have_link('Туры')
+  end
+  it 'имеет ссылку на визы страны' do
+    should have_link('Визы')
+  end
   it 'имеет ссылку "Распечатать страницу"'
   it 'содержит header'
   it 'содержит footer'
-  it 'имеет виджет "Новости компании"'
+  it 'имеет виджет "Новости компании"' do
+    should have_css('h2', text: 'Новости компании')
+  end
   it 'имеет виджет "Страна месяца"'
-  it 'имеет виджет "Страны"'
+  it 'имеет виджет "Страны"' do
+    should have_css('h2', text: 'Страны')
+  end
   context 'имеет виджет "Смотрите также"' do
     it { should have_css('h2', text: 'Смотрите также') }
   end

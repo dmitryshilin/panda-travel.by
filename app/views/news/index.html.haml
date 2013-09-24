@@ -1,1 +1,4 @@
-= render 'layouts/news'
+%h1 Новости компании
+%ul
+- @all_news.each do |n|
+  %li= link_to n.short_title, news_path(n) if can? :read, n
