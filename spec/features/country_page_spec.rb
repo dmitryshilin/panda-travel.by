@@ -29,3 +29,4 @@ describe 'Страница страны' do
   it 'отображает кнопку twitter'
   it 'отображает кнопку vkontakte'
 end
+

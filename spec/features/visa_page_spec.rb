@@ -10,13 +10,14 @@ describe 'Страница Визы'  do
     click_link(visa.title)
   end
 
-  it 'имеет header'
-  it 'имеет меню'
-  it 'имеет панель контактов'
-  it 'имеет footer'
   context 'имеет заголовок' do
     it { should have_css('h1', text: visa.title) }
   end
-  it 'имеет виджет Новости'
-  it 'имеет виджет Лучшая страна'
+ # context 'имеет виджет Новости' do
+ #   it { should have_css('h3', text: 'Новости компании') }
+ # end
+ # context 'имеет виджет Лучшая страна' do
+ #   it { should have_css('h3', text: 'Страна месяца') }
+ # end
 end
+

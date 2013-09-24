@@ -1,17 +1,17 @@
 require 'spec_helper'
 
-describe 'Страница новостей' do
+describe 'Partial новости' do
   let!(:pub_news) { FactoryGirl.create(:pub_news) }
   let!(:unpub_news) { FactoryGirl.create(:unpub_news) }
 
   subject { page }
 
   before do
-    visit news_index_path
+    visit root_path
   end
 
   context 'отображает заголовок "Новости компании"' do
-    it { should have_css('h1', text: 'Новости компании') }
+    it { should have_css('h3', text: 'Новости компании') }
   end
 
   context 'отображает заголовок опубликованной новости' do
