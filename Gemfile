@@ -73,5 +73,5 @@ end
 gem 'rubocop'
 gem 'haml-rails'
 gem 'mysql2'
-gem 'tire'
+# gem 'tire'
 gem 'cancan'

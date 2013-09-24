@@ -1,24 +1,29 @@
 require 'factory_girl'
 
 FactoryGirl.define do
-  factory :tour, class: Tour do
-    short_title { Forgery::LoremIpsum.words(5) }
-    title { Forgery::LoremIpsum.words(10) }
-    description { Forgery::LoremIpsum.sentence(10) }
-    rating 100
-    published false
-  end
+# "title #{n}"
+  sequence(:short_title) { |n| Forgery::LoremIpsum.words(6, random: true) }
+  sequence(:title) { |n| Forgery::LoremIpsum.words(10, random: true) }
+  sequence(:rating) { rand(100) }
 
-  factory :empty_title_tour, class: Tour do
-    short_title { Forgery::LoremIpsum.sentence }
+  factory :tour do
+    short_title
     title
-    description { Forgery::LoremIpsum.sentence(10) }
-    rating 100
-    published true
-  end
-
-  factory :accounts_manager, class: AdminUser do
-    email '123@123.by'
-    password '12345678'
+    description { Forgery::LoremIpsum.paragraphs(3) }
+    rating
+    factory :published_tour do
+      published true
+    end
+    factory :unpublished_tour do
+      published false
+    end
   end
 end
+
+
+# FactoryGirl.define do
+#   factory :coupon do
+#     sequence(:title)     { |n| Forgery::LoremIpsum.words(n, :random => true) }
+#     sequence(:starts_at) { |n| n.days.ago }
+#   end
+# end
