@@ -1,17 +1,168 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  day_of: 2013-09-13
-  price: 9.99
-  special: MyString
-  currency: MyString
-  deadline_date: 2013-09-13
-  tour_id: 
+1:
+  day_of: 2013-10-10
+  price: 400
+  special: false
+  currency: $
+  deadline_date: 2013-10-05
+  tour: tour_1
+2:
+  day_of: 2013-10-05
+  price: 350
+  special: true
+  currency: $
+  deadline_date: 2013-10-01
+  tour: tour_1
+3:
+  day_of: 2013-10-17
+  price: 400
+  special: false
+  currency: $
+  deadline_date: 2013-10-12
+  tour:  tour_1
+4:
+  day_of: 2013-10-20
+  price: 400
+  special: false
+  currency: $
+  deadline_date: 2013-10-15
+  tour: tour_1
 
-two:
-  day_of: 2013-09-13
-  price: 9.99
-  special: MyString
-  currency: MyString
-  deadline_date: 2013-09-13
-  tour_id: 
+
+
+5:
+  day_of: 2013-10-15
+  price: 500
+  special: false
+  currency: $
+  deadline_date: 2013-10-10
+  tour: tour_2
+6:
+  day_of: 2013-11-15
+  price: 450
+  special: false
+  currency: $
+  deadline_date: 2013-11-10
+  tour: tour_2
+
+
+
+
+7:
+  day_of: 2013-10-20
+  price: 250
+  special: false
+  currency: $
+  deadline_date: 2013-10-15
+  tour: tour_3
+8:
+  day_of: 2013-11-18
+  price: 200
+  special: true
+  currency: $
+  deadline_date: 2013-11-13
+  tour: tour_3
+
+
+
+
+9:
+  day_of: 2013-11-09
+  price: 500
+  special: true
+  currency: $
+  deadline_date: 2013-11-04
+  tour: tour_4
+10:
+  day_of: 2013-12-21
+  price: 570
+  special: false
+  currency: $
+  deadline_date: 2013-12-16
+  tour: tour_4
+
+
+
+
+11:
+  day_of: 2013-12-30
+  price: 900
+  special: true
+  currency: $
+  deadline_date: 2013-12-25
+  tour: tour_5
+
+
+
+
+12:
+  day_of: 2013-10-12
+  price: 400
+  special: false
+  currency: $
+  deadline_date: 2013-10-07
+  tour: tour_6
+13:
+  day_of: 2013-11-12
+  price: 390
+  special: true
+  currency: $
+  deadline_date: 2013-11-07
+  tour: tour_6
+
+
+
+
+
+14:
+  day_of: 2013-10-23
+  price: 100
+  special: true
+  currency: $
+  deadline_date: 2013-10-18
+  tour:  tour_7
+15:
+  day_of: 2013-11-23
+  price: 150
+  special: false
+  currency: $
+  deadline_date: 2013-11-18
+  tour: tour_7
+
+
+
+
+16:
+  day_of: 2013-11-13
+  price: 300
+  special: false
+  currency: $
+  deadline_date: 2013-11-07
+  tour: tour_8
+17:
+  day_of: 2013-12-13
+  price: 300
+  special: false
+  currency: $
+  deadline_date: 2013-12-07
+  tour: tour_8
+
+
+
+
+18:
+  day_of: 2013-11-20
+  price: 600
+  special: false
+  currency: $
+  deadline_date: 2013-09-15
+  tour: tour_9
+
+19:
+  day_of: 2013-12-10
+  price: 550
+  special: true
+  currency: $
+  deadline_date: 2013-12-05
+  tour: tour_10

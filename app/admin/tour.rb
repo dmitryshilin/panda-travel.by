@@ -37,7 +37,7 @@ ActiveAdmin.register Tour do
         end
       end
       row :type_of_tours do
-        raw tour.rest_types.map { |x| link_to x.title, admin_type_of_tour_path(x.id) }.join(', ')
+        raw tour.rest_types.map { |x| link_to x.title, admin_rest_type_path(x.id) }.join(', ')
       end
       row :countries do
         raw tour.countries.map { |x| link_to x.title, admin_country_path(x.id) }.join(', ')
@@ -49,7 +49,7 @@ ActiveAdmin.register Tour do
       end
       if tour.visas.present?
         row :visas do
-          raw tour.countries.map { |x| link_to x.title, admin_visa_path(x.id) }.join(', ')
+          raw tour.visas.map { |x| link_to x.title, admin_visa_path(x.id) }.join(', ')
         end
       end
       row :description do

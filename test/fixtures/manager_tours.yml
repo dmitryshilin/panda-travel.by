@@ -1,9 +1,48 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  tour_id: 
-  manager_id: 
-
-two:
-  tour_id: 
-  manager_id: 
+1:
+  tour: tour_1
+  manager: nepogoda
+2:
+  tour: tour_2
+  manager: art
+3:
+  tour: tour_2
+  manager: nepogoda
+4:
+  tour: tour_3
+  manager: polan
+5:
+  tour: tour_4
+  manager: polan
+6:
+  tour: tour_4
+  manager: nepogoda
+7:
+  tour: tour_4
+  manager: art
+8:
+  tour: tour_5
+  manager: art
+9:
+  tour: tour_6
+  manager: polan
+10:
+  tour: tour_7
+  manager: nepogoda
+11:
+  tour: tour_8
+  manager: art
+12:
+  tour: tour_9
+  manager: art
+13:
+  tour: tour_9
+  manager: polan
+14:
+  tour: tour_10
+  manager: art
+15:
+  tour: tour_10
+  manager: polan
+16:
+  tour: tour_10
+  manager: nepogoda

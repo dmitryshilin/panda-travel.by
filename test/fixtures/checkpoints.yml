@@ -1,9 +1,107 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+checkpoint_1:
+  title: Берлин
+  tour: tour_1
 
-one:
-  title: MyString
-  tour_id: 
+checkpoint_2:
+  title: Амстердам
+  tour: tour_1
 
-two:
-  title: MyString
-  tour_id: 
+checkpoint_3:
+  title: Париж
+  tour: tour_1
+
+checkpoint_4:
+  title: Будапешт
+  tour: tour_2
+
+checkpoint_5:
+  title: Вена
+  tour: tour_2
+
+checkpoint_6:
+  title: Прага
+  tour: tour_2
+
+checkpoint_7:
+  title: Берлин
+  tour: tour_3
+
+checkpoint_7:
+  title: Париж
+  tour: tour_3
+
+checkpoint_7:
+  title: Брюссель
+  tour: tour_3
+
+checkpoint_8:
+  title: Москва
+  tour: tour_4
+
+checkpoint_9:
+  title: Санкт-Петербург
+  tour: tour_5
+
+checkpoint_9:
+  title: Таллин
+  tour: tour_6
+
+checkpoint_10:
+  title: Рига
+  tour: tour_6
+
+checkpoint_11:
+  title: Юрмала
+  tour: tour_6
+
+checkpoint_12:
+  title: Вильнюс
+  tour: tour_6
+
+checkpoint_13:
+  title: Таллин
+  tour: tour_7
+
+checkpoint_14:
+  title: Хельсинки
+  tour: tour_7
+
+checkpoint_15:
+  title: Турку
+  tour: tour_7
+
+checkpoint_16:
+  title: Стокгольм
+  tour: tour_7
+
+checkpoint_17:
+  title: Рига
+  tour: tour_7
+
+checkpoint_18:
+  title: Вильнюс
+  tour: tour_7
+
+checkpoint_19:
+  title: Амстердам
+  tour: tour_8
+
+checkpoint_20:
+  title: Париж
+  tour: tour_8
+
+checkpoint_21:
+  title: Прага
+  tour: tour_8
+
+checkpoint_22:
+  title: Варшава
+  tour: tour_9
+
+checkpoint_23:
+  title: Краков
+  tour: tour_10
+
+checkpoint_24:
+  title: Величка
+  tour: tour_10

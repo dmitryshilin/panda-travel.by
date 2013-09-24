@@ -1,9 +1,51 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  tour_id: 
-  visa_id: 
+visa_tour_1:
+  tour: tour_1
+  visa: schengen
 
-two:
-  tour_id: 
-  visa_id: 
+visa_tour_2:
+  tour: tour_2
+  visa: schengen
+visa_tour_3:
+  tour: tour_3
+  visa: poland_visa
+visa_tour_4:
+  tour: tour_4
+  visa: china_visa
+visa_tour_5:
+  tour: tour_4
+  visa: brazil_visa
+visa_tour_6:
+  tour: tour_5
+  visa: belarus_visa
+visa_tour_7:
+  tour: tour_6
+  visa: schengen
+visa_tour_8:
+  tour: tour_7
+  visa: poland_visa
+visa_tour_9:
+  tour: tour_8
+  visa: belarus_visa
+visa_tour_10:
+  tour: tour_9
+  visa: schengen
+visa_tour_11:
+  tour: tour_10
+  visa: schengen
+visa_tour_12:
+  tour: tour_8
+  visa: poland_visa
+visa_tour_13:
+  tour: tour_7
+  visa: schengen
+visa_tour_14:
+  tour: tour_10
+  visa: schengen
+visa_tour_15:
+  tour: tour_4
+  visa: schengen
+visa_tour_16:
+  tour: tour_3
+  visa: schengen

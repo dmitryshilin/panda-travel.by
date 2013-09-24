@@ -1,9 +1,49 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+#
+nepogoda_skype:
+  contact_type: skype
+  description: nepogoda
+  manager: nepogoda
+nepogoda_phone:
+  contact_type: phone
+  description: +375 29 554 54 54
+  manager: nepogoda
+nepogoda_email:
+  contact_type: email
+  description: nepogoda@gmail.com
+  manager: nepogoda
 
-one:
-  type: 
-  description: MyString
+polan_skype:
+  contact_type: skype
+  description: polan
+  manager: polan
+polan_phone:
+  contact_type: phone
+  description: +375 29 443 44 33
+  manager: polan
+polan_email:
+  contact_type: email
+  description: polan@gmail.com
+  manager: polan
+polan_twitter:
+  contact_type: twitter
+  description: polan
+  manager: polan
 
-two:
-  type: 
-  description: MyString
+art_skype:
+  contact_type: skype
+  description: art
+  manager: art
+art_phone:
+  contact_type: phone
+  description: +375 29 643 23 48
+  manager: art
+art_email:
+  contact_type: email
+  description: art@gmail.com
+  manager: art
+art_twitter:
+  contact_type: twitter
+  description: art
+  manager: art
+
