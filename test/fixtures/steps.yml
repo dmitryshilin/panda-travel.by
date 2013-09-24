@@ -1,9 +1,152 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
+1:
   number: 1
-  description: MyText
+  description: Музей, выставки
+  tour: tour_1
+2:
+  number: 2
+  description: Поход по магазинам
+  tour: tour_1
+3:
+  number: 3
+  description: Прощальный ужин
+  tour: tour_1
 
-two:
+
+
+
+4:
   number: 1
-  description: MyText
+  description: Музей
+  tour: tour_2
+5:
+  number: 2
+  description: Выставки
+  tour: tour_2
+
+
+
+6:
+  number: 1
+  description: Музей
+  tour: tour_3
+7:
+  number: 2
+  description: Выставки
+  tour: tour_3
+
+
+8:
+  number: 1
+  description: Музей
+  tour: tour_4
+9:
+  number: 2
+  description: Выставки
+  tour: tour_4
+10:
+  number: 3
+  description: Банкет
+  tour: tour_4
+
+
+
+
+11:
+  number: 1
+  description: Музей
+  tour: tour_5
+12:
+  number: 2
+  description: Выставки
+  tour:  tour_5
+
+
+
+
+
+13:
+  number: 1
+  description: Музей
+  tour: tour_6
+14:
+  number: 2
+  description: Выставки
+  tour: tour_6
+
+
+
+15:
+  number: 1
+  description: Музей
+  tour: tour_7
+16:
+  number: 2
+  description: Выставки
+  tour: tour_7
+
+
+
+17:
+  number: 1
+  description: Музей
+  tour: tour_8
+18:
+  number: 2
+  description: Выставки
+  tour: tour_8
+
+
+
+19:
+  number: 1
+  description: Музей
+  tour: tour_9
+20:
+  number: 2
+  description: Выставки
+  tour: tour_9
+
+
+
+21:
+  number: 1
+  description: Музей
+  tour: tour_10
+22:
+  number: 2
+  description: Выставки
+  tour: tour_10
+
+
+#23:
+#  number: 1
+#  description: MyText
+#  tour:
+#24:
+#  number: 2
+#  description: MyText
+#  tour:
+#
+#
+#
+#25:
+#  number: 1
+#  description: MyText
+#  tour:
+#26:
+#  number: 2
+#  description: MyText
+#  tour:
+#
+#
+#
+#27:
+#  number: 1
+#  description: MyText
+#  tour:
+#28:
+#  number: 2
+#  description: MyText
+#  tour:

@@ -1,7 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  title: MyString
-
-two:
-  title: MyString
+sea_rest:
+  title: Морские круизы
+bus_tour:
+  title: Автобусный тур
+holiday_rest:
+  title: Туры выходного дня
+crym_tour:
+  title: Отдых в Крыму
+air_tour:
+  title: Экскурсионные авиа туры

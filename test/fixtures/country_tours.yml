@@ -1,9 +1,25 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  tour_id: 
-  country_id: 
+1:
+  tour: tour_1
+  country: france
 
-two:
-  tour_id: 
-  country_id: 
+2:
+  tour: tour_1
+  country: germany
+3:
+  tour: tour_1
+  country: netherlands
+
+
+1:
+  tour: tour_2
+  country: hungary
+
+2:
+  tour: tour_2
+  country: austria
+3:
+  tour: tour_2
+  country: сzech
+

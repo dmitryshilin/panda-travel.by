@@ -1,9 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  title: MyString
-  description: MyText
+schengen:
+ title: Шенгенская виза
+ description: Описание шенгенской визы
 
-two:
-  title: MyString
-  description: MyText
+poland_visa:
+ title: Виза в Мексику
+ description: Описание визы в Мексику
+
+belarus_visa:
+  title: Виза в Беларусь
+  description: Описание визы в Беларусь
+
+china_visa:
+ title: Виза в Китай
+ description: Описание визы в Китай
+
+brazil_visa:
+ title: Виза в Бразилию
+ description: Описание визы в Бразилию

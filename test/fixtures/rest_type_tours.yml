@@ -1,9 +1,53 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  tour_id: 
-  rest_type_id: 
-
-two:
-  tour_id: 
-  rest_type_id: 
+1:
+  tour: tour_1
+  rest_type: sea_rest
+2:
+  tour: tour_1
+  rest_type: air_tour
+3:
+  tour: tour_2
+  rest_type: bus_tour
+4:
+  tour: tour_3
+  rest_type: holiday_rest
+5:
+  tour: tour_4
+  rest_type: bus_tour
+6:
+  tour: tour_4
+  rest_type: sea_rest
+7:
+  tour: tour_5
+  rest_type: bus_tour
+8:
+  tour: tour_6
+  rest_type: bus_tour
+9:
+  tour: tour_7
+  rest_type: sea_rest
+10:
+  tour: tour_7
+  rest_type: holiday_rest
+11:
+  tour: tour_8
+  rest_type: air_tour
+12:
+  tour: tour_8
+  rest_type: sea_rest
+13:
+  tour: tour_9
+  rest_type: holiday_rest
+14:
+  tour: tour_9
+  rest_type: air_tour
+15:
+  tour: tour_10
+  rest_type: air_tour
+16:
+  tour: tour_10
+  rest_type: sea_rest
+17:
+  tour: tour_10
+  rest_type: crym_tour

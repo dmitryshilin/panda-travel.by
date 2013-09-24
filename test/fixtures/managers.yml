@@ -1,7 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
+nepogoda:
+  name: НЕПОГОДА ЛЮБОВЬ ГРИГОРЬЕВНА
 
-two:
-  name: MyString
+polan:
+  name: ПОЛАНЕВИЧ ИННА ПАВЛОВНА
+
+art:
+  name: Артемьева Людмила Валерьевна
