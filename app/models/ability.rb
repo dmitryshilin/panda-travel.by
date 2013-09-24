@@ -3,7 +3,7 @@ class Ability
 
   def initialize(user)
     user ||= nil
-    if user.try(:class).try(:name) == "AdminUser"
+    if user.try(:class).try(:name) == 'AdminUser'
       can :manage, :all
     else
       can :read, Article, published: true

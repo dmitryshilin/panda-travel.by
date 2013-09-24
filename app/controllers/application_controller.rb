@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   layout :choose_layout
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to '/', :alert => exception.message
+    redirect_to '/', alert: exception.message
   end
 
   def constant
@@ -32,6 +32,7 @@ class ApplicationController < ActionController::Base
       @obj = @model.classify.constantize.find @id
     end
   end
+
   def current_ability
     @current_ability ||= Ability.new(current_admin_user)
   end

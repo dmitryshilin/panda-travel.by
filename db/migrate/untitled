@@ -1,0 +1,18 @@
+require 'factory_girl'
+
+FactoryGirl.define do
+  # sequence(:short_title) { |n| Forgery::LoremIpsum.words(6, random: true) }
+  # sequence(:title) { |n| Forgery::LoremIpsum.words(10, random: true) }
+  # sequence(:rating) { rand(100) }
+  sequence(:day_of) { rand(30).to_s+'.'+rand(12).to_s+'.'+rand(14).to_s }
+
+  factory :dateprice do
+    day_of
+    factory :special_price do
+      published true
+    end
+    factory :usual_price do
+      published false
+    end
+  end
+end
