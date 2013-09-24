@@ -8,7 +8,7 @@ class Country < ActiveRecord::Base
   has_attached_file :flag
   has_destroyable_file :flag
 
-  validates :title, :description, :rating, presence: true
+  validates :title, :description, :region, :rating, presence: true
   validates :title, uniqueness: true
   validates :title, length: { in: 2..30 }
   validates :description, length: { in: 5..250 }

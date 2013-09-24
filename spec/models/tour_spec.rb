@@ -25,8 +25,8 @@ describe Tour do
     end
 
     it 'fields should to have propper length' do
-      should ensure_length_of(:short_title).is_at_least(20).is_at_most(50)
-      should ensure_length_of(:title).is_at_least(50).is_at_most(150)
+      should ensure_length_of(:short_title).is_at_least(5).is_at_most(50)
+      should ensure_length_of(:title).is_at_least(5).is_at_most(150)
       should ensure_length_of(:description).is_at_least(200).is_at_most(1000)
     end
 
