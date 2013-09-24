@@ -10,7 +10,7 @@ describe Country do
   end
 
   context '#validations' do
-    [:title, :description, :rating].each do
+    [:title, :description, :region, :rating].each do
       |value| it { should validate_presence_of(value) }
     end
 
