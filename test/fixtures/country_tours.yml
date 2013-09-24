@@ -12,14 +12,69 @@
   country: netherlands
 
 
-1:
+4:
   tour: tour_2
   country: hungary
 
-2:
+5:
   tour: tour_2
   country: austria
-3:
+6:
   tour: tour_2
   country: сzech
+7:
+  tour: tour_3
+  country: germany
+
+8:
+  tour: tour_3
+  country: france
+9:
+  tour: tour_3
+  country: belgium
+10:
+  tour: tour_4
+  country: russia
+11:
+  tour: tour_5
+  country: russia
+12:
+  tour: tour_6
+  country: estonia
+13:
+  tour: tour_6
+  country: latvia
+14:
+  tour: tour_6
+  country: lithuania
+15:
+  tour: tour_7
+  country: lithuania
+16:
+  tour: tour_7
+  country: latvia
+17:
+  tour: tour_7
+  country: estonia
+18:
+  tour: tour_7
+  country: sweden
+19:
+  tour: tour_7
+  country: finland
+20:
+  tour: tour_8
+  country: france
+21:
+  tour: tour_8
+  country: сzech
+22:
+  tour: tour_8
+  country: netherlands
+23:
+  tour: tour_9
+  country: poland
+24:
+  tour: tour_10
+  country: poland
 
