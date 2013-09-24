@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
     #@first_three_news = News.order('updated_at DESC').first(3)
     @best_country = Country.order('rating DESC').first
     @some_news = News.last(3)
+    @articles = Article.last(10)
   end
 
   def choose_layout
