@@ -4,5 +4,7 @@ class HomeController < ApplicationController
     if date = DatePrice.nearest
       @nearest = date.tour
     end
+
+
   end
 end

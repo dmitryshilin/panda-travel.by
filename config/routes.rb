@@ -4,9 +4,10 @@ PandatRavelBy::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
+  get '/resttypes/:rest_type_id', to: 'tours#byresttypes', :as => :resttypes
+
   resources :tours, only: [:index, :show] do
     resources :orders, only: [:create]
-    get '/resttypes/:rest_type_id', to: 'tours#byresttypes'
   end
 
   resources :articles, only: [:index, :show]

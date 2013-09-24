@@ -1,7 +1,8 @@
 #footer.container
   #first-col.col-md-6
     %h3 Приезжайте, звоните, пишите
-    #logo Здесь будет лого
+    #logo
+      = link_to 'Здесь будет лого', root_path
   #sec-col.col-md-3
     %ul.list-unstyled
       %li
@@ -13,8 +14,7 @@
       %li
         =link_to 'Контакты', contacts_path
   #third-col.col-md-3
-    / - @resttypes = get_rest_types
     %ul.list-unstyled
       - @resttypes.each do |x|
         %li
-          =link_to x.title, "/resttypes/#{ params[rest_type_id: x.id] }"
+          =link_to x.title, resttypes_path(x)
