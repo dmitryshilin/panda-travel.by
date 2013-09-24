@@ -1,12 +1,16 @@
 require 'factory_girl'
 
 FactoryGirl.define do
+# "title #{n}"
+  sequence(:short_title) { |n| Forgery::LoremIpsum.words(6, random: true) }
+  sequence(:title) { |n| Forgery::LoremIpsum.words(10, random: true) }
+  sequence(:rating) { rand(100) }
 
   factory :tour do
-    short_title { Forgery::LoremIpsum.words(3) }
-    title { Forgery::LoremIpsum.sentences(2) }
+    short_title
+    title
     description { Forgery::LoremIpsum.paragraphs(3) }
-    rating 100
+    rating
     factory :published_tour do
       published true
     end
@@ -14,13 +18,12 @@ FactoryGirl.define do
       published false
     end
   end
-
-  factory :empty_title_tour, class: Tour do
-    short_title { Forgery::LoremIpsum.words(3) }
-    title
-    description { Forgery::LoremIpsum.paragraphs(3) }
-    rating 100
-    published true
-  end
 end
 
+
+# FactoryGirl.define do
+#   factory :coupon do
+#     sequence(:title)     { |n| Forgery::LoremIpsum.words(n, :random => true) }
+#     sequence(:starts_at) { |n| n.days.ago }
+#   end
+# end
