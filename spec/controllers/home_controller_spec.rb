@@ -3,7 +3,7 @@ require 'spec_helper'
 describe HomeController do
   let!(:alltours) { FactoryGirl.create_list(:published_tour, 12) }
   let(:sale_shits) { Tour.published.order('rating DESC').first(10) }
-  let(:nearest_tour) { DatePrice.where('deadline_date > ?', Date.today).order('day_of ASC').first.try(:tour) }
+  let(:nearest_tour) { DatePrice.where('deadline_date > ?', Date.today).order('deadline_date ASC').first.try(:tour) }
 
   describe "GET 'index'" do
     it "returns http success" do
