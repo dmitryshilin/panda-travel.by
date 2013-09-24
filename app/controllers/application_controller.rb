@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   layout :choose_layout
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to '/', :alert => exception.message
+    redirect_to '/', alert: exception.message
   end
 
   def constant
@@ -18,8 +18,9 @@ class ApplicationController < ActionController::Base
     @america = Country.where('region = ?', 'Южная Америка')
     @also = Country.where('region = ?', 'А также')
     @resttypes ||= RestType.all
-    @first_three_news = News.order('updated_at DESC').first(3)
+    #@first_three_news = News.order('updated_at DESC').first(3)
     @best_country = Country.order('rating DESC').first
+    @some_news = News.last(3)
   end
 
   def choose_layout
@@ -34,6 +35,7 @@ class ApplicationController < ActionController::Base
       @obj = @model.classify.constantize.find @id
     end
   end
+
   def current_ability
     @current_ability ||= Ability.new(current_admin_user)
   end
