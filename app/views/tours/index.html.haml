@@ -7,6 +7,7 @@
           %th Название
           %th Описание
           %th Цена
+          %th Дата
           <th></th>
       %tbody
         - @tours.each do |tour|
@@ -17,6 +18,8 @@
               = tour.description
             %td
               = tour.date_prices.where('deadline_date > ?', Date.today).order('deadline_date ASC').first.try(:price)
+            %td
+              = tour.date_prices.first.deadline_date
   #vidjets.col-md-2
     = render 'layouts/news'
     = render 'layouts/best_country'

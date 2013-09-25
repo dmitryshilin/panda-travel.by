@@ -3,13 +3,14 @@
   %ul#hits-of-sales
     - @hits.each do |hit|
       %li
-        =link_to hit.short_title, tour_path(hit)
+        = link_to hit.short_title, tour_path(hit)
   %h3 Ближайший автобусный тур
   = link_to @nearest.short_title, tour_path(@nearest)
 #we-are-the-best.container
   = render 'layouts/we_are_the_best'
 #articles-part
   = render 'layouts/articles'
+  = render 'layouts/best_country'
 #countries-part.container
   = render 'layouts/countries'
 

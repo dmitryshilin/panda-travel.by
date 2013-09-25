@@ -2,22 +2,37 @@ require 'spec_helper'
 
 describe 'Домашняя страница' do
   subject { page }
-  # before {visit root_path}
+  before { visit root_path }
     it 'должна быть доступна' do
       pending
+      response_code should be 200
     end
-    it 'должен присутствовать header'
-    it 'должно присутствовать меню'
-    it 'должна присутствовать панель контактов'
-    it 'должен присутствовать footer'
-    it 'должен присутствовать виджет лучшая страна'
+
+    it 'должен присутствовать header' do
+      should have_css('header')
+    end
+
+    it 'должно присутствовать меню' do
+      should have_css('#main-menu')
+    end
+
+    it 'должна присутствовать панель контактов' do
+      should have_css('#adress-bar')
+    end
+
+    it 'должен присутствовать footer' do
+      should have_css('#footer')
+    end
+
+    it 'должен присутствовать виджет лучшая страна' do
+      should have_css('#best-country')
+    end
+
     it 'должна присутствовать поисковая форма'
 
     describe 'Хиты продаж' do
-      it 'должны присутствовать'
       it 'должны иметь правильный заголовок' do
-        pending
-        should have_css('h1', text: 'Хиты продаж')
+        should have_css('h2', text: 'Хиты продаж')
       end
       it 'должен быть виджет ближайший тур'
       it 'должна присутствовать пачка туров'
