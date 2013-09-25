@@ -1,2 +1,3 @@
-%h2.centered#best-country Страна месяца
-= link_to @best_country.title, country_path(@best_country)
+- if @best_country.present?
+  %h2.centered#best-country Страна месяца
+  = link_to @best_country.title, country_path(@best_country), title: @best_country.title
