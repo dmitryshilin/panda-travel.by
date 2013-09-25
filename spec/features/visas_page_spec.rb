@@ -19,11 +19,10 @@ describe 'Страница виз' do
   end
 
   context 'имеет виджет Новости' do
-   it { should have_css('h2', text: 'Новости компании') }
+    it { should have_css('h2', text: 'Новости компании') }
   end
 
   context 'имеет виджет Лучшая страна' do
-   it { should have_css('h2', text: 'Страна месяца') }
+    it { should have_css('h2', text: 'Страна месяца') }
   end
 end
-

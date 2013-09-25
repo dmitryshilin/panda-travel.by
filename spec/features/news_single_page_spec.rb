@@ -22,4 +22,3 @@ describe 'Страница новости' do
     it { should have_no_content(unpub_news.content) }
   end
 end
-

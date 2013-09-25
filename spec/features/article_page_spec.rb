@@ -27,4 +27,3 @@ describe 'Страница статьи' do
     it { should have_css('h2', text: 'Страна месяца') }
   end
 end
-

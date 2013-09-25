@@ -35,4 +35,3 @@ describe 'Страница всех статей' do
     it { should have_link('Распечатать страницу', href: '#') }
   end
 end
-
