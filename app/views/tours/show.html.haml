@@ -1,4 +1,22 @@
 %h1
   =@tour.short_title
 = @tour.description
+.container
+  .row
+    .col-md-1
+      %h4
+        Дни
+    .col-md-8
+      %h4
+        Программа тура
+  - @tour.steps.each do |step|
+    .row
+      .col-md-1
+        = step.number
+      .col-md-8
+        = step.description
 = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), :class => "b-modal"
+#seealso-part.container
+  = render 'layouts/also'
+#countries-part.container
+  = render 'layouts/countries'

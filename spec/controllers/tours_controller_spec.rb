@@ -1,19 +1,18 @@
 require 'spec_helper'
 
-
 describe ToursController do
 
-  let (:published_tour) { FactoryGirl.create(:published_tour) }
+  let(:published_tour) { FactoryGirl.create(:published_tour) }
 
-  describe "GET 'index'" do
-    it "returns http success" do
+  describe 'GET index' do
+    it 'returns http success' do
       get 'index'
       response.should be_success
     end
   end
 
-  describe "GET 'show'" do
-    it "returns http success" do
+  describe 'GET show' do
+    it 'returns http success' do
       get 'show', id: published_tour
       response.should be_success
     end
@@ -23,6 +22,4 @@ describe ToursController do
       assigns(:tour).should eq(published_tour)
     end
   end
-
-
 end

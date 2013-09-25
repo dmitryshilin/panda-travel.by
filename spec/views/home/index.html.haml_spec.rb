@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "home/index.html.haml" do
+describe 'home/index.html.haml' do
   pending
   # let(:hits) { FactoryGirl.build(:news) }
 

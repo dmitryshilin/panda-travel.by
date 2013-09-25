@@ -1,20 +1,26 @@
-%h1= @country.title
-%ul#myTab.nav.nav-tabs
-  %li.active
-    %a{'data-toggle' => 'tab', href: '#country-info'} Информация о стране
-  %li
-    %a{'data-toggle' => 'tab', href: '#country-tours'} Туры #{@country.tours.size}
-  %li
-    %a{'data-toggle' => 'tab', href: '#country-visas'} Визы
-.tab-content
-  #country-info.tab-pane.active
-    %p= raw @country.description
-  #country-tours.tab-pane
-    - @country.tours.each do |tour|
-      %p= tour.title
-  #country-visas.tab-pane
-    - @country.visas.each do |visa|
-      %p= visa.title
+.row
+  .col-md-9
+    %h1= @country.title
+    %ul#myTab.nav.nav-tabs
+      %li.active
+        %a{'data-toggle' => 'tab', href: '#country-info'} Информация о стране
+      - if @country.tours.any?
+        %li
+          %a{'data-toggle' => 'tab', href: '#country-tours'} Туры #{@country.tours.size}
+      - if @country.visas.any?
+        %li
+          %a{'data-toggle' => 'tab', href: '#country-visas'} Визы
+    .tab-content
+      #country-info.tab-pane.active
+        %p= raw @country.description
+      #country-tours.tab-pane
+        - @country.tours.each do |tour|
+          %p=link_to tour.title, tour_path(tour), title: tour.title
+      #country-visas.tab-pane
+        - @country.visas.each do |visa|
+          %p= link_to visa.title, visa_path(visa), title: visa.title
+  .col-md-3
+    =render 'layouts/news'
+    =render 'layouts/best_country'
 =render 'layouts/also'
-=render 'layouts/news'
 =render 'layouts/countries'

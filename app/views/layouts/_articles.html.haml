@@ -1,0 +1,7 @@
+%h2.centered Путешествия
+%ul.list-unstyled
+  - @articles.each do |x|
+    %li
+      = link_to x.title, articles_path(x)
+%h4
+  = @best_country.title
