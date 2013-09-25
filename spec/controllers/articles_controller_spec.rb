@@ -25,13 +25,10 @@ describe ArticlesController do
 
   describe 'AccessDenied with UNPUBLISHED Article' do
     it 'rescues from CanCan::AccessDenied' do
-      #controller.stub(:authorize!) { raise CanCan::AccessDenied }
+      # controller.stub(:authorize!) { raise CanCan::AccessDenied }
       visit article_path(unpublished_article)
-      #expect(response).to redirect_to('/')
+      # expect(response).to redirect_to('/')
       flash[:alert] == 'You are not authorized to access this page.'
     end
   end
-
-
-
 end
