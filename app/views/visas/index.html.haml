@@ -2,3 +2,5 @@
 %ul
 - @visas.each do |visa|
   %li= link_to visa.title, visa_path(visa), title: visa.title
+= render 'layouts/news'
+= render 'layouts/best_country'
