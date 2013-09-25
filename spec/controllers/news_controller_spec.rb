@@ -6,7 +6,7 @@ describe NewsController do
   describe 'GET #index' do
     it 'returns http success' do
       get :index
-      response.should be_success #render_template :index
+      response.should be_success # render_template :index
     end
 
     it 'assigns all news to @all_news' do
@@ -18,7 +18,7 @@ describe NewsController do
   describe 'GET #show' do
     it 'returns http success' do
       get :show, id: pub_news
-      response.should be_success #render_template :show
+      response.should be_success # render_template :show
     end
 
     it 'assigns the requested news to @news' do

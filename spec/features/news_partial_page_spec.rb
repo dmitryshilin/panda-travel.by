@@ -26,4 +26,3 @@ describe 'Partial новости' do
     it { should have_link(pub_news.short_title) }
   end
 end
-

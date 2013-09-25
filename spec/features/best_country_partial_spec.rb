@@ -17,4 +17,3 @@ describe 'Partial лучшая страна' do
     it { should have_css('h2', text: country.title) }
   end
 end
-
