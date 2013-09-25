@@ -1,0 +1,11 @@
+%h4 Знакомьтесь,
+= @manager.name
+%br
+Менеджер этого тура
+%br
+= @manager.avatar
+- @contacts.each do |contact|
+  %ul.list-unstyled
+    %li
+      = contact.logo
+      = contact.description

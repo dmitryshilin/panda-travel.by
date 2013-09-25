@@ -10,7 +10,6 @@ FactoryGirl.define do
     title
     description { Forgery::LoremIpsum.paragraphs(3) }
     rating
-
     factory :published_tour do
       published true
     end

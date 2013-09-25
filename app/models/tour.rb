@@ -29,4 +29,25 @@ class Tour < ActiveRecord::Base
   validates :short_title, :title, uniqueness: true
   scope :published, -> { where(published: true) }
   scope :get_random, ->(number) { where(:id => published.pluck(:id).sort_by { rand }.slice(0, number)) }
+
+  def first_manager
+    self.managers.try(:first)
+  end
+
+  def special_price
+    tmp = self.date_prices.where('deadline_date > ?', Date.today)
+    tmp.where(special: true).order('deadline_date ASC').first.try(:price)
+  end
+
+  def price
+    self.date_prices.where('deadline_date > ?', Date.today).order('deadline_date ASC').first.try(:price)
+  end
+
+  def dates_of
+    self.date_prices.where('deadline_date > ?', Date.today).order('deadline_date ASC').where(special: false).first(5)
+  end
+
+  def special_dates_of
+    self.date_prices.where('deadline_date > ?', Date.today).order('deadline_date ASC').where(special: true).first(5)
+  end
 end

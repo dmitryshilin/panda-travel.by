@@ -1,20 +1,70 @@
-%h1
-  =@tour.short_title
-= @tour.description
-.row
-  .col-md-1
-    %h4
-      Дни
-  .col-md-8
-    %h4
-      Программа тура
-- @tour.steps.each do |step|
-  .row
-    .col-md-1
-      = step.number
-    .col-md-8
-      = step.description
-= link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), :class => "b-modal"
+.container
+  #tour-col.col-md-8
+    %h1
+      = @tour.short_title
+    .row
+      .col-md-1
+        %h4
+          Дни
+      .col-md-8
+        %h4
+          Программа тура
+    - @tour.steps.each do |step|
+      .row
+        .col-md-1
+          = step.number
+        .col-md-8
+          = step.description
+    %ul.list-unstyled.list-inline
+      %li
+        Базовая стоимость:
+        %h2
+          = @price
+      %li
+        - @special_dates_of.each do |spdate|
+          Специальная цена
+          %br
+          на
+          = spdate.deadline_date.strftime('%d.%m')
+          %h2
+            = @special_price
+      %li
+        = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), :class => "b-modal"
+    = @tour.description
+  #vidjets-col.col-md-3-shift-1.pull-right
+    %ul.list-unstyled
+      %li
+        %h5 Базовая стоимость:
+        %h2
+          = @price
+      %li
+        - @special_dates_of.each do |spdate|
+          %h5
+          Специальная цена
+          %br
+          на
+          = spdate.deadline_date.strftime('%d.%m')
+        %h2
+          = @special_price
+      %li
+        = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), :class => "b-modal"
+    %h5 Страны
+    - @countries.each do |country|
+      %ul.list-unstyled
+        %li
+          = country.flag
+          = link_to country.title, country_path(country)
+    %h5 Даты выездов:
+    = Date.today.year
+    - @dates_of.each do |date|
+      %ul.list-unstyled
+        %li
+          = date.deadline_date.strftime('%B %m')
+    - @attaches.each do |doc|
+      %ul.list-unstyled
+        %li
+          = link_to doc.title, doc.url
+    = render 'layouts/manager'
 #seealso-part.container
   = render 'layouts/also'
 #countries-part.container

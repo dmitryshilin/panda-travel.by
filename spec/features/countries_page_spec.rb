@@ -13,8 +13,8 @@ describe 'Страница стран' do
   context 'отображает заголовок "Страны"' do
     it { should have_css('h1', text: 'Страны') }
   end
+
   context 'отображает ссылку на страну' do
     it { should have_link(country.title) }
   end
-  it 'отображает footer'
 end
