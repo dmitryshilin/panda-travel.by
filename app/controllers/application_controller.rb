@@ -12,15 +12,17 @@ class ApplicationController < ActionController::Base
   end
 
   def constant
-    @europe = Country.where('region = ?', 'Европа')
-    @asia = Country.where('region = ?', 'Азия')
-    @africa = Country.where('region = ?', 'Африка')
-    @america = Country.where('region = ?', 'Южная Америка')
-    @also = Country.where('region = ?', 'А также')
+    @europe = Country.europe
+    @asia = Country.asia
+    @africa = Country.africa
+    @america = Country.america
+    @also = Country.also
     @resttypes ||= RestType.all
     #@first_three_news = News.order('updated_at DESC').first(3)
     @best_country = Country.order('rating DESC').first
-    @some_news = News.last(3)
+    @last_news = News.last_news(3)
+    @random_tours = Tour.get_random(3)
+    @last_tours = Tour.published.last(3)
   end
 
   def choose_layout

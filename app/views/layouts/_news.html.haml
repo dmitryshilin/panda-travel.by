@@ -1,4 +1,5 @@
-%h2 Новости компании
-%ul
-- @some_news.each do |n|
-  %li= link_to n.short_title, news_path(n) if can? :read, n
+- if @last_news.present?
+  %h2 Новости компании
+  %ul
+    - @last_news.each do |n|
+      %li= link_to n.short_title, news_path(n), title: n.short_title

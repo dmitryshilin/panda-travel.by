@@ -1,10 +1,10 @@
 class NewsController < ApplicationController
   def index
-    @all_news = News.published
+    @all_news = News.all
   end
 
   def show
-    @news = News.published.find(params[:id])
+    @news = News.find params[:id]
     authorize! :read, @news
   end
 end
