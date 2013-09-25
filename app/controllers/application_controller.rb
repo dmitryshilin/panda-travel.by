@@ -18,9 +18,10 @@ class ApplicationController < ActionController::Base
     @america = Country.where('region = ?', 'Южная Америка')
     @also = Country.where('region = ?', 'А также')
     @resttypes ||= RestType.all
-    #@first_three_news = News.order('updated_at DESC').first(3)
+    # @first_three_news = News.order('updated_at DESC').first(3)
     @best_country = Country.order('rating DESC').first
     @some_news = News.last(3)
+    @articles = Article.last(10)
   end
 
   def choose_layout

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "countries/show.html.haml" do
+describe 'countries/show.html.haml' do
   let(:country) { FactoryGirl.build(:country) }
 
   it 'displays country description' do
