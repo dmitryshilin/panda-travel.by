@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe HomeController do
   let!(:alltours) { FactoryGirl.create_list(:published_tour, 12) }
-  let(:sale_shits) { Tour.published.order('rating DESC').first(10) }
+  let(:sales_hits) { Tour.published.order('rating DESC').first(10) }
 
   let(:nearest_tour) do
     DatePrice.where('deadline_date > ?', Date.today).order('deadline_date ASC').first.try(:tour)
@@ -21,7 +21,7 @@ describe HomeController do
 
     it 'should have 10 hits of sales' do
       get :index
-      assigns(:hits).should eq(sale_shits)
+      assigns(:hits).should eq(sales_hits)
     end
 
     it 'should have nearest bus tour' do

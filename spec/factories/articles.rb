@@ -1,8 +1,10 @@
 FactoryGirl.define do
+  # sequence(:short_title) { |n| "Article short title #{n}" }
+  # sequence(:title) { |n| "Article very-very long and absolutly full title #{n}" }
 
   factory :article do
-    short_title 'test_short_title'
-    title 'test_title'
+    short_title
+    title
     content 'test_text'
     published true
     factory :pub_article do

@@ -42,6 +42,7 @@ RSpec.configure do |config|
   config.include Capybara::DSL
 
   # include database_cleaner
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
   end
