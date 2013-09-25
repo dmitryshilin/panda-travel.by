@@ -1,6 +1,6 @@
 - if @random_tours.present?
   .also
     %h2 Смотрите также
-    %ul
+    %ul.also-slider
       - @random_tours.each do |random|
-        %li= link_to random.title, tour_path(random), title: random.title
+        %li=link_to image_tag(random.images.first.image.url(:thumb), title: random.title), tour_path(random), title: random.title
