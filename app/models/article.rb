@@ -7,7 +7,7 @@ class Article < ActiveRecord::Base
   has_destroyable_file :poster
 
   validates :short_title, :title, :content, presence: true
-  validates :short_title, :title, uniqueness: true
+  #validates :short_title, :title, uniqueness: true
   validates :short_title, length: { in: 5..20 }
   validates :title, length: { in: 5..40 }
   validates :content, length: { in: 5..250 }
