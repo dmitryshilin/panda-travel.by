@@ -1,2 +1,4 @@
-%h2 Страна месяца
-= link_to @best_country.title, country_path(@best_country)
+- if @best_country.present?
+  .best-country
+    %h2 Страна месяца
+    = link_to @best_country.title, country_path(@best_country)

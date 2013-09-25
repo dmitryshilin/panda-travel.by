@@ -1,5 +1,5 @@
-.row-fluid
-  .span9
+.row
+  .col-md-9
     %h1= @country.title
     %ul#myTab.nav.nav-tabs
       %li.active
@@ -15,11 +15,12 @@
         %p= raw @country.description
       #country-tours.tab-pane
         - @country.tours.each do |tour|
-          %p= tour.title
+          %p=link_to tour.title, tour_path(tour), title: tour.title
       #country-visas.tab-pane
         - @country.visas.each do |visa|
-          %p= visa.title
-  .span3
+          %p= link_to visa.title, visa_path(visa), title: visa.title
+  .col-md-3
     =render 'layouts/news'
+    =render 'layouts/best_country'
 =render 'layouts/also'
 =render 'layouts/countries'
