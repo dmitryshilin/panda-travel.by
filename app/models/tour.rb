@@ -50,4 +50,8 @@ class Tour < ActiveRecord::Base
   def special_dates_of
     self.date_prices.where('deadline_date > ?', Date.today).order('deadline_date ASC').where(special: true).first(5)
   end
+
+  def self.hits
+    Tour.published.order('rating DESC').first(6)
+  end
 end
