@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bxslider
 //= require_tree ./import
 
 $('#myTab a').click(function (e) {
