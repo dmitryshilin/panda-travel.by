@@ -3,6 +3,7 @@ require 'spec_helper'
 describe 'Домашняя страница' do
   subject { page }
   before { visit root_path }
+
     it 'должна быть доступна' do
       pending
       response_code should be 200
@@ -34,7 +35,9 @@ describe 'Домашняя страница' do
       it 'должны иметь правильный заголовок' do
         should have_css('h2', text: 'Хиты продаж')
       end
-      it 'должен быть виджет ближайший тур'
+      it 'должен быть виджет ближайший тур' do
+        pending
+      end
       it 'должна присутствовать пачка туров'
       describe 'Каждый виджет тура' do
         it 'дожен иметь цену'
