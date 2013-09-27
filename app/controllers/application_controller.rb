@@ -24,6 +24,7 @@ class ApplicationController < ActionController::Base
     @random_tours = Tour.get_random(3)
     @last_tours = Tour.published.last(3)
     @articles = Article.last(10)
+    @stored_tours = stored_tours
   end
 
   def choose_layout
@@ -43,11 +44,20 @@ class ApplicationController < ActionController::Base
     @current_ability ||= Ability.new(current_admin_user)
   end
 
+  def stored_tours
+    a = []
+    session[:history].each do |i|
+      a << Tour.find_by_id(i[7..-1])
+    end
+    a
+  end
+
   private
 
   def store_history
     session[:history] ||= []
     session[:history].delete_at(0) if session[:history].size >= 5
-    session[:history] << request.fullpath if request.fullpath =~ /^\/tours\/\d+$/
+    session[:history] << request.fullpath if request.fullpath =~ /^\/tours\/\S+$/
   end
+
 end

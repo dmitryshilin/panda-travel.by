@@ -1,2 +1,4 @@
 %p WATHCED
-%p= session[:history].each { |l| l.inspect }
+/ %p= session[:history].last 5
+- @stored_tours.each do |i|
+  %p= link_to i.short_title, tour_path(i)
