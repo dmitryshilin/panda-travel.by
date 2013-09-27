@@ -77,7 +77,7 @@
     %ul.list-unstyled#vidjet-dates-of
       - @all_dates_of.each do |date|
         %li
-          = date.strftime('%B %d')
+          = Russian::strftime(date, '%d %B')
     - @attaches.each do |doc|
       %ul.list-unstyled
         %li
