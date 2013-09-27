@@ -1,0 +1,6 @@
+= form_tag  tours_path, method: :get do
+  = select_tag '[search]countries', options_for_select(Country.all.pluck(:title), params[:search].try(:[], :countries)), prompt: 'Все'
+  = date_field_tag '[search]start', params[:search].try(:start)
+  = text_field_tag '[search]min', params[:search].try(:[],:min)
+  = text_field_tag '[search]max', params[:search].try(:[],:max)
+  = submit_tag 'Подобрать', name: nil
