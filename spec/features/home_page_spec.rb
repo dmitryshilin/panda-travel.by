@@ -5,8 +5,7 @@ describe 'Домашняя страница' do
   before { visit root_path }
 
     it 'должна быть доступна' do
-      pending
-      response_code should be 200
+      status_code.should be 200
     end
 
     it 'должен присутствовать header' do
@@ -54,35 +53,28 @@ describe 'Домашняя страница' do
     end
 
     describe 'Мы лучшие' do
-      it 'должен присутствовать'
       it 'должен быть заголовок' do
-        pending
-        should have_css('h1', text: 'Мы предлагаем только лучший отдых')
+        should have_css('h2', text: 'Мы предлагаем только лучший отдых')
       end
 
       it 'должна присутствовать ссылка на все туры' do
-        pending
-        should have_link('база туров', href: tours_path)
+        should have_link('база туров')
       end
 
       it 'должна присутствовать ссылка автобусные туры' do
-        pending
-        should have_link('Автобусные туры', href: '#')
+        should have_link('Автобусные туры')
       end
 
       it 'должна присутствовать ссылка отдых на море' do
-        pending
-        should have_link('отдых на море', href: '#')
+        should have_link('отдых на море')
       end
 
       it 'должна присутствовать ссылка авиатуры' do
-        pending
-        should have_link('авиатуры', href: '#')
+        should have_link('авиатуры')
       end
 
       it 'должна присутствовать ссылка туры выходного дня' do
-        pending
-        should have_link('туры выходного дня', href: '#')
+        should have_link('туры выходного дня')
       end
 
       describe 'должен присутствовать виджет новости' do

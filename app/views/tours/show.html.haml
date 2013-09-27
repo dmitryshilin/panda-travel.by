@@ -1,6 +1,6 @@
 .container
   #tour-col.col-md-8
-    %h1
+    %h2
       = @tour.short_title
     .row
       .col-md-1
@@ -21,11 +21,16 @@
         %h2
           = @price
       %li
-        - @special_dates_of.each do |spdate|
+        - unless @special_price.nil?
+          %h5
           Специальная цена
           %br
-          на
-          = spdate.deadline_date.strftime('%d.%m')
+          - unless @special_dates_of.first.nil?
+            на
+            = @special_dates_of.first.day_of.strftime('%d.%m')
+            - if @special_dates_of.count>1
+              и
+              = @special_dates_of.last.day_of.strftime('%d.%m')
           %h2
             = @special_price
       %li
@@ -37,15 +42,20 @@
         %h5 Базовая стоимость:
         %h2
           = @price
-      %li
-        - @special_dates_of.each do |spdate|
+      %li#sp-vidjet-dates-of
+        / - @special_dates_of.each do |spdate|
+        - unless @special_price.nil?
           %h5
           Специальная цена
           %br
-          на
-          = spdate.deadline_date.strftime('%d.%m')
-        %h2
-          = @special_price
+          - unless @special_dates_of.first.nil?
+            на
+            = @special_dates_of.first.day_of.strftime('%d.%m')
+            - if @special_dates_of.count>1
+              и
+              = @special_dates_of.last.day_of.strftime('%d.%m')
+          %h2
+            = @special_price
       %li
         = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), :class => "b-modal"
     %h5 Страны
@@ -56,10 +66,10 @@
           = link_to country.title, country_path(country)
     %h5 Даты выездов:
     = Date.today.year
-    - @dates_of.each do |date|
-      %ul.list-unstyled
+    %ul.list-unstyled#vidjet-dates-of
+      - @dates_of.each do |date|
         %li
-          = date.deadline_date.strftime('%B %m')
+          = date.day_of.strftime('%B %d')
     - @attaches.each do |doc|
       %ul.list-unstyled
         %li

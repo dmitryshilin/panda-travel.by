@@ -3,6 +3,11 @@ require 'spec_helper'
 describe 'На всех страницах' do
   subject { page }
   before { visit root_path }
+
+  it 'sдолжна быть доступна' do
+    status_code.should be 200
+  end
+
   it 'should have good Header' do
     should have_css('#navb')
     within('#navb') do

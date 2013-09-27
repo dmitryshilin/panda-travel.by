@@ -1,9 +1,9 @@
 - if @last_news.present?
   .last-news
-    %h2 Новости компании
+    %h4 Новости компании
     %ul.list-unstyled
       - @last_news.each do |news|
         %li
-          %h3= link_to news.short_title, news_path(news), title: news.short_title
+          %h5= link_to news.short_title, news_path(news), title: news.short_title
           %span= news.created_at.strftime( "%e %B")
     %p= link_to 'Все новости', news_index_path, title: 'Все новости'

@@ -35,23 +35,30 @@ class Tour < ActiveRecord::Base
   end
 
   def special_price
-    tmp = self.date_prices.where('deadline_date > ?', Date.today)
-    tmp.where(special: true).order('deadline_date ASC').first.try(:price)
+    tmp = self.deadlines.where(special: true).first.try(:price)
   end
 
   def price
-    self.date_prices.where('deadline_date > ?', Date.today).order('deadline_date ASC').first.try(:price)
-  end
-
-  def dates_of
-    self.date_prices.where('deadline_date > ?', Date.today).order('deadline_date ASC').where(special: false).first(5)
-  end
-
-  def special_dates_of
-    self.date_prices.where('deadline_date > ?', Date.today).order('deadline_date ASC').where(special: true).first(5)
+    self.deadlines.first.try(:price)
   end
 
   def self.hits
     Tour.published.order('rating DESC').first(6)
+  end
+
+  def all_dates_of
+    self.date_prices.where('day_of > ?', self.deadlines.first.try(:deadline_date)).order('day_of ASC')
+  end
+
+  def dates_of
+    self.all_dates_of.where(special: false).first(5)
+  end
+
+  def special_dates_of
+    self.all_dates_of.where(special: false).first(2)
+  end
+
+  def deadlines
+    self.date_prices.where('deadline_date > ?', Date.today).order('deadline_date ASC')
   end
 end
