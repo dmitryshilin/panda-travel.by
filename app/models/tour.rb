@@ -51,11 +51,11 @@ class Tour < ActiveRecord::Base
   end
 
   def dates_of
-    self.all_dates_of.where(special: false).first(5)
+    self.all_dates_of.where(special: false).pluck(:day_of)
   end
 
   def special_dates_of
-    self.all_dates_of.where(special: false).first(2)
+    self.all_dates_of.where(special: true).pluck(:day_of)
   end
 
   def deadlines

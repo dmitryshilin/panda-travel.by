@@ -16,7 +16,7 @@
           = tour.description
           .row
             - tour.dates_of.each do |date|
-              = date.deadline_date.strftime('%d.%m.%Y')
+              = date.strftime('%d.%m.%Y')
         .col-md-1
           %h3
             = tour.date_prices.nearest.try(:price)

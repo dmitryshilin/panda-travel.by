@@ -18,5 +18,6 @@ class ToursController < ApplicationController
     @dates_of = @tour.dates_of
     @special_dates_of = @tour.special_dates_of
     @attaches = @tour.attaches
+    @all_dates_of = @tour.all_dates_of.pluck(:day_of)
   end
 end

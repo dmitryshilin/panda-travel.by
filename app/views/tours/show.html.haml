@@ -25,12 +25,16 @@
           %h5
           Специальная цена
           %br
-          - unless @special_dates_of.first.nil?
+          - unless @special_dates_of.empty?
             на
-            = @special_dates_of.first.day_of.strftime('%d.%m')
             - if @special_dates_of.count>1
-              и
-              = @special_dates_of.last.day_of.strftime('%d.%m')
+              - @special_dates_of.each_with_index do |x,i = 1|
+                = x.strftime('%d.%m')
+                - i +=1
+                -if i != @special_dates_of.count
+                  ,
+            - else
+              = @special_dates_of[0].strftime('%d.%m')
           %h2
             = @special_price
       %li
@@ -48,12 +52,16 @@
           %h5
           Специальная цена
           %br
-          - unless @special_dates_of.first.nil?
+          - unless @special_dates_of.empty?
             на
-            = @special_dates_of.first.day_of.strftime('%d.%m')
             - if @special_dates_of.count>1
-              и
-              = @special_dates_of.last.day_of.strftime('%d.%m')
+              - @special_dates_of.each_with_index do |x,i = 1|
+                = x.strftime('%d.%m')
+                - i +=1
+                -if i != @special_dates_of.count
+                  ,
+            - else
+              = @special_dates_of[0].strftime('%d.%m')
           %h2
             = @special_price
       %li
@@ -67,9 +75,9 @@
     %h5 Даты выездов:
     = Date.today.year
     %ul.list-unstyled#vidjet-dates-of
-      - @dates_of.each do |date|
+      - @all_dates_of.each do |date|
         %li
-          = date.day_of.strftime('%B %d')
+          = date.strftime('%B %d')
     - @attaches.each do |doc|
       %ul.list-unstyled
         %li
