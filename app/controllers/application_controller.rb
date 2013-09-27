@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   # check_authorization
   protect_from_forgery with: :exception
   before_action :constant
+  before_action :store_history
 
   layout :choose_layout
 
@@ -40,5 +41,13 @@ class ApplicationController < ActionController::Base
 
   def current_ability
     @current_ability ||= Ability.new(current_admin_user)
+  end
+
+  private
+
+  def store_history
+    session[:history] ||= []
+    session[:history].delete_at(0) if session[:history].size >= 5
+    session[:history] << request.fullpath if request.fullpath =~ /^\/tours\/\d+$/
   end
 end
