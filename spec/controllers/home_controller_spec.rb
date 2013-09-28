@@ -7,6 +7,7 @@ describe HomeController do
   let!(:alltours) { Tour.all }
   let(:sales_hits) { Tour.published.order('rating DESC').first(10) }
   let(:best_country) { Country.order('rating DESC').first }
+  let(:articles) { Article.last(10) }
 
   let(:nearest_tour) do
     DatePrice.where('deadline_date > ?', Date.today).order('deadline_date ASC').first.try(:tour)
@@ -38,6 +39,9 @@ describe HomeController do
       assigns(:best_country).should eq(best_country)
     end
 
-
+    it 'should have 10 articles' do
+      assigns(:articles).should eq(articles)
+    end
   end
 end
+
