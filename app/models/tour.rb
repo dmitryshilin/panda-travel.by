@@ -1,6 +1,6 @@
 class Tour < ActiveRecord::Base
-  # include Tire::Model::Search
-  # include Tire::Model::Callbacks
+  include Tire::Model::Search
+  include Tire::Model::Callbacks
 
   has_many :checkpoints
   has_many :managers, through: :manager_tours
@@ -29,6 +29,42 @@ class Tour < ActiveRecord::Base
   validates :short_title, :title, uniqueness: true
   scope :published, -> { where(published: true) }
   scope :get_random, ->(number) { where(id: published.pluck(:id).sort_by { rand }.slice(0, number)) }
+
+  mapping do
+    indexes :id, type: :integer
+    indexes :countries, as: 'countries.pluck(:title)', type: :string, index: :not_analyzed
+    indexes :dates, as: 'date_prices.pluck(:deadline_date)', type: :date, index: :not_analyzed
+    indexes :prices, as: 'date_prices.pluck(:price)', type: :integer, index: :not_analyzed
+  end
+
+  def self.search params
+    #raise params[:search].inspect
+    if params[:search].present?
+      tours_search params
+    else
+      search_all params
+    end
+  end
+
+  def self.tours_search params
+    #raise params[:search].inspect
+    tire.search load: true do
+      query do
+        boolean do
+          must { all } unless params[:search][:min].present? && params[:search][:max].present? && params[:search][:countries].present? && params[:search][:start].present?
+          must { term :countries, params[:search][:countries] } if params[:search][:countries].present?
+          must { range :dates, from: params[:search][:start].to_date, to: (Date.today+2.years).to_date } if params[:search][:start].present?
+          must { range :prices, from: params[:search][:min].to_i, to: params[:search][:max].to_i } if params[:search][:min].present? && params[:search][:max].present?
+        end
+      end
+    end
+  end
+
+  def self.search_all params
+    tire.search load: true do
+      query { all }
+    end
+  end
 
   def first_manager
     managers.try(:first)
@@ -61,4 +97,5 @@ class Tour < ActiveRecord::Base
   def deadlines
     date_prices.where('deadline_date > ?', Date.today).order('deadline_date ASC')
   end
+
 end

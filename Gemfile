@@ -73,6 +73,6 @@ end
 gem 'rubocop'
 gem 'haml-rails'
 gem 'mysql2'
-# gem 'tire'
 gem 'cancan'
 gem 'russian', '~> 0.6.0'
+gem 'tire'

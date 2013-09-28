@@ -1,6 +1,6 @@
 class ToursController < ApplicationController
   def index
-    @tours = Tour.all
+    @tours = Tour.search params
   end
 
   def byresttypes
