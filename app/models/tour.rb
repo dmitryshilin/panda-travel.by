@@ -43,7 +43,7 @@ class Tour < ActiveRecord::Base
   end
 
   def self.hits
-    Tour.published.order('rating DESC').first(6)
+    Tour.published.order('rating DESC').first(10)
   end
 
   def all_dates_of

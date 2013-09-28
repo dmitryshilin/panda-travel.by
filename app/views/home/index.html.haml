@@ -11,6 +11,8 @@
       %li.hit-item
         = link_to hit.images.first, tour_path(hit)
         = link_to hit.short_title, tour_path(hit)
+        = hit.price
+        = hit.description
 - if @nearest.present?
   %h3 Ближайший автобусный тур
   = link_to @nearest.short_title, tour_path(@nearest)
