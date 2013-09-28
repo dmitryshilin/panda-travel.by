@@ -28,18 +28,18 @@ class Tour < ActiveRecord::Base
   validates :short_title, :title, :description, presence: true
   validates :short_title, :title, uniqueness: true
   scope :published, -> { where(published: true) }
-  scope :get_random, ->(number) { where(:id => published.pluck(:id).sort_by { rand }.slice(0, number)) }
+  scope :get_random, ->(number) { where(id: published.pluck(:id).sort_by { rand }.slice(0, number)) }
 
   def first_manager
-    self.managers.try(:first)
+    managers.try(:first)
   end
 
   def special_price
-    tmp = self.deadlines.where(special: true).first.try(:price)
+    deadlines.where(special: true).first.try(:price)
   end
 
   def price
-    self.deadlines.first.try(:price)
+    deadlines.first.try(:price)
   end
 
   def self.hits
@@ -47,18 +47,18 @@ class Tour < ActiveRecord::Base
   end
 
   def all_dates_of
-    self.date_prices.where('day_of > ?', self.deadlines.first.try(:deadline_date)).order('day_of ASC')
+    date_prices.where('day_of > ?', deadlines.first.try(:deadline_date)).order('day_of ASC')
   end
 
   def dates_of
-    self.all_dates_of.where(special: false).pluck(:day_of)
+    all_dates_of.where(special: false).pluck(:day_of)
   end
 
   def special_dates_of
-    self.all_dates_of.where(special: true).pluck(:day_of)
+    all_dates_of.where(special: true).pluck(:day_of)
   end
 
   def deadlines
-    self.date_prices.where('deadline_date > ?', Date.today).order('deadline_date ASC')
+    date_prices.where('deadline_date > ?', Date.today).order('deadline_date ASC')
   end
 end

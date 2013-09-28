@@ -8,6 +8,7 @@ describe HomeController do
   let(:sales_hits) { Tour.published.order('rating DESC').first(10) }
   let(:best_country) { Country.order('rating DESC').first }
   let(:articles) { Article.last(10) }
+  let(:countries) { Country.all }
 
   let(:nearest_tour) do
     DatePrice.where('deadline_date > ?', Date.today).order('deadline_date ASC').first.try(:tour)

@@ -15,7 +15,7 @@ class Country < ActiveRecord::Base
 
   validates :title, :description, :region, :rating, presence: true
   validates :title, uniqueness: true
-  validates :title, length: {in: 2..30}
-  validates :description, length: {in: 5..250}
-  validates :rating, numericality: {greater_than_or_equal_to: 0}
+  validates :title, length: { in: 2..30 }
+  validates :description, length: { in: 5..250 }
+  validates :rating, numericality: { greater_than_or_equal_to: 0 }
 end
