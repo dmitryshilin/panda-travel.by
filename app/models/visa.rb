@@ -11,4 +11,8 @@ class Visa < ActiveRecord::Base
   validates :title, :description, presence: true
   validates :title, length: { in: 5..50 }
   validates :description, length: { in: 5..1000 }
+
+  def normalize_friendly_id(input)
+    input.to_s.to_slug.normalize(transliterations: :russian).to_s
+  end
 end

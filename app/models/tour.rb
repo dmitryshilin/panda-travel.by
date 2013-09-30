@@ -3,7 +3,7 @@ class Tour < ActiveRecord::Base
   include Tire::Model::Callbacks
 
   extend FriendlyId
-  friendly_id :short_title, use: :slugged
+  friendly_id :short_title, use: [:slugged, :russian]
 
   has_many :checkpoints
   has_many :managers, through: :manager_tours
@@ -101,4 +101,7 @@ class Tour < ActiveRecord::Base
     date_prices.where('deadline_date > ?', Date.today).order('deadline_date ASC')
   end
 
+  def normalize_friendly_id(input)
+    input.to_s.to_slug.normalize(transliterations: :russian).to_s
+  end
 end

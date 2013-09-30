@@ -1,7 +1,4 @@
 class News < ActiveRecord::Base
-  # include Tire::Model::Search
-  # include Tire::Model::Callbacks
-
   extend FriendlyId
   friendly_id :short_title, use: :slugged
 
@@ -11,4 +8,8 @@ class News < ActiveRecord::Base
   validates_length_of :short_title, within: 3..60
   validates_length_of :title, within: 3..100
   validates_length_of :content, within: 5..6000
+
+  def normalize_friendly_id(input)
+    input.to_s.to_slug.normalize(transliterations: :russian).to_s
+  end
 end

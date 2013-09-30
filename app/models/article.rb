@@ -3,7 +3,7 @@ class Article < ActiveRecord::Base
   # include Tire::Model::Callbacks
 
   extend FriendlyId
-  friendly_id :short_title, use: :slugged
+  friendly_id :short_title, use: [:slugged, :russian]
 
   has_many :article_countries
   has_many :countries, through: :article_countries
@@ -18,4 +18,7 @@ class Article < ActiveRecord::Base
 
   scope :published, -> { where(published: true) }
 
+  def normalize_friendly_id(input)
+    input.to_s.to_slug.normalize(transliterations: :russian).to_s
+  end
 end

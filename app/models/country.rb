@@ -1,6 +1,6 @@
 class Country < ActiveRecord::Base
-  include Tire::Model::Search
-  include Tire::Model::Callbacks
+  # include Tire::Model::Search
+  # include Tire::Model::Callbacks
 
   extend FriendlyId
   friendly_id :title, use: :slugged
@@ -24,4 +24,8 @@ class Country < ActiveRecord::Base
   validates :title, length: { in: 2..30 }
   validates :description, length: { in: 5..250 }
   validates :rating, numericality: { greater_than_or_equal_to: 0 }
+
+  def normalize_friendly_id(input)
+    input.to_s.to_slug.normalize(transliterations: :russian).to_s
+  end
 end
