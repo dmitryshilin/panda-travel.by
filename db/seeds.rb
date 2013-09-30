@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'open-uri'
+
+Tour.all.each do |tour|
+  image = tour.images.build
+  image.image = open('http://lorempixel.com/320/236/nightlife/')
+  image.save(validate: false)
+end
