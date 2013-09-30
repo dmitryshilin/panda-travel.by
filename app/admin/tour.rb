@@ -148,7 +148,7 @@ ActiveAdmin.register Tour do
       f.has_many :images do |x|
         x.input :_destroy, as: :boolean, required: false, label: 'Remove' if x.object.id.present?
         x.input :title
-        x.input :image, as: :file, hint: f.template.image_tag(x.object.image.url(:thumb)), input_html: {value: x.object.image.url(:thumb)}
+        x.input :image, as: :file, hint: f.template.image_tag(x.object.image.url(:thumb))
       end
       f.has_many :attaches do |x|
         x.input :_destroy, as: :boolean, required: false, label: 'Remove' if x.object.id.present?

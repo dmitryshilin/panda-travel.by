@@ -9,7 +9,7 @@
   %ul#hits_of_sales.list-unstyled
     - @hits.each do |hit|
       %li.hit-item
-        = link_to hit.images.first, tour_path(hit)
+        = link_to image_tag(hit.images.first.image.url(:thumb)), tour_path(hit)
         = link_to hit.short_title, tour_path(hit)
         = hit.price
         = hit.description
