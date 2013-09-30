@@ -1,5 +1,6 @@
 %h2.centered Каталог туров
 .container
+  = render 'layouts/search'
   #tours-catalog.col-md-8
     .row
       .col-md-2
@@ -16,7 +17,7 @@
           = tour.description
           .row
             - tour.dates_of.each do |date|
-              = date.deadline_date.strftime('%d.%m.%Y')
+              = date.strftime('%d.%m.%Y')
         .col-md-1
           %h3
             = tour.date_prices.nearest.try(:price)
@@ -25,10 +26,3 @@
     = render 'layouts/best_country'
 #countries-vidjet.container
   = render 'layouts/countries'
-
-
-
-
-
-
-

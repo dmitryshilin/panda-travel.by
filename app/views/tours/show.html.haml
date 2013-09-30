@@ -1,6 +1,6 @@
 .container
   #tour-col.col-md-8
-    %h1
+    %h2
       = @tour.short_title
     .row
       .col-md-1
@@ -21,11 +21,20 @@
         %h2
           = @price
       %li
-        - @special_dates_of.each do |spdate|
+        - unless @special_price.nil?
+          %h5
           Специальная цена
           %br
-          на
-          = spdate.deadline_date.strftime('%d.%m')
+          - unless @special_dates_of.empty?
+            на
+            - if @special_dates_of.count>1
+              - @special_dates_of.each_with_index do |x,i = 1|
+                = x.strftime('%d.%m')
+                - i +=1
+                -if i != @special_dates_of.count
+                  ,
+            - else
+              = @special_dates_of[0].strftime('%d.%m')
           %h2
             = @special_price
       %li
@@ -37,15 +46,24 @@
         %h5 Базовая стоимость:
         %h2
           = @price
-      %li
-        - @special_dates_of.each do |spdate|
+      %li#sp-vidjet-dates-of
+        / - @special_dates_of.each do |spdate|
+        - unless @special_price.nil?
           %h5
           Специальная цена
           %br
-          на
-          = spdate.deadline_date.strftime('%d.%m')
-        %h2
-          = @special_price
+          - unless @special_dates_of.empty?
+            на
+            - if @special_dates_of.count>1
+              - @special_dates_of.each_with_index do |x,i = 1|
+                = x.strftime('%d.%m')
+                - i +=1
+                -if i != @special_dates_of.count
+                  ,
+            - else
+              = @special_dates_of[0].strftime('%d.%m')
+          %h2
+            = @special_price
       %li
         = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), :class => "b-modal"
     %h5 Страны
@@ -56,10 +74,10 @@
           = link_to country.title, country_path(country)
     %h5 Даты выездов:
     = Date.today.year
-    - @dates_of.each do |date|
-      %ul.list-unstyled
+    %ul.list-unstyled#vidjet-dates-of
+      - @all_dates_of.each do |date|
         %li
-          = date.deadline_date.strftime('%B %m')
+          = Russian::strftime(date, '%d %B')
     - @attaches.each do |doc|
       %ul.list-unstyled
         %li

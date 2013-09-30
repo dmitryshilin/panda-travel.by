@@ -1,14 +1,16 @@
-%h3 Мы предлагаем только лучший отдых
+%h2 Мы предлагаем только лучший отдых
 .container
   .row
     .col-md-6#first-col
       %p
-        =link_to 'Автобусные туры', resttypes_path(RestType.find_by_title('Автобусный тур'))
+        =link_to 'Автобусные туры', resttypes_path(@bus_tour)
         по Европе,
-        = link_to 'отдых на море', resttypes_path(RestType.find_by_title('отдых в крыму'))
+        = link_to 'отдых на море', resttypes_path(@sea_rest)
         на лучших курортах, познавательные
-        авиатуры в новые для вас страны и города,
-        туры выходного дня, и многое другое.
+        = link_to 'авиатуры', resttypes_path(@flight)
+        в новые для вас страны и города,
+        = link_to 'туры выходного дня', resttypes_path(@dayoff_rest)
+        , и многое другое.
     .col-md-6#second-col
       %p
         Мы ценим каждого клиента и подходим

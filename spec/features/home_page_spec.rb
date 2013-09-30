@@ -5,8 +5,7 @@ describe 'Домашняя страница' do
   before { visit root_path }
 
     it 'должна быть доступна' do
-      pending
-      response_code should be 200
+      status_code.should be 200
     end
 
     it 'должен присутствовать header' do
@@ -35,10 +34,16 @@ describe 'Домашняя страница' do
       it 'должны иметь правильный заголовок' do
         should have_css('h2', text: 'Хиты продаж')
       end
+
       it 'должен быть виджет ближайший тур' do
-        pending
+        should have_text('Ближайший автобусный тур')
       end
-      it 'должна присутствовать пачка туров'
+
+      let(:hits_of_sales) { Tour.hits }
+      it 'должна присутствовать пачка туров' do
+        expect(hits_of_sales.count).to eq(6)
+      end
+
       describe 'Каждый виджет тура' do
         it 'дожен иметь цену'
         it 'дожен иметь правильную картинку'
@@ -48,58 +53,48 @@ describe 'Домашняя страница' do
     end
 
     describe 'Мы лучшие' do
-      it 'должен присутствовать'
       it 'должен быть заголовок' do
-        pending
-        should have_css('h1', text: 'Мы предлагаем только лучший отдых')
+        should have_css('h2', text: 'Мы предлагаем только лучший отдых')
       end
 
       it 'должна присутствовать ссылка на все туры' do
-        pending
-        should have_link('база туров', href: tours_path)
+        should have_link('база туров')
       end
 
       it 'должна присутствовать ссылка автобусные туры' do
-        pending
-        should have_link('Автобусные туры', href: '#')
+        should have_link('Автобусные туры')
       end
 
       it 'должна присутствовать ссылка отдых на море' do
-        pending
-        should have_link('отдых на море', href: '#')
+        should have_link('отдых на море')
       end
 
       it 'должна присутствовать ссылка авиатуры' do
-        pending
-        should have_link('авиатуры', href: '#')
+        should have_link('авиатуры')
       end
 
       it 'должна присутствовать ссылка туры выходного дня' do
-        pending
-        should have_link('туры выходного дня', href: '#')
+        should have_link('туры выходного дня')
       end
 
-      it 'должен присутствовать виджет новости' do
-        # within('company-news') do
-          # describe 'News' do
-        pending
-        it 'должны быть 3 последних новости'
+      describe 'должен присутствовать виджет новости' do
         it 'должна присутствовать ссылка' do
-          pending
-          it { should have_link('Все новости', href: news_path) }
+          should have_link('Все новости', href: news_index_path)
         end
-          # end
-        # end
       end
     end
 
     describe 'Раздел путешествия' do
-      it 'должен присутствовать'
       it 'должен иметь правильный заголовок' do
-        pending
-        should have_css('h1', text: 'Путешествия')
+        should have_css('h2', text: 'Путешествия')
       end
-      it 'должен быть виджет страна месяца'
+
+      it 'должен быть виджет страна месяца' do
+        within('#articles-part') do
+          should have_text('Страна месяца')
+        end
+      end
+
       it 'должна присутствовать пачка статей'
       describe 'Каждый виджет статья' do
         it 'дожен иметь правильную картинку'
