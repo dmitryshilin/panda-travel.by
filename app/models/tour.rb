@@ -31,7 +31,7 @@ class Tour < ActiveRecord::Base
   validates :short_title, :title, :description, presence: true
   validates :short_title, :title, uniqueness: true
   scope :published, -> { where(published: true) }
-  #scope :get_random, ->(number) { where(slug: published.pluck(:slug).sort_by { rand }.slice(0, number)) }
+  scope :get_random, ->(number) { where(id: published.pluck(:id).sort_by { rand }.slice(0, number)) }
 
   mapping do
     indexes :id, type: :integer

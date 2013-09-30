@@ -9,6 +9,7 @@ require 'open-uri'
 
 Tour.all.each do |tour|
   image = tour.images.build
-  image.image = open('http://lorempixel.com/320/236/nightlife/')
+  image.title = 'Best tour'
+  image.image = open('http://lorempixel.com/400/250/nightlife/')
   image.save(validate: false)
 end

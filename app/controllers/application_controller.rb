@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     @resttypes ||= RestType.all
     @best_country = Country.order('rating DESC').first
     @last_news = News.last_news(3)
-    #@random_tours = Tour.get_random(3)
+    @random_tours = Tour.get_random(3)
     @last_tours = Tour.published.last(3)
     @articles = Article.last(10)
   end
