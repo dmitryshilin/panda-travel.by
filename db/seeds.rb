@@ -10,6 +10,25 @@ require 'open-uri'
 Tour.all.each do |tour|
   image = tour.images.build
   image.title = 'Best tour'
-  image.image = open('http://lorempixel.com/400/250/nightlife/')
+  image.image = open('http://lorempixel.com/800/600/nightlife/')
   image.save(validate: false)
+end
+
+Article.all.each do |article|
+  article.poster = open('http://lorempixel.com/400/250/nature/')
+  article.save(validate: false)
+end
+
+Manager.all.each do |manager|
+  manager.avatar = open('http://lorempixel.com/200/150/people/')
+  manager.save(validate: false)
+end
+
+Country.all.each do |country|
+  country.flag = open('http://lorempixel.com/25/25/city/')
+  country.save(validate: false)
+end
+
+Contact.all.each do |contact|
+  contact.logo = open('http://lorempixel.com/20/20/technics/')
 end
