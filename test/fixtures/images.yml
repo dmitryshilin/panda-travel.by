@@ -1,9 +1,47 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+## Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 #
-#one:
+#1:
 #  title: MyString
-#  tour_id:
+#  image: 'http://img-1.photosight.ru/7d1/5223204_large.jpg'
+#  tour: tour_1
 #
-#two:
+#2:
 #  title: MyString
-#  tour_id:
+#  image: 'http://img-7.photosight.ru/12b/5213176_large.jpg'
+#  tour: tour_2
+#3:
+#  title: MyString
+#  image: 'http://img-d.photosight.ru/382/5215339_large.jpg'
+#  tour: tour_3
+#
+#4:
+#  title: MyString
+#  image: fixture_file_upload('http://img-d.photosight.ru/c76/5226571_large.jpg','image/jpg')
+#  tour: tour_4
+#5:
+#  title: MyString
+#  image: 'http://img-8.photosight.ru/e86/5226183_large.jpg'
+#  tour: tour_5
+#
+#6:
+#  title: MyString
+#  image: 'http://img-0.photosight.ru/385/5225801_large.jpg'
+#  tour: tour_6
+#7:
+#  title: MyString
+#  image: 'http://img-0.photosight.ru/f73/5225767_large.jpg'
+#  tour: tour_7
+#
+#8:
+#  title: MyString
+#  image: 'http://img-0.photosight.ru/224/5225103_large.jpg'
+#  tour: tour_8
+#9:
+#  title: MyString
+#  image: 'http://img-4.photosight.ru/380/5224836_large.jpg'
+#  tour: tour_9
+#
+#10:
+#  title: MyString
+#  image: 'http://img-2.photosight.ru/ff4/5224687_large.jpg'
+#  tour: tour_10
