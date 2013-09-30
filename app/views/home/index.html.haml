@@ -7,15 +7,32 @@
 .container
   %h2.centered Хиты продаж
   %ul#hits_of_sales.list-unstyled
-    - @hits.each do |hit|
-      %li.hit-item
-        = link_to image_tag(hit.images.first.image.url(:thumb)), tour_path(hit)
-        = link_to hit.short_title, tour_path(hit)
-        = hit.price
-        = hit.description
-- if @nearest.present?
-  %h3 Ближайший автобусный тур
-  = link_to @nearest.short_title, tour_path(@nearest)
+    - @hits.each_with_index do |hit, i|
+      - if i==1
+        - if @nearest.present?
+          %li.hit-item.stamp#stampped
+            %h3.centered Ближайший автобусный тур
+            = link_to image_tag(@nearest.images.first.image.url(:thumb)), tour_path(@nearest)
+            %br
+            = link_to @nearest.short_title, tour_path(@nearest)
+            %br
+            = @nearest.price
+            = @nearest.description
+          %li.hit-item
+            = link_to image_tag(hit.images.first.image.url(:thumb)), tour_path(hit)
+            %br
+            = link_to hit.short_title, tour_path(hit)
+            %br
+            = hit.price
+            = hit.description
+      - else
+        %li.hit-item
+          = link_to image_tag(hit.images.first.image.url(:thumb)), tour_path(hit)
+          %br
+          = link_to hit.short_title, tour_path(hit)
+          %br
+          = hit.price
+          = hit.description
 #we-are-the-best.container
   .row
     .col-md-8
@@ -34,10 +51,12 @@
     columnWidth: 200,
     itemSelector: '.art-item'
   });
+  msnry.unstamp( '#staaaamp' )
 :javascript
   var hits_of_sales = document.querySelector('#hits_of_sales');
   var msnry = new Masonry( hits_of_sales, {
     // options
-    columnWidth: 200,
+    isFitWidth: true,
+    columnWidth: 260,
     itemSelector: '.hit-item'
   });
