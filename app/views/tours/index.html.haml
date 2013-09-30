@@ -1,34 +1,28 @@
 %h2.centered Каталог туров
 .container
+  = render 'layouts/search'
   #tours-catalog.col-md-8
-    %table
-      %thead
-        %tr
-          %th Название
-          %th Описание
-          %th Цена
-          %th Дата
-          <th></th>
-      %tbody
-        - @tours.each do |tour|
-          %tr
-            %td
-              = link_to tour.short_title, tour_path(tour)
-            %td
-              = tour.description
-            %td
-              = tour.date_prices.where('deadline_date > ?', Date.today).order('deadline_date ASC').first.try(:price)
-            %td
-              = tour.date_prices.first.deadline_date
+    .row
+      .col-md-2
+        Название
+      .col-md-8
+        Описание
+      .col-md-1
+        Цена
+    - @tours.each do |tour|
+      .row
+        .col-md-2
+          = link_to tour.short_title, tour_path(tour)
+        .col-md-8
+          = tour.description
+          .row
+            - tour.dates_of.each do |date|
+              = date.strftime('%d.%m.%Y')
+        .col-md-1
+          %h3
+            = tour.date_prices.nearest.try(:price)
   #vidjets.col-md-2
     = render 'layouts/news'
     = render 'layouts/best_country'
 #countries-vidjet.container
   = render 'layouts/countries'
-
-
-
-
-
-
-

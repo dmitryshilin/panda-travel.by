@@ -1,21 +1,88 @@
-%h1
-  =@tour.short_title
-= @tour.description
 .container
-  .row
-    .col-md-1
-      %h4
-        Дни
-    .col-md-8
-      %h4
-        Программа тура
-  - @tour.steps.each do |step|
+  #tour-col.col-md-8
+    %h2
+      = @tour.short_title
     .row
       .col-md-1
-        = step.number
+        %h4
+          Дни
       .col-md-8
-        = step.description
-= link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), :class => "b-modal"
+        %h4
+          Программа тура
+    - @tour.steps.each do |step|
+      .row
+        .col-md-1
+          = step.number
+        .col-md-8
+          = step.description
+    %ul.list-unstyled.list-inline
+      %li
+        Базовая стоимость:
+        %h2
+          = @price
+      %li
+        - unless @special_price.nil?
+          %h5
+          Специальная цена
+          %br
+          - unless @special_dates_of.empty?
+            на
+            - if @special_dates_of.count>1
+              - @special_dates_of.each_with_index do |x,i = 1|
+                = x.strftime('%d.%m')
+                - i +=1
+                -if i != @special_dates_of.count
+                  ,
+            - else
+              = @special_dates_of[0].strftime('%d.%m')
+          %h2
+            = @special_price
+      %li
+        = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), :class => "b-modal"
+    = @tour.description
+  #vidjets-col.col-md-3-shift-1.pull-right
+    %ul.list-unstyled
+      %li
+        %h5 Базовая стоимость:
+        %h2
+          = @price
+      %li#sp-vidjet-dates-of
+        / - @special_dates_of.each do |spdate|
+        - unless @special_price.nil?
+          %h5
+          Специальная цена
+          %br
+          - unless @special_dates_of.empty?
+            на
+            - if @special_dates_of.count>1
+              - @special_dates_of.each_with_index do |x,i = 1|
+                = x.strftime('%d.%m')
+                - i +=1
+                -if i != @special_dates_of.count
+                  ,
+            - else
+              = @special_dates_of[0].strftime('%d.%m')
+          %h2
+            = @special_price
+      %li
+        = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), :class => "b-modal"
+    %h5 Страны
+    - @countries.each do |country|
+      %ul.list-unstyled
+        %li
+          = country.flag
+          = link_to country.title, country_path(country)
+    %h5 Даты выездов:
+    = Date.today.year
+    %ul.list-unstyled#vidjet-dates-of
+      - @all_dates_of.each do |date|
+        %li
+          = Russian::strftime(date, '%d %B')
+    - @attaches.each do |doc|
+      %ul.list-unstyled
+        %li
+          = link_to doc.title, doc.url
+    = render 'layouts/manager'
 #seealso-part.container
   = render 'layouts/also'
 #countries-part.container

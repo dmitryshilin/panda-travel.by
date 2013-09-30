@@ -4,20 +4,40 @@
     - @random_tours.each do |random|
       %li
         =link_to random.title, tour_path(random), title: random.title
-#hits-of-sales.container
+.container
   %h2.centered Хиты продаж
-  %ul#hits-of-sales
+  %ul#hits_of_sales.list-unstyled
     - @hits.each do |hit|
-      %li
-        =link_to hit.short_title, tour_path(hit)
+      %li.hit-item
+        = link_to hit.images.first, tour_path(hit)
+        = link_to hit.short_title, tour_path(hit)
+        = hit.price
+        = hit.description
 - if @nearest.present?
   %h3 Ближайший автобусный тур
   = link_to @nearest.short_title, tour_path(@nearest)
 #we-are-the-best.container
-  = render 'layouts/we_are_the_best'
+  .row
+    .col-md-8
+      = render 'layouts/we_are_the_best'
+    .col-md-3.pull-left
+      = render 'layouts/news'
 #articles-part
   = render 'layouts/articles'
   = render 'layouts/best_country'
 #countries-part.container
   = render 'layouts/countries'
-
+:javascript
+  var articles = document.querySelector('#articles');
+  var msnry = new Masonry( articles, {
+    // options
+    columnWidth: 200,
+    itemSelector: '.art-item'
+  });
+:javascript
+  var hits_of_sales = document.querySelector('#hits_of_sales');
+  var msnry = new Masonry( hits_of_sales, {
+    // options
+    columnWidth: 200,
+    itemSelector: '.hit-item'
+  });

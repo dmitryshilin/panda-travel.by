@@ -1,7 +1,11 @@
 class HomeController < ApplicationController
   def index
-    @hits = Tour.published.order('rating DESC').first(10)
+    @hits = Tour.hits
     date = DatePrice.nearest
     @nearest = date.tour unless date.nil?
+    @bus_tour = RestType.find_by_title('Автобусный тур')
+    @sea_rest = RestType.find_by_title('отдых в крыму')
+    @flight = RestType.find_by_title('Экскурсионные авиа туры')
+    @dayoff_rest = RestType.find_by_title('туры выходного дня')
   end
 end

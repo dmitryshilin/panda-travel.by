@@ -6,6 +6,8 @@ PandatRavelBy::Application.routes.draw do
 
   get '/resttypes/:rest_type_id', to: 'tours#byresttypes', as: :resttypes
 
+  get '/resttypes/', to: 'tours#index'
+
   resources :tours, only: [:index, :show] do
     resources :orders, only: [:create]
   end
