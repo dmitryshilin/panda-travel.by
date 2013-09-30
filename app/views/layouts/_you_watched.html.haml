@@ -1,4 +1,12 @@
-%p WATHCED
-/ %p= session[:history].last 5
-- @stored_tours.each do |i|
-  %p= link_to i.short_title, tour_path(i)
+%p Вы смотрели:
+/ for debug
+/%p= session[:history]
+/%p= session[:history].size
+/%p= @found_tours
+/%p= @found_tours.size
+
+- @found_tours.each do |tour|
+  %p= link_to image_tag(tour.images.first.image.url(:thumb), tour.short_title, tour_path(tour)
+  %p
+    от
+    = tour.price

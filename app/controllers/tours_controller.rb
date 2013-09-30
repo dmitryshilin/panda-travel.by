@@ -1,4 +1,6 @@
 class ToursController < ApplicationController
+  before_action :store_history
+
   def index
     @tours = Tour.all
   end

@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   # check_authorization
   protect_from_forgery with: :exception
   before_action :constant
-  before_action :store_history
+  # before_action :store_history # this should be in the tours_controller
 
   layout :choose_layout
 
@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
     @random_tours = Tour.get_random(3)
     @last_tours = Tour.published.last(3)
     @articles = Article.last(10)
-    @stored_tours = stored_tours
+    #@found_tours = found_tours
   end
 
   def choose_layout
@@ -44,20 +44,23 @@ class ApplicationController < ActionController::Base
     @current_ability ||= Ability.new(current_admin_user)
   end
 
-  def stored_tours
-    a = []
-    session[:history].each do |i|
-      a << Tour.find_by_id(i[7..-1])
-    end
-    a
-  end
-
-  private
+  #private
 
   def store_history
     session[:history] ||= []
-    session[:history].delete_at(0) if session[:history].size >= 5
+    session[:history].delete_at(0) if session[:history].size > 4
     session[:history] << request.fullpath if request.fullpath =~ /^\/tours\/\S+$/
+    # clear session[:history] for debug purposes
+    # session[:history] = []
+    found_tours
   end
 
+  def found_tours
+    found_tours = []
+    session[:history].each do |url|
+      #found_tours << Tour.find_by_id(url[7..-1])
+      found_tours << Tour.find_by_id(url.split('/').last)
+    end
+    @found_tours = found_tours.reverse
+  end
 end
