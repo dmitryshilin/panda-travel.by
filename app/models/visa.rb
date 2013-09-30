@@ -1,4 +1,8 @@
 class Visa < ActiveRecord::Base
+
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   has_many :tours, through: :visa_tours
   has_many :visa_tours
   has_many :countries, through: :country_visa

@@ -1,6 +1,7 @@
 class ToursController < ApplicationController
   def index
     @tours = Tour.search params
+    # @tours = Tour.all
   end
 
   def byresttypes
@@ -9,7 +10,7 @@ class ToursController < ApplicationController
   end
 
   def show
-    @tour = Tour.find(params[:id])
+    @tour = Tour.friendly.find(params[:id])
     @manager = @tour.first_manager
     @contacts = @manager.contacts
     @countries = @tour.countries

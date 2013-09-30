@@ -1,4 +1,10 @@
 class Country < ActiveRecord::Base
+  include Tire::Model::Search
+  include Tire::Model::Callbacks
+
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   has_many :articles, through: :article_countries
   has_many :article_countries
   has_many :tours, through: :country_tours

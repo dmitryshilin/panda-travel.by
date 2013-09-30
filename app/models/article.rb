@@ -1,6 +1,10 @@
 class Article < ActiveRecord::Base
   # include Tire::Model::Search
   # include Tire::Model::Callbacks
+
+  extend FriendlyId
+  friendly_id :short_title, use: :slugged
+
   has_many :article_countries
   has_many :countries, through: :article_countries
   has_attached_file :poster, styles: { thumb: '100x100#' }

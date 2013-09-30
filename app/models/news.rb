@@ -1,6 +1,10 @@
 class News < ActiveRecord::Base
   # include Tire::Model::Search
   # include Tire::Model::Callbacks
+
+  extend FriendlyId
+  friendly_id :short_title, use: :slugged
+
   scope :published, -> { where(published: true) }
   scope :last_news, ->(number) { published.order('created_at DESC').take(number)}
   validates_presence_of :short_title, :title, :content
