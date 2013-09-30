@@ -4,7 +4,7 @@ class NewsController < ApplicationController
   end
 
   def show
-    @news = News.find params[:id]
+    @news = News.friendly.find params[:id]
     authorize! :read, @news
   end
 end
