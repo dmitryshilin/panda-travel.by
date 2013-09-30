@@ -70,7 +70,7 @@ ActiveAdmin.register Tour do
           ul style: 'list-style-type: none;' do
             tour.images.each do |img|
               li do
-                image_tag(img.image.url(:thumb))
+                image_tag(img.image.url(:medium))
               end
             end
           end
@@ -148,7 +148,7 @@ ActiveAdmin.register Tour do
       f.has_many :images do |x|
         x.input :_destroy, as: :boolean, required: false, label: 'Remove' if x.object.id.present?
         x.input :title
-        x.input :image, as: :file, hint: f.template.image_tag(x.object.image.url(:thumb))
+        x.input :image, as: :file, hint: f.template.image_tag(x.object.image.url(:medium))
       end
       f.has_many :attaches do |x|
         x.input :_destroy, as: :boolean, required: false, label: 'Remove' if x.object.id.present?
