@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
     @random_tours = Tour.get_random(3)
     @last_tours = Tour.published.last(3)
     @articles = Article.last(10)
-    #@found_tours = found_tours
+    # @found_tours = found_tours
   end
 
   def choose_layout
@@ -44,12 +44,13 @@ class ApplicationController < ActionController::Base
     @current_ability ||= Ability.new(current_admin_user)
   end
 
-  #private
+  private
 
   def store_history
     session[:history] ||= []
     session[:history].delete_at(0) if session[:history].size > 4
-    session[:history] << request.fullpath if request.fullpath =~ /^\/tours\/\S+$/
+    session[:history] << request.fullpath if request.fullpath =~
+      %r(^/tours/\S+$)
     # clear session[:history] for debug purposes
     # session[:history] = []
     found_tours
@@ -58,8 +59,8 @@ class ApplicationController < ActionController::Base
   def found_tours
     found_tours = []
     session[:history].each do |url|
-      #found_tours << Tour.find_by_id(url[7..-1])
-      #found_tours << Tour.find_by_id(url.split('/').last)
+      # found_tours << Tour.find_by_id(url[7..-1])
+      # found_tours << Tour.find_by_id(url.split('/').last)
       found_tours << Tour.friendly.find(url.split('/').last)
     end
     @found_tours = found_tours.reverse
