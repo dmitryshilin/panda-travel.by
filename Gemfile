@@ -33,7 +33,7 @@ gem 'ransack',             github: 'ernie/ransack'
 gem 'activeadmin',         github: 'gregbell/active_admin', branch: 'rails4'
 gem 'formtastic',          github: 'justinfrench/formtastic'
 
-gem 'paperclip', '~> 3.0'
+gem 'paperclip'
 gem 'simple_form'
 
 group :doc do
@@ -73,6 +73,7 @@ end
 gem 'rubocop'
 gem 'haml-rails'
 gem 'mysql2'
+gem 'bxslider-rails'
 gem 'cancan'
 gem 'russian', '~> 0.6.0'
 gem 'tire'
