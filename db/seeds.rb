@@ -31,4 +31,5 @@ end
 
 Contact.all.each do |contact|
   contact.logo = open('http://lorempixel.com/20/20/technics/')
+  contact.save(validate: false)
 end

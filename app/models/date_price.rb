@@ -1,7 +1,4 @@
 class DatePrice < ActiveRecord::Base
-  # include Tire::Model::Search
-  # include Tire::Model::Callbacks
-
   belongs_to :tour
 
   validates :day_of, :price, :special, :currency, :deadline_date, presence: true

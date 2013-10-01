@@ -69,9 +69,7 @@
     %h5 Страны
     - @countries.each do |country|
       %ul.list-unstyled
-        %li
-          = country.flag
-          = link_to country.title, country_path(country)
+        %li= link_to country.title, country_path(country),title: country.title, :style => "background: url('#{country.flag.url(:original)}') no-repeat;"
     %h5 Даты выездов:
     = Date.today.year
     %ul.list-unstyled#vidjet-dates-of
