@@ -1,0 +1,15 @@
+%h4 Вы смотрели:
+/ for debug
+/%p= session[:history]
+/%p= session[:history].size
+/%p= @found_tours
+/%p= @found_tours.size
+
+- @found_tours.each do |tour|
+  %p= link_to image_tag(tour.images.first.image.url(:small)), tour_path(tour), title: tour.short_title
+  %p= link_to tour.short_title, tour_path(tour), title: tour.short_title
+  / With one link
+  /%p= link_to image_tag(tour.images.first.image.url(:small)) + tour.short_title, tour_path(tour), title: tour.short_title
+  %p
+    от
+    = tour.price
