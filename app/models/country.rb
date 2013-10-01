@@ -12,7 +12,7 @@ class Country < ActiveRecord::Base
   has_many :country_tours
   has_many :visas, through: :country_visa
   has_many :country_visa
-  has_attached_file :flag
+  has_attached_file :flag, styles: { small: '20x20>'}
   has_destroyable_file :flag
   scope :europe, -> { where('region = ?', 'Европа') }
   scope :asia, -> { where('region = ?', 'Азия') }
