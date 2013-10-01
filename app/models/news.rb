@@ -1,6 +1,6 @@
 class News < ActiveRecord::Base
   extend FriendlyId
-  friendly_id :short_title, use: :slugged
+  friendly_id :short_title, use: [:slugged, :finders]
 
   scope :published, -> { where(published: true) }
   scope :last_news, ->(number) { published.order('created_at DESC').take(number)}

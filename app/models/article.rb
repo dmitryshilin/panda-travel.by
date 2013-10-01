@@ -3,7 +3,7 @@ class Article < ActiveRecord::Base
   # include Tire::Model::Callbacks
 
   extend FriendlyId
-  friendly_id :short_title, use: [:slugged, :russian]
+  friendly_id :short_title, use: [:slugged, :finders]
 
   has_many :article_countries
   has_many :countries, through: :article_countries

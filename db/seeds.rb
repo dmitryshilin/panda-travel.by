@@ -25,10 +25,11 @@ Manager.all.each do |manager|
 end
 
 Country.all.each do |country|
-  country.flag = open('http://lorempixel.com/25/25/city/')
+  country.flag = File.open("#{Rails.root}/db/flag_for_countries/#{country.title}.png")
   country.save(validate: false)
 end
 
 Contact.all.each do |contact|
   contact.logo = open('http://lorempixel.com/20/20/technics/')
+  contact.save(validate: false)
 end

@@ -8,7 +8,7 @@ ActiveAdmin.register Country do
     end
     column :flag do |country|
       if country.flag.present?
-        image_tag(country.flag.url(:original))
+        image_tag(country.flag.url(:small))
       end
     end
     column :number_of_tours do |country|
@@ -53,7 +53,7 @@ ActiveAdmin.register Country do
 
   controller do
     def permitted_params
-      params.permit country: [:title, :description, :rating, :region, :flag, :flag_delete]
+      params.permit country: [:slug,:title, :description, :rating, :region, :flag, :flag_delete]
     end
   end
 
