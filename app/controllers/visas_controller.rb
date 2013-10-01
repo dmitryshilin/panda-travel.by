@@ -4,6 +4,6 @@ class VisasController < ApplicationController
   end
 
   def show
-    @visa = Visa.friendly.find(params[:id])
+    @visa = Visa.find(params[:id])
   end
 end

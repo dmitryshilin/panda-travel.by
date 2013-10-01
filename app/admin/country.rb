@@ -53,7 +53,7 @@ ActiveAdmin.register Country do
 
   controller do
     def permitted_params
-      params.permit country: [:title, :description, :rating, :region, :flag, :flag_delete]
+      params.permit country: [:slug,:title, :description, :rating, :region, :flag, :flag_delete]
     end
   end
 

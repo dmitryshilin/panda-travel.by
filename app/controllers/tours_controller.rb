@@ -12,7 +12,7 @@ class ToursController < ApplicationController
   end
 
   def show
-    @tour = Tour.friendly.find(params[:id])
+    @tour = Tour.find(params[:id])
     @manager = @tour.first_manager
     @contacts = @manager.contacts
     @countries = @tour.countries

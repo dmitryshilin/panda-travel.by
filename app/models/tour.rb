@@ -3,7 +3,8 @@ class Tour < ActiveRecord::Base
   include Tire::Model::Callbacks
 
   extend FriendlyId
-  friendly_id :short_title, use: [:slugged, :russian]
+  friendly_id :short_title, use: [:slugged, :finders]
+  after_touch() { tire.update_index }
 
   has_many :checkpoints
   has_many :managers, through: :manager_tours

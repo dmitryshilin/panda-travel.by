@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   def create
-    @tour = Tour.friendly.find params[:tour_id]
+    @tour = Tour.find params[:tour_id]
     @order = @tour.orders.build order_params
 
     if @order.save
