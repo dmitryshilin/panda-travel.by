@@ -6,36 +6,44 @@
       %li
         =link_to random.title, tour_path(random), title: random.title
 .container
+  %h2.centered Хиты продаж
   #hits_of_sales
-    %h2.centered Хиты продаж
     %ul.list-unstyled
       - @hits.each_with_index do |hit, i|
         - if i==1
           - if @nearest.present?
-            %li.hit-item.stamp#stampped
+            %li.hit-item.stamp
               %h3.centered Ближайший автобусный тур
+              %div.shorted-title
+                = link_to @nearest.short_title, tour_path(@nearest)
+                %div.go-right-pos
+                  %div.gradient
+                  %p.price.on-a-stamp
+                    - n = @nearest.date_prices.order('price DESC').first
+                    = n.price
+                    = n.currency
               = link_to image_tag(@nearest.images.first.image.url(:medium)), tour_path(@nearest)
-              %br
-              = link_to @nearest.short_title, tour_path(@nearest)
-              %br
-              = @nearest.price
-              = @nearest.description
             %li.hit-item
               = link_to image_tag(hit.images.first.image.url(:medium)), tour_path(hit)
               %br
               = link_to hit.short_title, tour_path(hit)
               %br
               .price
-                = hit.price
+                от
+                - h = hit.date_prices.order('price DESC').first
+                = h.try(:price)
+                = h.try(:currency)
               = hit.description
         - else
           %li.hit-item
             = link_to image_tag(hit.images.first.image.url(:medium)), tour_path(hit)
             %br
             = link_to hit.short_title, tour_path(hit)
-            %br
             .price
-              = hit.price
+              от
+              - h = hit.date_prices.order('price DESC').first
+              = h.try(:price)
+              = h.try(:currency)
             = hit.description
   #we-are-the-best
     .row
@@ -48,19 +56,3 @@
     = render 'layouts/best_country'
   #countries-part.container
     = render 'layouts/countries'
-:javascript
-  var articles = document.querySelector('#articles');
-  var msnry = new Masonry( articles, {
-    // options
-    columnWidth: 200,
-    itemSelector: '.art-item'
-  });
-  msnry.unstamp( '#staaaamp' )
-:javascript
-  var hits_of_sales = document.querySelector('#hits_of_sales');
-  var msnry = new Masonry( hits_of_sales, {
-    // options
-    isFitWidth: true,
-    columnWidth: 260,
-    itemSelector: '.hit-item'
-  });
