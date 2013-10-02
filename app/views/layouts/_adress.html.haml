@@ -1,12 +1,35 @@
-#adress-bar.contaner
-  %ul.list-unstyled.list-inline
-    %li
-      %span +375 29 328 38 07 Velcom
-    %li
-      %span +375 29 328 38 08 МТС
-    %li
-      %span +375 29 220 23 43
-    %li
-      %span +375 29 327 83 68
-    %li
-      %span +375 29 327 03 02
+#address-bar.contaner
+  %h5 Полный спектр туристических услуг для всей семьи
+  .address
+    =link_to 'Минск, пр. Независимости, 28, офис 2', 'http://maps.yandex.ru/?ol=biz&oid=1142271805&ll=27.565604%2C53.903504&spn=0.010085%2C0.003161&z=17&l=map', :target => '_blank', :title => 'Панда Трэвел'
+  .dropdown
+    .dropdown-toggle{"data-toggle" => "dropdown"}
+      +375 29
+      %span 328 38 07
+      %span.caret
+    %ul.dropdown-menu{:role => "menu"}
+      %li.text-center{:role => "presentation", :role => "menuitem", :tabindex => "-1"}
+        +375 29 328 38 07
+        %span.caret
+      %li{:role => "presentation", :role => "menuitem", :tabindex => "-1", :class =>"dropdown-header"} Velcom
+      %li.text-center{:role => "presentation", :role => "menuitem", :tabindex => "-1"} +375 29 328 38 08
+      %li{:role => "presentation", :role => "menuitem", :tabindex => "-1", :class =>"dropdown-header"} МТС
+      %li.text-center{:role => "presentation", :role => "menuitem", :tabindex => "-1"} +375 29 220 23 43
+      %li.text-center{:role => "presentation", :role => "menuitem", :tabindex => "-1"} +375 29 327 83 68
+      %li.text-center{:role => "presentation", :role => "menuitem", :tabindex => "-1"} +375 29 327 03 02
+      %li{:role => "presentation", :role => "menuitem", :tabindex => "-1", :class =>"dropdown-header"} Городские
+  .social
+    =link_to image_tag('twitter.png'), 'https://twitter.com/PandaTravelBy', title: 'PandaTravelBy', target: '_blank'
+    =link_to image_tag('fb.png'), 'http://www.facebook.com/pandatravel.by', title: 'Панда Трэвел', target: '_blank'
+    =link_to image_tag('vk.png'), 'http://vk.com/public36276817', title: 'Панда Трэвел', target: '_blank'
+  -#%ul.list-unstyled.list-inline
+  -#  %li
+  -#    %span +375 29 328 38 07 Velcom
+  -#  %li
+  -#    %span +375 29 328 38 08 МТС
+  -#  %li
+  -#    %span +375 29 220 23 43
+  -#  %li
+  -#    %span +375 29 327 83 68
+  -#  %li
+  -#    %span +375 29 327 03 02
