@@ -24,7 +24,7 @@ ActiveAdmin.register Country do
       row :title
       if country.flag.present?
         row :flag do
-          image_tag(country.flag.url(:original))
+          image_tag(country.flag.url(:small))
         end
       end
       row :description do
@@ -42,7 +42,7 @@ ActiveAdmin.register Country do
       f.input :title
       f.input :description
       if f.object.flag.present?
-        f.input :flag, hint: f.template.image_tag(f.object.flag.url(:original)), as: :file
+        f.input :flag, hint: f.template.image_tag(f.object.flag.url(:small)), as: :file
         f.input :flag_delete, as: :boolean, label: 'Remove'
       else
         f.input :flag
@@ -53,7 +53,7 @@ ActiveAdmin.register Country do
 
   controller do
     def permitted_params
-      params.permit country: [:slug,:title, :description, :rating, :region, :flag, :flag_delete]
+      params.permit country: [:title, :description, :rating, :region, :flag, :flag_delete]
     end
   end
 
