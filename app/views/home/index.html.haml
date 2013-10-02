@@ -1,9 +1,4 @@
-- if @random_tours.present?
-  #some-tours
-    %ul
-    - @random_tours.each do |random|
-      %li
-        =link_to random.title, tour_path(random), title: random.title
+=render 'layouts/some_tours'
 .container
   %h2.centered Хиты продаж
   %ul#hits_of_sales.list-unstyled
