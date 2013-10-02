@@ -1,7 +1,5 @@
 %h2.centered Путешествия
 %ul.list-unstyled#articles
   - @articles.each do |x|
-    %li.art-item
-      = link_to x.title, articles_path(x)
-%h4
-  = @best_country.title
+    %li.art-item= link_to x.title, articles_path(x)
+%h4= @best_country.try(:title)

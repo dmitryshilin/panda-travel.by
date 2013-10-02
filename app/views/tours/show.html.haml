@@ -40,7 +40,7 @@
       %li
         = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), :class => "b-modal"
     = @tour.description
-  #vidjets-col.col-md-3-shift-1.pull-right
+  #vidjets-col.col-md-3
     %ul.list-unstyled
       %li
         %h5 Базовая стоимость:
@@ -81,8 +81,8 @@
         %li
           = link_to doc.title, doc.url
     = render 'layouts/manager'
+    = render 'layouts/you_watched'
 #you-watched.container
-  = render 'layouts/you_watched'
 #seealso-part.container
   = render 'layouts/also'
 #countries-part.container

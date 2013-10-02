@@ -1,28 +1,34 @@
 - if Country.exists?
-  .countries.clearfix
+  .countries
     %h2 Страны
-    - if @europe.exists?
-      %ul
-        %h3 Европа
-        - @europe.each do |country|
-          %li= link_to "#{country.title}", country_path(country), title: "#{country.title}", :style => "background: url('#{country.flag.url(:small)}') no-repeat;"
-    - if @asia.exists?
-      %ul
-        %h3 Азия
-        - @asia.each do |country|
-          %li= link_to "#{country.title}", country_path(country), title: "#{country.title}", :style => "background: url('#{country.flag.url(:small)}') no-repeat;"
-    - if @africa.exists?
-      %ul
-        %h3 Африка
-        - @africa.each do |country|
-          %li= link_to "#{country.title}", country_path(country), title: "#{country.title}", :style => "background: url('#{country.flag.url(:small)}') no-repeat;"
-    - if @america.exists?
-      %ul
-        %h3 Южная Америка
-        - @america.each do |country|
-          %li= link_to "#{country.title}", country_path(country), title: "#{country.title}", :style => "background: url('#{country.flag.url(:original)}') no-repeat;"
-    - if @also.exists?
-      %ul
-        %h3 А также
-        - @also.each do |country|
-          %li= link_to "#{country.title}", country_path(country), title: "#{country.title}", :style => "background: url('#{country.flag.url(:original)}') no-repeat;"
+    .column
+      - if @europe.exists?
+        %ul
+          %li
+            %h3 Европа
+          - @europe.each do |country|
+            %li= link_to "#{country.title}", country_path(country), title: "#{country.title}", :style => "background: url('#{country.flag.url(:small)}') no-repeat;"
+      - if @asia.exists?
+        %ul
+          %li
+            %h3 Азия
+          - @asia.each do |country|
+            %li= link_to "#{country.title}", country_path(country), title: "#{country.title}", :style => "background: url('#{country.flag.url(:small)}') no-repeat;"
+      - if @africa.exists?
+        %ul
+          %li
+            %h3 Африка
+          - @africa.each do |country|
+            %li= link_to "#{country.title}", country_path(country), title: "#{country.title}", :style => "background: url('#{country.flag.url(:small)}') no-repeat;"
+      - if @america.exists?
+        %ul
+          %li
+            %h3 Южная Америка
+          - @america.each do |country|
+            %li= link_to "#{country.title}", country_path(country), title: "#{country.title}", :style => "background: url('#{country.flag.url(:small)}') no-repeat;"
+      - if @also.exists?
+        %ul
+          %li
+            %h3 А также
+          - @also.each do |country|
+            %li= link_to "#{country.title}", country_path(country), title: "#{country.title}", :style => "background: url('#{country.flag.url(:small)}') no-repeat;"
