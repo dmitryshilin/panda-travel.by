@@ -7,7 +7,7 @@ class Article < ActiveRecord::Base
 
   has_many :article_countries
   has_many :countries, through: :article_countries
-  has_attached_file :poster, styles: { medium: '210x180#' }
+  has_attached_file :poster, styles: { medium: '210x180#', big: '450x385#', small:'240x210#' }
   has_destroyable_file :poster
 
   validates :short_title, :title, :content, presence: true
