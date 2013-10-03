@@ -2,9 +2,7 @@
   #tour-col.col-md-8
     %h2
       = @tour.short_title
-
     = gmaps({direction: { data: { from: "Париж, франция", to: "Минск, беларусь" } } })
-
     .row
       .col-md-1
         %h4
