@@ -1,19 +1,43 @@
 .info
-  %p Частное туристическое унитарное предприятие "Панда трэвел"
-  %h2 Звоните:
-  %ul
-    %li
-      %p +375 29 328 38 07
-      %p Velcom
-    %li
-      %p +375 29 328 38 08
-      %p МТС
-    %li
-      %p +375 29 220 23 43
-      %p +375 29 327 83 68
-      %p +375 29 327 03 02
-  %h2 Пишите
-  =mail_to 'hello@panda-travel.by', 'hello@panda-travel.by'
-  =link_to 'panda-travel', 'skype:panda-travel?call'
-  %h2 Приезжайте:
-  %p 220030, Беларусь, Минск, пр. Независимости, 28, офис 2 (вход с проспекта)
+  .row
+    .col-md-6
+      %p Частное туристическое унитарное предприятие "Панда трэвел"
+      %h2 Звоните:
+      %ul.list-unstyled.list-inline.clearfix
+        %li.pull-left
+          %p +375 29 328 38 07
+          %span Velcom
+        %li.pull-left
+          %p +375 29 328 38 08
+          %span МТС
+        %li.pull-left
+          %p +375 29 220 23 43
+          %p +375 29 327 83 68
+          %p +375 29 327 03 02
+      %h2 Пишите
+      .email=mail_to 'hello@panda-travel.by', 'hello@panda-travel.by'
+      .skype=link_to 'panda-travel', 'skype:panda-travel?call'
+      %h2 Приезжайте:
+      %p 220030, Беларусь, Минск, пр. Независимости, 28, офис 2 (вход с проспекта)
+    .col-md-3.col-md-3-offset-3.pull-left
+      .panda-photo
+        =image_tag('panda-photo.jpg')
+        %ul.list-unstyled.list-inline.clearfix
+          %li.pull-left
+            %p
+              10
+              %em 00
+              – 19
+              %em 00
+            %span понедельник
+            %span – пятница
+          %li.pull-left
+            %p
+              10
+              %em 00
+              – 15
+              %em 00
+            %span суббота
+          %li.pull-left
+            %p Выходной
+            %span воскресенье

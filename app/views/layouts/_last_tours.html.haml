@@ -3,5 +3,4 @@
     %h2 Новые туры
     %ul
     - @last_tours.each do |last|
-      %li
-        = link_to last.title, tour_path(last), title: last.title
+      %li= link_to last.title, tour_path(last), title: last.title
