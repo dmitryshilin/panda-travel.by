@@ -1,7 +1,7 @@
 = render 'layouts/some_tours'
 = render 'layouts/search'
 .container
-  %h2.centered Хиты продаж
+  %h2.text-center Хиты продаж
   #hits_of_sales
     %ul.list-unstyled
       - @hits.each_with_index do |hit, i|
@@ -14,7 +14,7 @@
                 %div.go-right-pos
                   %div.gradient
                   %p.price.on-a-stamp
-                    - n = @nearest.date_prices.order('price DESC').first
+                    - n = @nearest.date_prices.order('price ASC').first
                     = n.price
                     = n.currency
               = link_to image_tag(@nearest.images.first.image.url(:medium)), tour_path(@nearest)
@@ -25,7 +25,7 @@
               %br
               .price
                 от
-                - h = hit.date_prices.order('price DESC').first
+                - h = hit.date_prices.order('price ASC').first
                 = h.try(:price)
                 = h.try(:currency)
               = hit.description
@@ -36,7 +36,7 @@
             = link_to hit.short_title, tour_path(hit)
             .price
               от
-              - h = hit.date_prices.order('price DESC').first
+              - h = hit.date_prices.order('price ASC').first
               = h.try(:price)
               = h.try(:currency)
             = hit.description
