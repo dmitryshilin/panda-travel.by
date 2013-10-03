@@ -1,0 +1,51 @@
+minsk:
+  title: Минск
+  country: belarus
+
+krakov:
+  title: Краков
+  country: poland
+
+varshava:
+  title: Варшава
+  country: poland
+
+brest:
+  title: Брест
+  country: belarus
+
+grodno:
+  title: Гродно
+  country: belarus
+
+paris:
+  title: paris
+  country: france
+
+berlin:
+  title: Берлин
+  country: germany
+
+praha:
+  title: Прага
+  country: сzech
+
+piter:
+  title: Санкт-Петербург
+  country: russia
+
+moskow:
+  title: Москва
+  country: russia
+
+tallin:
+  title: Таллин
+  country: estonia
+
+riga:
+  title: Рига
+  country: latvia
+
+vilnus:
+  title: Вильнюс
+  country: lithuania
