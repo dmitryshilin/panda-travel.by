@@ -5,5 +5,5 @@
       - @last_news.each do |news|
         %li
           %h5= link_to news.short_title, news_path(news), title: news.short_title
-          %span= news.created_at.strftime( "%e %B")
+          %span= Russian::strftime(news.created_at, "%e %B")
     %p= link_to 'Все новости', news_index_path, title: 'Все новости'
