@@ -9,6 +9,9 @@
           - if @nearest.present?
             %li.hit-item.stamp
               %h3.centered Ближайший автобусный тур
+              = @nearest.countries.first.title
+              , отправление
+              = Russian::strftime(@nearest_date, '%d %B')
               %div.shorted-title
                 = link_to @nearest.short_title, tour_path(@nearest)
                 %div.go-right-pos
