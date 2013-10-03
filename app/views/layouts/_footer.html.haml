@@ -1,7 +1,9 @@
 #footer.container
   #first-col.col-md-6
     %h3 Приезжайте, звоните, пишите
-    Минск, пр. Независимости, 28, офис 2
+    %p
+      Минск, пр. Независимости, 28, офис 2
+    .hr
     %p
     %ul.list-unstyled.list-inline
       %li
@@ -11,17 +13,21 @@
       %li
         +375 (29) 327 03 02
         %br
-        Велком
+        Velcom
       %li
         +375 (29) 220 23 43
         %br
         МТС
-    =mail_to 'hello@panda-travel.by', 'hello@panda-travel.by'
-    =link_to 'panda-travel', 'skype:panda-travel?call'
+    .hr
+    %span
+      =mail_to 'hello@panda-travel.by', 'hello@panda-travel.by'
+    %span#skype-link
+      =link_to 'panda-travel', 'skype:panda-travel.by?call'
     %p
-    #logo
-      = link_to 'Здесь будет лого', root_path
-      ЧТУП "Панда Трэвел" УНП 191675650
+    #footer-logo
+      = link_to 'Panda Travel', root_path
+      #panda-unp
+        ЧТУП "Панда Трэвел" УНП 191675650
   #sec-col.col-md-3
     %ul.list-unstyled
       %li
