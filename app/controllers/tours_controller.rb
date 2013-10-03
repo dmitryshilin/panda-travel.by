@@ -13,6 +13,9 @@ class ToursController < ApplicationController
 
   def show
     @tour = Tour.find(params[:id])
+    @start = @tour.start_point
+    @end = @tour.end_point
+    @waypoints = @tour.waypoints
     @manager = @tour.first_manager
     @contacts = @manager.contacts
     @countries = @tour.countries
