@@ -1,28 +1,32 @@
-%h2.centered Каталог туров
+#search-wrapper
+  .container
+    %h2
+      Экскурсионные автобусные туры
+    = render 'layouts/search'
 .container
-  = render 'layouts/search'
   #tours-catalog.col-md-8
-    .row
-      .col-md-2
-        Название
-      .col-md-8
-        Описание
-      .col-md-1
-        Цена
     - @tours.each do |tour|
-      .row
-        .col-md-2
-          = link_to tour.short_title, tour_path(tour)
-        .col-md-8
-          = tour.description
-          .row
-            - tour.dates_of.each do |date|
-              = date.strftime('%d.%m.%Y')
+      .row#each-tour
         .col-md-1
-          %h3
-            = tour.date_prices.nearest.try(:price)
+          = link_to image_tag(tour.images.first.image.url(:small)), tour_path(tour)
+        .col-md-10
+          .row
+            .col-md-9
+              %h3
+                = link_to tour.short_title, tour_path(tour)
+            .col-md-1
+              %h5
+                - if tour.date_prices.nearest.present?
+                  = tour.date_prices.nearest.price
+                  %span#currency-sign
+                    = tour.date_prices.nearest.currency
+          .row
+            %ul.list-unstyled.list-inline
+              - tour.dates_of.each do |date|
+                %li.date-off
+                  = Russian::strftime(date, '%d %B %Y')
   #vidjets.col-md-2
     = render 'layouts/news'
     = render 'layouts/best_country'
-#countries-vidjet.container
+#countries-part.container
   = render 'layouts/countries'
