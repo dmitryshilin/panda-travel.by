@@ -5,13 +5,15 @@ class Country < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: [:slugged, :finders]
   after_save :touch_tour
-
+  belongs_to :checkpoint
+  has_many :cities
   has_many :articles, through: :article_countries
   has_many :article_countries
   has_many :tours, through: :country_tours
   has_many :country_tours
   has_many :visas, through: :country_visa
   has_many :country_visa
+
   has_attached_file :flag, styles: { small: '39x39>'}
   has_destroyable_file :flag
   scope :europe, -> { where('region = ?', 'Европа') }
