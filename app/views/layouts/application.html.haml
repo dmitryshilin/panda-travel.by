@@ -11,6 +11,7 @@
         = render 'layouts/mainmenu'
         = render 'layouts/address'
     = yield
-    = render 'layouts/footer'
+    #footer-wrapper
+      = render 'layouts/footer'
     #ajax-modal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
 
