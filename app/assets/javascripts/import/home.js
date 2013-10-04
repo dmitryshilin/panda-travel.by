@@ -3,7 +3,7 @@ $(function(){
       $container.imagesLoaded( function() {
           $container.masonry({
               isFitWidth: true,
-              columnWidth: 260,
+              columnWidth: 240,
               itemSelector: '.hit-item'
           });
       });
@@ -14,7 +14,7 @@ $(function(){
       $container.imagesLoaded( function() {
           $container.masonry({
               isFitWidth: true,
-              columnWidth: 260,
+              columnWidth: 240,
               itemSelector: '.art-item'
           });
       });
