@@ -8,6 +8,7 @@ $(function(){
           });
       });
   });
+
 $(function(){
         var $container = $('#articles');
       $container.imagesLoaded( function() {

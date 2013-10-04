@@ -1,5 +1,22 @@
-%h2.centered Путешествия
+%h2.text-center Путешествия
 %ul.list-unstyled#articles
-  - @articles.each do |x|
-    %li.art-item= link_to x.title, articles_path(x)
-%h4= @best_country.try(:title)
+  - @articles.each_with_index do |x, i|
+    - if i==1
+      - if @best_country.present?
+        %li#art-stampped.art-item.stamp
+          .home-best-country
+            %h2.text-center Страна месяца
+            %h3
+              = @best_country.title
+            = @best_country.notes
+          = link_to image_tag(@best_country.articles.first.poster.url(:medium)), country_path(@best_country)
+        %li.art-item
+          = link_to image_tag(x.poster.url(:small)), articles_path(x)
+          = link_to x.title, articles_path(x)
+          = x.content
+    - else
+      %li.art-item
+        = link_to image_tag(x.poster.url(:small)), articles_path(x)
+        = link_to x.title, articles_path(x)
+        = x.content
+

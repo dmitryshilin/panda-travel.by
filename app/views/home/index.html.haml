@@ -7,7 +7,7 @@
       - @hits.each_with_index do |hit, i|
         - if i==1
           - if @nearest.present?
-            %li.hit-item.stamp
+            %li.hit-item.stamp#hit-stampped
               %h3.centered Ближайший автобусный тур
               = @nearest.countries.first.title
               , отправление
@@ -51,6 +51,5 @@
         = render 'layouts/news'
   #articles-part
     = render 'layouts/articles'
-    = render 'layouts/home_best_country'
   #countries-part.container
     = render 'layouts/countries'

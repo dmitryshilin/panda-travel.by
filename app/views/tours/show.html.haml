@@ -38,7 +38,7 @@
           %h2
             = @special_price
       %li
-        = gmaps({direction: { data: { from: @start, to: @end }, options: { waypoints: @waypoints }} })
+        = link_to 'Маршрут', modal_path('map', @tour.class.name, @tour.id), :class => "b-modal"
       %li
         = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), :class => "b-modal"
     = @tour.description
@@ -89,5 +89,3 @@
 #countries-part.container
   = render 'layouts/countries'
 
-
-= yield :scripts

@@ -74,6 +74,10 @@ class Tour < ActiveRecord::Base
     managers.try(:first)
   end
 
+  def start_end
+    { from: start_point, to: end_point }
+  end
+
   def start_point
     tmp = checkpoints.first
     unless tmp.nil? || tmp.city.nil? || tmp.city.country.nil?
