@@ -5,9 +5,9 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    %header.container
+    %header
       = render 'layouts/header'
-      #navigational-bar
+      #navigational-bar.container
         = render 'layouts/mainmenu'
         = render 'layouts/address'
     .container
