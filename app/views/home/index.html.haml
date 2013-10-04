@@ -1,4 +1,5 @@
 = render 'layouts/some_tours'
+= render 'layouts/search'
 .container
   %h2.text-center Хиты продаж
   #hits_of_sales
@@ -8,6 +9,9 @@
           - if @nearest.present?
             %li.hit-item.stamp
               %h3.centered Ближайший автобусный тур
+              = @nearest.countries.first.title
+              , отправление
+              = Russian::strftime(@nearest_date, '%d %B')
               %div.shorted-title
                 = link_to @nearest.short_title, tour_path(@nearest)
                 %div.go-right-pos
@@ -47,6 +51,6 @@
         = render 'layouts/news'
   #articles-part
     = render 'layouts/articles'
-    = render 'layouts/best_country'
+    = render 'layouts/home_best_country'
   #countries-part.container
     = render 'layouts/countries'
