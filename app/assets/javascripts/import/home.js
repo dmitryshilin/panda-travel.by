@@ -18,5 +18,5 @@ $(function(){
               itemSelector: '.art-item'
           });
       });
-
 });
+
