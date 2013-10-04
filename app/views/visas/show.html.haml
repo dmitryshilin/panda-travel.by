@@ -1,4 +1,8 @@
-%h1= @visa.title
-%p= @visa.description
-= render 'layouts/news'
-= render 'layouts/best_country'
+.row
+  .col-md-9
+    %h1= @visa.title
+    %p= @visa.description
+  .col-md-3
+    = render 'layouts/news'
+    = render 'layouts/best_country'
+=render 'layouts/countries'
