@@ -1,11 +1,14 @@
 %h1 Путешествия
-- @articles.each do |article|
-  - if can? :read, article
-    %dl
-      %dt= link_to article.short_title, article_path(article), title: article.short_title
-      %dd= raw strip_tags(article.content).truncate(300)
+.article-column
+  %ul.list-unstyled
+    - @articles.each do |article|
+      - if can? :read, article
+        %li
+          = link_to article.short_title, article_path(article), title: article.short_title
+          = raw strip_tags(article.content).truncate(300)
 
 = link_to 'Распечатать страницу', '#'
 
-= render 'layouts/news'
+.cont
+  = render 'layouts/news'
 = render 'layouts/best_country'
