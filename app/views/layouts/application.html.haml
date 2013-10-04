@@ -10,9 +10,7 @@
       #navigational-bar.container
         = render 'layouts/mainmenu'
         = render 'layouts/address'
-    .container
-      = yield
-    .container
-      = render 'layouts/footer'
+    = yield
+    = render 'layouts/footer'
     #ajax-modal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
 

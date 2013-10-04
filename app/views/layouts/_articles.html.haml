@@ -10,12 +10,12 @@
               = @best_country.title
             = @best_country.notes
           = link_to image_tag(@best_country.articles.first.poster.url(:medium)), country_path(@best_country)
-        %li.art-item
+        %li.art-item.art-max-height
           = link_to image_tag(x.poster.url(:small)), articles_path(x)
           = link_to x.title, articles_path(x)
           = x.content
     - else
-      %li.art-item
+      %li.art-item.art-max-height
         = link_to image_tag(x.poster.url(:small)), articles_path(x)
         = link_to x.title, articles_path(x)
         = x.content
