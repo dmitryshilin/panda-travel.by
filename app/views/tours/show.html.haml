@@ -2,7 +2,6 @@
   #tour-col.col-md-8
     %h2
       = @tour.short_title
-    = gmaps({direction: { data: { from: "Париж, франция", to: "Минск, беларусь" } } })
     .row
       .col-md-1
         %h4
@@ -38,6 +37,8 @@
               = @special_dates_of[0].strftime('%d.%m')
           %h2
             = @special_price
+      %li
+        = link_to 'Маршрут', modal_path('map', @tour.class.name, @tour.id), :class => "b-modal"
       %li
         = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), :class => "b-modal"
     = @tour.description
@@ -88,5 +89,3 @@
 #countries-part.container
   = render 'layouts/countries'
 
-
-= yield :scripts

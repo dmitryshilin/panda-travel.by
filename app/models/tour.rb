@@ -74,6 +74,38 @@ class Tour < ActiveRecord::Base
     managers.try(:first)
   end
 
+  def start_end
+    { from: start_point, to: end_point }
+  end
+
+  def start_point
+    tmp = checkpoints.first
+    unless tmp.nil? || tmp.city.nil? || tmp.city.country.nil?
+      tmp.city.title.to_s + ', ' + tmp.city.country.title.to_s
+    else
+      nil
+    end
+  end
+
+  def waypoints
+    wpnts = []
+    checkpoints.each do |wpnt|
+      unless wpnt.nil? || wpnt.city.nil? || wpnt.city.country.nil?
+        wpnts << wpnt.city.title.to_s + ', ' + wpnt.city.country.title.to_s
+      end
+    end
+    wpnts
+  end
+
+  def end_point
+    tmp = checkpoints.last
+    unless tmp.nil? || tmp.city.nil? || tmp.city.country.nil?
+      tmp.city.title.to_s + ', ' + tmp.city.country.title.to_s
+    else
+      nil
+    end
+  end
+
   def special_price
     deadlines.where(special: true).first.try(:price)
   end
