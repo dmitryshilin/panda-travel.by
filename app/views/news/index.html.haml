@@ -1,12 +1,13 @@
-.row
-  .col-md-9
-    %h1 Новости компании
-    - @all_news.each do |news|
-      - if can? :read, news
-        %dl
-          %dt= link_to news.short_title, news_path(news), title: news.short_title
-          %dd= raw strip_tags(news.content).truncate(300)
-          %dd.text-right= Russian::strftime(news.created_at, "%e %B %Y")
-  .col-md-3
-    = render 'layouts/best_country'
-=render 'layouts/countries'
+.container
+  .row
+    .col-md-9
+      %h1 Новости компании
+      - @all_news.each do |news|
+        - if can? :read, news
+          %dl
+            %dt= link_to news.short_title, news_path(news), title: news.short_title
+            %dd= raw strip_tags(news.content).truncate(300)
+            %dd.text-right= Russian::strftime(news.created_at, "%e %B %Y")
+    .col-md-3
+      = render 'layouts/best_country'
+  =render 'layouts/countries'

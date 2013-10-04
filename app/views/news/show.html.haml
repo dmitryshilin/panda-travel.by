@@ -1,9 +1,10 @@
-.row
-  .col-md-9
-    %h1= @news.title
-    %p= raw @news.content
-    %span= Russian::strftime(@news.created_at, "%e %B %Y")
-  .col-md-3
-    = render 'layouts/news'
-    = render 'layouts/best_country'
-=render 'layouts/countries'
+.container
+  .row
+    .col-md-9
+      %h1= @news.title
+      %p= raw @news.content
+      %span= Russian::strftime(@news.created_at, "%e %B %Y")
+    .col-md-3
+      = render 'layouts/news'
+      = render 'layouts/best_country'
+  =render 'layouts/countries'

@@ -1,10 +1,11 @@
-.row
-  .col-md-9
-    %h1 Визы
-    %ul
-    - @visas.each do |visa|
-      %li.list-unstyled= link_to visa.title, visa_path(visa), title: visa.title
-  .col-md-3
-    = render 'layouts/news'
-    = render 'layouts/best_country'
-=render 'layouts/countries'
+.container
+  .row
+    .col-md-9
+      %h1 Визы
+      %ul
+      - @visas.each do |visa|
+        %li.list-unstyled= link_to visa.title, visa_path(visa), title: visa.title
+    .col-md-3
+      = render 'layouts/news'
+      = render 'layouts/best_country'
+  =render 'layouts/countries'
