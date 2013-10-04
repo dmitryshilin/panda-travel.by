@@ -8,6 +8,5 @@
           %dd= raw strip_tags(news.content).truncate(300)
           %dd.text-right= Russian::strftime(news.created_at, "%e %B %Y")
   .col-md-3
-    = render 'layouts/news'
     = render 'layouts/best_country'
 =render 'layouts/countries'
