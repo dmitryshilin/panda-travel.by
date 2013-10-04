@@ -1,7 +1,11 @@
 #address-bar.contaner
-  %p Полный спектр туристических услуг для всей семьи
+  %span Полный спектр туристических услуг для всей семьи
   .address
     =link_to 'Минск, пр. Независимости, 28, офис 2', 'http://maps.yandex.ru/?ol=biz&oid=1142271805&ll=27.565604%2C53.903504&spn=0.010085%2C0.003161&z=17&l=map', :target => '_blank', :title => 'Панда Трэвел'
+  .social
+    =link_to image_tag('twitter.png'), 'https://twitter.com/PandaTravelBy', title: 'PandaTravelBy', target: '_blank'
+    =link_to image_tag('fb.png'), 'http://www.facebook.com/pandatravel.by', title: 'Панда Трэвел', target: '_blank'
+    =link_to image_tag('vk.png'), 'http://vk.com/public36276817', title: 'Панда Трэвел', target: '_blank'
   .phones
     %ul.list-unstyled.list-inline
       %li
@@ -14,7 +18,4 @@
         +375 17 327 83 68
       %li
         +375 17 327 03 02
-  .social
-    =link_to image_tag('twitter.png'), 'https://twitter.com/PandaTravelBy', title: 'PandaTravelBy', target: '_blank'
-    =link_to image_tag('fb.png'), 'http://www.facebook.com/pandatravel.by', title: 'Панда Трэвел', target: '_blank'
-    =link_to image_tag('vk.png'), 'http://vk.com/public36276817', title: 'Панда Трэвел', target: '_blank'
+
