@@ -1,9 +1,8 @@
 .container
   .col-md-9
     %h1= @article.title
-    %p= @article.content
-    = link_to 'Распечатать страницу', '#'
-
+    = raw @article.content
+    = render 'layouts/shared'
   .col-md-3
     = render 'layouts/news'
     = render 'layouts/best_country'

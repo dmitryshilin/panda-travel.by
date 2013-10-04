@@ -8,9 +8,6 @@
             %li
               = link_to article.short_title, article_path(article), title: article.short_title
               = raw strip_tags(article.content).truncate(300)
-
-    = link_to 'Распечатать страницу', '#'
-
   .col-md-3
     = render 'layouts/news'
     = render 'layouts/best_country'

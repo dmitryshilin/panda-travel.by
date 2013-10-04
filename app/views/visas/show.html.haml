@@ -2,7 +2,8 @@
   .row
     .col-md-9
       %h1= @visa.title
-      %p= @visa.description
+      = raw @visa.description
+      = render 'layouts/shared'
     .col-md-3
       = render 'layouts/news'
       = render 'layouts/best_country'

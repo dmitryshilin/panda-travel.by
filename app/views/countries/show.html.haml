@@ -12,8 +12,8 @@
           %a{'data-toggle' => 'tab', href: '#country-visas'} Визы
     .tab-content
       #country-info.tab-pane.active
-        %p= raw @country.description
-        =render 'layouts/shared'
+        = raw @country.description
+        = render 'layouts/shared'
       #country-tours.tab-pane
         - @country.tours.each do |tour|
           %p=link_to tour.title, tour_path(tour), title: tour.title

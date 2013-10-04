@@ -41,7 +41,8 @@
         = link_to 'Маршрут', modal_path('map', @tour.class.name, @tour.id), :class => "b-modal"
       %li
         = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), :class => "b-modal"
-    = @tour.description
+    = raw @tour.description
+    = render 'layouts/shared'
   #vidjets-col.col-md-3
     %ul.list-unstyled
       %li
