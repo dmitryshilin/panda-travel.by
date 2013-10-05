@@ -11,6 +11,11 @@ $ ->
     log 1
     Gmaps.loadMaps()
 
+  # init fotorama
+  $("#foto-tour").imagesLoaded ->
+    $("#foto-tour").fotorama
+      width: '100%'
+      arrows: true
 
 @sendModal = (url) ->
   $ajax_modal = $("#ajax-modal")
@@ -27,6 +32,7 @@ $ ->
     error: (data) ->
       console.log "Error send modal"
   false
+
 
 
 @setOnAjaxRemote = () ->

@@ -111,7 +111,7 @@ class Tour < ActiveRecord::Base
   end
 
   def price
-    deadlines.first.try(:price)
+    deadlines.first
   end
 
   def self.hits
