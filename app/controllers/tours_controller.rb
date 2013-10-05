@@ -16,8 +16,7 @@ class ToursController < ApplicationController
     @manager = @tour.first_manager
     @contacts = @manager.contacts
     @countries = @tour.countries
-    tour = @tour.price
-    @price = tour.price if tour.present?
+    @price = @tour.price if @tour.present?
     @special_price = @tour.special_price
     @dates_of = @tour.dates_of
     @special_dates_of = @tour.special_dates_of
