@@ -1,7 +1,10 @@
 .container
-  #tour-col.col-md-8
+  #tour-col.col-md-9
     %h2
       = @tour.short_title
+    #foto-tour
+      - @tour.images.each do |x|
+        = image_tag(image_path(x.image(:medium)))
     .row
       .col-md-1
         %h4
