@@ -53,6 +53,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'forgery'
   gem 'database_cleaner', '~> 1.1.1', :git => 'https://github.com/tommeier/database_cleaner', ref: 'b0c666e'
+  gem 'poltergeist'
 end
 
 group :development do

@@ -8,8 +8,9 @@ describe 'Домашняя страница' do
       status_code.should be 200
     end
 
-    it 'должен присутствовать header' do
-      should have_css('header')
+    it 'должен присутствовать header', js: true do
+      # should have_css('header')
+      save_screenshot('/Users/alx/Downloads/file.png')
     end
 
     it 'должно присутствовать меню' do
