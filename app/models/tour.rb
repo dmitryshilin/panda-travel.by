@@ -107,7 +107,7 @@ class Tour < ActiveRecord::Base
   end
 
   def special_price
-    deadlines.where(special: true).first.try(:price)
+    deadlines.where(special: true).first
   end
 
   def price

@@ -1,93 +1,60 @@
-.container
-  #tour-col.col-md-9
-    %h2
-      = @tour.short_title
-    #foto-tour
-      - @tour.images.each do |x|
-        = image_tag(image_path(x.image(:medium)))
-    .row
-      .col-md-1
-        %h4
-          Дни
-      .col-md-8
-        %h4
-          Программа тура
-    - @tour.steps.each do |step|
+.gradient-top
+  .container
+    #tour-col.col-md-9
+      %h2
+        = @tour.short_title
+      .fotorama_shadow
+        #foto-tour
+          - @tour.images.each do |x|
+            = image_tag(image_path(x.image(:medium)))
       .row
         .col-md-1
-          = step.number
+          %h4
+            Дни
         .col-md-8
-          = step.description
-    %ul.list-unstyled.list-inline
-      %li
-        Базовая стоимость:
-        %h2
-          = @price
-      %li
-        - unless @special_price.nil?
-          %h5
-          Специальная цена
-          %br
-          - unless @special_dates_of.empty?
-            на
-            - if @special_dates_of.count>1
-              - @special_dates_of.each_with_index do |x,i = 1|
-                = x.strftime('%d.%m')
-                - i +=1
-                -if i != @special_dates_of.count
-                  ,
-            - else
-              = @special_dates_of[0].strftime('%d.%m')
-          %h2
-            = @special_price
-      %li
-        = link_to 'Маршрут', modal_path('map', @tour.class.name, @tour.id), :class => "b-modal"
-      %li
-        = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), :class => "b-modal"
-    = raw @tour.description
-    = render 'layouts/shared'
-  #vidjets-col.col-md-3
-    %ul.list-unstyled
-      %li
-        %h5 Базовая стоимость:
-        %h2
-          = @price
-      %li#sp-vidjet-dates-of
-        - unless @special_price.nil?
-          %h5
-          Специальная цена
-          %br
-          - unless @special_dates_of.empty?
-            на
-            - if @special_dates_of.count>1
-              - @special_dates_of.each_with_index do |x,i = 1|
-                = x.strftime('%d.%m')
-                - i +=1
-                -if i != @special_dates_of.count
-                  ,
-            - else
-              = @special_dates_of[0].strftime('%d.%m')
-          %h2
-            = @special_price
-      %li
-        = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), :class => "b-modal"
-    %h5 Страны
-    - @countries.each do |country|
-      %ul.list-unstyled
-        %li= link_to country.title, country_path(country),title: country.title, :style => "background: url('#{country.flag.url(:original)}') no-repeat;"
-    %h5 Даты выездов:
-    = Date.today.year
-    %ul.list-unstyled#vidjet-dates-of
-      - @all_dates_of.each do |date|
+          %h4
+            Программа тура
+      - @tour.steps.each do |step|
+        .row
+          .col-md-1
+            = step.number
+          .col-md-8
+            = step.description
+      %ul.list-unstyled.list-inline
         %li
-          = Russian::strftime(date, '%d %B')
-    - @attaches.each do |doc|
+          = render 'layouts/price'
+        %li.special-color
+          = render 'layouts/special_price'
+        %li
+          = link_to 'Маршрут', modal_path('map', @tour.class.name, @tour.id), :class => "b-modal"
+        %li.btn.btn-default.navbar-btn.my-btn
+          = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), :class => "b-modal"
+      = raw @tour.description
+      = render 'layouts/shared'
+    #vidjets-col.col-md-3
       %ul.list-unstyled
         %li
-          = link_to doc.title, doc.url
-    = render 'layouts/manager'
-    = render 'layouts/you_watched'
-#you-watched.container
+          = render 'layouts/price'
+        %li#sp-vidjet-dates-of.special-color
+          = render 'layouts/special_price'
+        %li
+          = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), :class => "b-modal"
+      %h5 Страны
+      - @countries.each do |country|
+        %ul.list-unstyled
+          %li= link_to country.title, country_path(country),title: country.title, :style => "background: url('#{country.flag.url(:original)}') no-repeat;"
+      %h5 Даты выездов:
+      = Date.today.year
+      %ul.list-unstyled#vidjet-dates-of
+        - @all_dates_of.each do |date|
+          %li
+            = Russian::strftime(date, '%d %B')
+      - @attaches.each do |doc|
+        %ul.list-unstyled
+          %li
+            = link_to doc.title, doc.url
+      = render 'layouts/manager'
+      = render 'layouts/you_watched'
 #seealso-part.container
   = render 'layouts/also'
 #countries-part.container

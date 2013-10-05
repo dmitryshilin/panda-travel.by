@@ -15,7 +15,8 @@ $ ->
   $("#foto-tour").imagesLoaded ->
     $("#foto-tour").fotorama
       width: '100%'
-      arrows: true
+      nav: 'arrows'
+      margin: 0
 
 @sendModal = (url) ->
   $ajax_modal = $("#ajax-modal")
