@@ -5,7 +5,7 @@
     .search-bar
       = render 'layouts/search'
 .container
-  #tours-catalog.col-md-8
+  #tours-catalog.col-md-9
     - @tours.each do |tour|
       .row#each-tour
         .col-md-1
@@ -15,8 +15,8 @@
             .col-md-9
               %h3
                 = link_to tour.short_title, tour_path(tour)
-            .col-md-1
-              %h5
+            .col-md-2
+              %h5.tour-price
                 - if tour.date_prices.nearest.present?
                   = tour.date_prices.nearest.price
                   %span#currency-sign
@@ -26,7 +26,7 @@
               - tour.dates_of.each do |date|
                 %li.date-off
                   = Russian::strftime(date, '%d %B %Y')
-  #vidjets.col-md-2
+  #vidjets.col-md-3
     = render 'layouts/news'
     = render 'layouts/best_country'
 #countries-part.container
