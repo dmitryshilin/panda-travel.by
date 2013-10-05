@@ -1,8 +1,9 @@
 #search-wrapper
   .container
     %h2
-      Экскурсионные автобусные туры
-    = render 'layouts/search'
+      = search_title
+    .search-bar
+      = render 'layouts/search'
 .container
   #tours-catalog.col-md-8
     - @tours.each do |tour|
