@@ -1,10 +1,10 @@
 .manager
   %h4 Знакомьтесь,
   = @manager.name
-  %br
-  Менеджер этого тура
-  %br
-  = image_tag(@manager.avatar.url(:small))
+  %span
+    Менеджер этого тура
+  #manager-image
+    = image_tag(@manager.avatar.url(:small))
   - @contacts.each do |contact|
     %ul.list-unstyled
       %li{:style => "background: url('#{contact.logo.url(:original)}') no-repeat;"}= contact.description
