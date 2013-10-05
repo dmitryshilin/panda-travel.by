@@ -1,9 +1,10 @@
 #some-tours
   .container
     = render 'layouts/some_tours'
-#search-bar
+#search-wrapper.search-on-home
   .container
-    = render 'layouts/search'
+    .search-bar
+      = render 'layouts/search'
 #hits.container
   %h2.text-center Хиты продаж
   %ul.list-unstyled#hits_of_sales
