@@ -5,6 +5,6 @@
     Менеджер этого тура
   #manager-image
     = image_tag(@manager.avatar.url(:small))
-  - @contacts.each do |contact|
-    %ul.list-unstyled
-      %li{:style => "background: url('#{contact.logo.url(:original)}') no-repeat;"}= contact.description
+  %ul.list-unstyled#manager-contacts
+    - @contacts.each do |contact|
+      %li{style: "background: url('#{contact.logo.url(:original)}') no-repeat;"}= contact.description

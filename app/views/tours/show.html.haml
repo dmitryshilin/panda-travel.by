@@ -26,33 +26,39 @@
         %li.special-color
           = render 'layouts/special_price'
         %li
-          = link_to 'Маршрут', modal_path('map', @tour.class.name, @tour.id), :class => "b-modal"
+          = link_to 'Маршрут', modal_path('map', @tour.class.name, @tour.id), class: "b-modal"
         %li.btn.btn-default.navbar-btn.my-btn
-          = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), :class => "b-modal"
+          = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), class: "b-modal"
       = raw @tour.description
       = render 'layouts/shared'
     #vidjets-col.col-md-3
-      %ul.list-unstyled
+      %ul.list-unstyled.back-gray
         %li
           = render 'layouts/price'
         %li#sp-vidjet-dates-of.special-color
           = render 'layouts/special_price'
         %li
-          = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), :class => "b-modal"
-      %h5 Страны
-      - @countries.each do |country|
+          = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), class: "b-modal"
+      #countries-vidjet.back-gray
+        %h5 Страны
+        - @countries.each do |country|
+          %ul.list-unstyled
+            %li
+              = link_to country.title, country_path(country),title: country.title, style: "background: url('#{country.flag.url(:small)}') no-repeat;"
+      #dates-of-vidjet.back-gray
+        %h5
+          Даты выездов:
+        .gray-color
+          = Date.today.year
         %ul.list-unstyled
-          %li= link_to country.title, country_path(country),title: country.title, :style => "background: url('#{country.flag.url(:original)}') no-repeat;"
-      %h5 Даты выездов:
-      = Date.today.year
-      %ul.list-unstyled#vidjet-dates-of
-        - @all_dates_of.each do |date|
-          %li
-            = Russian::strftime(date, '%d %B')
-      - @attaches.each do |doc|
-        %ul.list-unstyled
-          %li
-            = link_to doc.title, doc.url
+          - @all_dates_of.each do |date|
+            %li
+              %h6
+                = Russian::strftime(date, '%d %B')
+        - @attaches.each do |doc|
+          %ul.list-unstyled
+            %li
+              = link_to doc.title, doc.url
       = render 'layouts/manager'
       = render 'layouts/you_watched'
 #seealso-part.container
