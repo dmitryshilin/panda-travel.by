@@ -28,8 +28,7 @@ $ ->
       $ajax_modal.modal()
     beforeSend: (data) ->
     complete: (data) ->
-      Gmaps.triggerOldOnload()
-      Gmaps.loadMaps()
+
     error: (data) ->
       console.log "Error send modal"
   false
