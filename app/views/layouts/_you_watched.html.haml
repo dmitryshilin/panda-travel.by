@@ -1,13 +1,17 @@
 #you-watched
-  %h4 Вы смотрели:
-  - @found_tours.each do |tour|
-    - if tour.present?
-      = link_to image_tag(tour.try(:images).first.image.url(:small)), tour_path(tour), title: tour.short_title
-      = link_to tour.short_title, tour_path(tour), title: tour.short_title
-      - if tour.price.present?
-        %p
-          от
-          = tour.price.price
-          = tour.price.currency
-      - else
-        %br
+  %h4
+    Вы смотрели:
+  %ul.list-unstyled
+    - @found_tours.each do |tour|
+      - if tour.present?
+        %li
+          .row
+            .col-md-1
+              = link_to image_tag(tour.try(:images).first.image.url(:small)), tour_path(tour), title: tour.short_title
+            .col-md-2
+              = link_to tour.short_title, tour_path(tour), title: tour.short_title
+              - if tour.price.present?
+                %p
+                  от
+                  = tour.price.price
+                  = tour.price.currency

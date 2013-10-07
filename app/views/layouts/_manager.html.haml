@@ -7,4 +7,5 @@
     = image_tag(@manager.avatar.url(:small))
   %ul.list-unstyled#manager-contacts
     - @contacts.each do |contact|
-      %li{style: "background: url('#{contact.logo.url(:original)}') no-repeat;"}= contact.description
+      - if contact.contact_type.present?
+        %li{style: "background: url('/assets/#{contact.contact_type}.png') no-repeat scroll 0% 0% / 20px auto;"}= contact.description

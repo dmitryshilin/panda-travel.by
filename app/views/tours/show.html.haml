@@ -7,26 +7,12 @@
         #foto-tour
           - @tour.images.each do |x|
             = image_tag(image_path(x.image(:medium)))
-      .row
-        .col-md-1
-          %h4
-            Дни
-        .col-md-8
-          %h4
-            Программа тура
-      - @tour.steps.each do |step|
-        .row
-          .col-md-1
-            = step.number
-          .col-md-8
-            = step.description
+      = render 'layouts/steps'
       %ul.list-unstyled.list-inline
         %li
           = render 'layouts/price'
         %li.special-color
           = render 'layouts/special_price'
-        %li
-          = link_to 'Маршрут', modal_path('map', @tour.class.name, @tour.id), class: "b-modal"
         %li.btn.btn-default.navbar-btn.my-btn
           = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), class: "b-modal"
       = raw @tour.description
@@ -46,6 +32,7 @@
             %li
               = link_to country.title, country_path(country),title: country.title, style: "background: url('#{country.flag.url(:small)}') no-repeat;"
       #dates-of-vidjet.back-gray
+        %span.typcn.typcn-calender-outline
         %h5
           Даты выездов:
         .gray-color

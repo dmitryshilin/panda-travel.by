@@ -16,7 +16,7 @@
           = x.content
     - else
       %li.art-item.art-max-height
-        = link_to image_tag(x.poster.url(:small)), articles_path(x)
-        = link_to x.title, articles_path(x)
+        = link_to image_tag(x.poster.url(:small)), article_path(x)
+        = link_to x.title, article_path(x)
         = x.content
 
