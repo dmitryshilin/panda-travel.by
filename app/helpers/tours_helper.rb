@@ -4,20 +4,31 @@ module ToursHelper
   end
 
   def spell_currency
-    last_dig = @special_price.price % 10
-    case @special_price.currency
-    when '$'
-      if last_dig == 1
-        'доллар!'
+    if @special_price.present?
+      last_dig = @special_price.price % 10
+      currency = @special_price.currency
+    else
+      if @price.present?
+        last_dig = @price.price % 10
+        currency = @price.currency
       else
-        if last_dig > 1 && last_dig < 5
-          'доллара!'
-        else
-          'долларов!'
-        end
+        return nil
       end
-    when '€'
-      'евро!'
+    end
+
+    case currency
+      when '$'
+        if last_dig == 1
+          'доллар'
+        else
+          if last_dig > 1 && last_dig < 5
+            'доллара'
+          else
+            'долларов'
+          end
+        end
+      when '€'
+        'евро'
     end
   end
 end
