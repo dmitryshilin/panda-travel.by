@@ -1,0 +1,15 @@
+#steps
+  .row#head
+    .col-md-1
+      %h4
+        Дни
+    .col-md-10
+      %h4
+        Программа тура
+  - @tour.steps.order('number ASC').each do |step|
+    .row#each-step
+      .col-md-1
+        = step.number
+      .col-md-10
+        = step.description
+  = link_to 'Маршрут', modal_path('map', @tour.class.name, @tour.id), class: "b-modal"
