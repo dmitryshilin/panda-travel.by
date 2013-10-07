@@ -1,13 +1,18 @@
 .container
   .col-md-9
     %h1 Путешествия
-    .article-column
+    .row
       %ul.list-unstyled
         - @articles.each do |article|
           - if can? :read, article
             %li
-              = link_to article.short_title, article_path(article), title: article.short_title
-              = raw strip_tags(article.content).truncate(300)
+            .col-xs-4.article-col
+              .thumbnail
+                = link_to image_tag(article.poster.url()), article_path(article)
+                .caption
+                  = link_to article.short_title, article_path(article), title: article.short_title
+                  %br
+                  = raw strip_tags(article.content).truncate(300)
   .col-md-3
     = render 'layouts/news'
     = render 'layouts/best_country'
