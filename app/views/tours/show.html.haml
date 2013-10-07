@@ -32,8 +32,8 @@
             %li
               = link_to country.title, country_path(country),title: country.title, style: "background: url('#{country.flag.url(:small)}') no-repeat;"
       #dates-of-vidjet.back-gray
-        %span.typcn.typcn-calender-outline
         %h5
+          %i.icon-calendar-empty.icon-large
           Даты выездов:
         .gray-color
           = Date.today.year
