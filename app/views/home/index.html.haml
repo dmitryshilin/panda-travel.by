@@ -1,55 +1,14 @@
 #some-tours
   .container
     = render 'layouts/some_tours'
-#search-wrapper.search-on-home
-  .container
-    .search-bar
-      = render 'layouts/search'
+.main-wrapper
+  #search-wrapper.search-on-home
+    .container
+      .search-bar
+        = render 'layouts/search'
 #hits.container
-  %h2.text-center Хиты продаж
-  %ul.list-unstyled#hits_of_sales
-    - @hits.each_with_index do |hit, i|
-      - if i==1
-        - if @nearest.present?
-          %li.hit-item.stamp#hit-stampped
-            %h3.centered Ближайший автобусный тур
-            = @nearest.countries.first.title
-            , отправление
-            = Russian::strftime(@nearest_date, '%d %B')
-            %div
-              .shorted-title
-                = link_to @nearest.short_title, tour_path(@nearest)
-              %div.go-right-pos
-                %div.gradient
-                %p.price.on-a-stamp
-                  - n = @nearest.date_prices.order('price ASC').first
-                  от
-                  = n.price
-                  = n.currency
-              = link_to image_tag(@nearest.images.first.image.url(:medium)), tour_path(@nearest)
-          %li.hit-item.hit-max-height
-            = link_to image_tag(hit.images.first.image.url(:medium)), tour_path(hit)
-            %br
-            = link_to hit.short_title, tour_path(hit)
-            %br
-            .price
-              от
-              - h = hit.date_prices.order('price ASC').first
-              = h.try(:price)
-              = h.try(:currency)
-            = hit.description
-      - else
-        %li.hit-item.hit-max-height
-          = link_to image_tag(hit.images.first.image.url(:medium)), tour_path(hit)
-          %br
-          = link_to hit.short_title, tour_path(hit)
-          .price
-            от
-            - h = hit.date_prices.order('price ASC').first
-            = h.try(:price)
-            = h.try(:currency)
-          = hit.description
-#we-are-the-best
+  = render 'layouts/hits'
+#we-are-the-best.main-wrapper
   .container
     .col-md-9
       = render 'layouts/we_are_the_best'

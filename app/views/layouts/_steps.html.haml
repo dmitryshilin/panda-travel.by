@@ -12,4 +12,9 @@
         = step.number
       .col-md-10
         = step.description
-  = link_to 'Маршрут', modal_path('map', @tour.class.name, @tour.id), class: "b-modal"
+  .tour-route
+    %ul.list-unsyled.list-inline
+      %li
+        = link_to 'Маршрут на карте', modal_path('map', @tour.class.name, @tour.id), class: "b-modal"
+      %li
+        = link_to 'Скачать программу тура', '#'
