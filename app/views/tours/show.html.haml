@@ -1,6 +1,6 @@
 .gradient-top
-  .container
-    #tour-col.col-md-9
+  .container#tour-container
+    #tour-col.col-md-8.col-sm-8.col-xs-8
       %h2
         = @tour.short_title
       .fotorama_shadow
@@ -8,22 +8,26 @@
           - @tour.images.each do |x|
             = image_tag(image_path(x.image(:medium)))
       = render 'layouts/steps'
-      %ul.list-unstyled.list-inline
-        %li
+      .row#prices
+        .col-md-4.col-xs-4.col-sm-4.price-styles
           = render 'layouts/price'
-        %li.special-color
+        .col-md-4.col-xs-4.col-sm-4.special-color.price-styles
           = render 'layouts/special_price'
-        %li.btn.btn-default.navbar-btn.my-btn
-          = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), class: "b-modal"
-      = raw @tour.description
+        .col-md-4.col-xs-4.col-sm-4
+          .btn.btn-default.navbar-btn.my-btn
+            = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), class: "b-modal"
+      #tour-notes
+        %h3
+          Примечания:
+        = raw @tour.description
       = render 'layouts/shared'
-    #vidjets-col.col-md-3
+    #vidjets-col.col-md-3.col-xs-3
       %ul.list-unstyled.back-gray
-        %li
+        %li.price-styles
           = render 'layouts/price'
-        %li#sp-vidjet-dates-of.special-color
+        %li#sp-vidjet-dates-of.special-color.price-styles
           = render 'layouts/special_price'
-        %li
+        %link_to
           = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), class: "b-modal"
       #countries-vidjet.back-gray
         %h5 Страны
@@ -32,7 +36,6 @@
             %li
               = link_to country.title, country_path(country),title: country.title, style: "background: url('#{country.flag.url(:small)}') no-repeat;"
       #dates-of-vidjet.back-gray
-        %span.typcn.typcn-calender-outline
         %h5
           Даты выездов:
         .gray-color

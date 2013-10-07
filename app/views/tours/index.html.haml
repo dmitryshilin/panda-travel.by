@@ -1,9 +1,10 @@
-#search-wrapper
-  .container
-    %h2
-      = search_title
-    .search-bar
-      = render 'layouts/search'
+.main-wrapper
+  #search-wrapper
+    .container
+      %h2
+        = search_title
+      .search-bar
+        = render 'layouts/search'
 .container
   #tours-catalog.col-md-9
     - @tours.each do |tour|
