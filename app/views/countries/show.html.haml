@@ -7,7 +7,7 @@
           %a{'data-toggle' => 'tab', href: '#country-info'} Информация о стране
         - if @country.tours.any?
           %li
-            %a{'data-toggle' => 'tab', href: '#country-tours'} Туры #{@country.tours.size}
+            %a{'data-toggle' => 'tab', href: '#country-tours'} Туры #{@country.tours.published.size}
         - if @country.visas.any?
           %li
             %a{'data-toggle' => 'tab', href: '#country-visas'} Визы
@@ -17,7 +17,8 @@
           = render 'layouts/shared'
         #country-tours.tab-pane
           - @country.tours.each do |tour|
-            %p=link_to tour.title, tour_path(tour), title: tour.title
+            -if can? :read, tour
+              %p=link_to tour.title, tour_path(tour), title: tour.title
         #country-visas.tab-pane
           - @country.visas.each do |visa|
             %p= link_to visa.title, visa_path(visa), title: visa.title

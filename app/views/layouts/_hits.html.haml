@@ -5,12 +5,14 @@
       - if @nearest.present?
         %li.hit-item.stamp#hit-stampped
           %h3.centered Ближайший автобусный тур
-          = @nearest.countries.first.title
-          , отправление
-          = Russian::strftime(@nearest_date, '%d %B')
+          %h6
+            = @nearest.countries.first.title
+            , отправление
+            = Russian::strftime(@nearest_date, '%d %B')
           %div
             .shorted-title
-              = link_to @nearest.short_title, tour_path(@nearest)
+              %h4
+                = link_to @nearest.short_title, tour_path(@nearest)
             %div.go-right-pos
               %div.gradient
               %p.price.on-a-stamp
@@ -22,24 +24,28 @@
         %li.hit-item.hit-max-height
           = link_to image_tag(hit.images.first.image.url(:medium)), tour_path(hit)
           %br
-          = link_to hit.short_title, tour_path(hit)
+          %h4
+            = link_to hit.short_title, tour_path(hit)
           %br
           .price
-            от
-            - h = hit.date_prices.order('price ASC').first
-            = h.try(:price)
-            = h.try(:currency)
+            %h5
+              от
+              - h = hit.date_prices.order('price ASC').first
+              = h.try(:price)
+              = h.try(:currency)
           %br
           = hit.title
     - else
       %li.hit-item.hit-max-height
         = link_to image_tag(hit.images.first.image.url(:medium)), tour_path(hit)
         %br
-        = link_to hit.short_title, tour_path(hit)
+        %h4
+          = link_to hit.short_title, tour_path(hit)
         .price
-          от
-          - h = hit.date_prices.order('price ASC').first
-          = h.try(:price)
-          = h.try(:currency)
+          %h5
+            от
+            - h = hit.date_prices.order('price ASC').first
+            = h.try(:price)
+            = h.try(:currency)
         %br
         = hit.title
