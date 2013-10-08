@@ -61,8 +61,8 @@ class ApplicationController < ActionController::Base
     session[:history].each do |url|
       # found_tours << Tour.find_by_id(url[7..-1])
       # found_tours << Tour.find_by_id(url.split('/').last)
-      found_tours << Tour.find_by_slug(url.split('/').last)
+      found_tours << Tour.find(url.split('/').last)
     end
-    @found_tours = found_tours.reverse
+    @found_tours = found_tours.reverse.uniq
   end
 end
