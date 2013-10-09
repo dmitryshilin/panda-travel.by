@@ -14,7 +14,16 @@
     .btn.btn-default.navbar-btn.my-btn
       = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), class: "b-modal"
 #tour-notes
-  %h3
-    Примечания:
-  = raw @tour.description
-= render 'layouts/shared'
+  %ul#mapTabs.nav.nav-tabs
+    %li.active
+      %a{'data-toggle' => 'tab', href: '#tour-description'} Примечания:
+    - if @tour.waypoints.present?
+      %li
+        %a{'data-toggle' => 'tab', href: '#tour-map'} Карта
+  .tab-content.tab-offset
+    #tour-description.tab-pane.active
+      = raw @tour.description
+    #tour-map.tab-pane
+      .map_container
+        = gmaps( direction: { data: @tour.start_end, options: { waypoints: @tour.waypoints } })
+        = yield :scripts

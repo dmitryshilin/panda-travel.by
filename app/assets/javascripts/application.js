@@ -21,7 +21,15 @@ $('#myTab a').click(function (e) {
     $(this).tab('show');
 })
 
-$(document).ready(function () {
+
+//$(document).ready(function () {
+// $('#mapTabs a').click(function (e) {
+//     e.preventDefault();
+//     $(this).tab('show');
+// })
+
+$(document).ready(function(){
+
     $('.also-slider').bxSlider({
         slideWidth: 320,
         minSlides: 3,
@@ -31,6 +39,7 @@ $(document).ready(function () {
         pager: false
     });
 });
+
 
 $(function () {
     $('.datepicker').datepicker({
@@ -103,4 +112,15 @@ $(function () {
 //            return $(".countries-select").removeClass("hidden");
 //        }
 //    });
+});
+
+$(document).ready(function(){
+    $('.some-slider').bxSlider({
+        slideWidth: 468,
+        minSlides: 3,
+        maxSlides: 3,
+        captions: true,
+        controls: false,
+        pager: false
+    });
 });
