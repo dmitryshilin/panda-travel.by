@@ -29,3 +29,14 @@ $(document).ready(function(){
         pager: false
     });
 });
+
+$(document).ready(function(){
+    $('.some-slider').bxSlider({
+        slideWidth: 468,
+        minSlides: 3,
+        maxSlides: 3,
+        captions: true,
+        controls: false,
+        pager: false
+    });
+});
