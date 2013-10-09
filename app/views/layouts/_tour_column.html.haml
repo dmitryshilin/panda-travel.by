@@ -1,0 +1,29 @@
+%h2
+  = @tour.short_title
+.fotorama_shadow
+  #foto-tour
+    - @tour.images.each do |x|
+      = image_tag(image_path(x.image(:medium)))
+= render 'layouts/steps'
+.row#prices
+  .col-md-4.col-xs-4.col-sm-4.price-styles
+    = render 'layouts/price'
+  .col-md-4.col-xs-4.col-sm-4.special-color.price-styles
+    = render 'layouts/special_price'
+  .col-md-4.col-xs-4.col-sm-4
+    .btn.btn-default.navbar-btn.my-btn
+      = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), class: "b-modal"
+#tour-notes
+  %ul#mapTabs.nav.nav-tabs
+    %li.active
+      %a{'data-toggle' => 'tab', href: '#tour-description'} Примечания:
+    - if @tour.waypoints.present?
+      %li
+        %a{'data-toggle' => 'tab', href: '#tour-map'} Карта
+  .tab-content.tab-offset
+    #tour-description.tab-pane.active
+      = raw @tour.description
+    #tour-map.tab-pane
+      .map_container
+        = gmaps( direction: { data: @tour.start_end, options: { waypoints: @tour.waypoints } })
+        = yield :scripts

@@ -1,29 +1,28 @@
 #tour-col
   margin: 0
   padding: 0
-h2
-  margin-top: 28px
-  font-size: 30px
-  font-weight: bold
-h3
-  font-size: 28px
-  font-weight: bold
-h4
-  font-size: 24px
-  font-weight: bold
-h5
-  font-size: 16px
-  font-weight: normal
-  margin-top: 4px
-h6
-  font-size: 15px
-  font-weight: bold
+#tour-container
+  h2
+    margin-top: 28px
+    font-size: 30px
+    font-weight: bold
+  h3
+    font-size: 28px
+    font-weight: bold
+  h4
+    font-size: 24px
+    font-weight: bold
+  h5
+    font-size: 16px
+    font-weight: normal
+    margin-top: 4px
+  h6
+    font-size: 15px
+    font-weight: bold
 .map_container
-  height: 400px
-  width: 702px
   #map
     height: 400px
-    width: 702px
+    width: 502px
 #foto-tour
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5)
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .5)
@@ -124,3 +123,14 @@ h6
     font-size: 20px
     font-weight: normal
     margin: 0 0 28px 16px
+  .tab-content.tab-offset
+    .tab-pane
+      display: block!important
+      position: absolute
+      left: -10000px
+      &.active
+        position: static
+  .nav-tabs > li.active > a,
+    background-color: #F9F7E6
+  .nav-tabs > li.active > a:hover
+    background-color: #F9F7E0

@@ -1,69 +1,13 @@
-.gradient-top
+.gradient-top.container
   .container#tour-container
-
-    #tour-col.col-md-8.col-sm-8.col-xs-8
-
-
-      %h2
-        = @tour.short_title
-      .fotorama_shadow
-        #foto-tour
-          - @tour.images.each do |x|
-            = image_tag(image_path(x.image(:medium)))
-      = render 'layouts/steps'
-      .row#prices
-        .col-md-4.col-xs-4.col-sm-4.price-styles
-          = render 'layouts/price'
-        .col-md-4.col-xs-4.col-sm-4.special-color.price-styles
-          = render 'layouts/special_price'
-        .col-md-4.col-xs-4.col-sm-4
-          .btn.btn-default.navbar-btn.my-btn
-            = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), class: "b-modal"
-      #tour-notes
-        %h3
-          Примечания:
-        = raw @tour.description
-      = render 'layouts/shared'
-    #vidjets-col.col-md-3.col-xs-3
-      %ul.list-unstyled.back-gray
-        %li.price-styles
-          = render 'layouts/price'
-        %li#sp-vidjet-dates-of.special-color.price-styles
-          = render 'layouts/special_price'
-        %link_to
-          = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), class: "b-modal"
-      #countries-vidjet.back-gray
-        %h5 Страны
-        - @countries.each do |country|
-          %ul.list-unstyled
-            %li
-              = link_to country.title, country_path(country),title: country.title, style: "background: url('#{country.flag.url(:small)}') no-repeat;"
-      #dates-of-vidjet.back-gray
-        %h5
-          %i.icon-calendar-empty.icon-large
-          Даты выездов:
-        .gray-color
-          = Date.today.year
-        %ul.list-unstyled
-          - @all_dates_of.each do |date|
-            %li
-              %h6
-                = Russian::strftime(date, '%d %B')
-      #downloads
-        %ul
-          %li.list-unstyled
-            %i.icon-rocket.icon-large
-            = link_to 'Маршрут на карте', modal_path('map', @tour.class.name, @tour.id), class: "b-modal"
-        - @attaches.each do |doc|
-          %ul.list-unstyled
-            %li
-              %i.icon-download.icon-large
-              = link_to doc.title, doc.document.url, title: doc.title
-              %p.text-muted #{File.extname(doc.document_file_name).delete('.').upcase}, #{number_to_human_size(doc.document_file_size)}
-        .printer
-          =link_to 'Распечатать страницу', 'javascript:window.print();', title: 'Распечатать страницу'
-      = render 'layouts/manager'
-      = render 'layouts/you_watched'
+    -if can? :read, @tour
+      #tour-col.col-md-8.col-sm-8.col-xs-8
+        = render 'layouts/tour_column'
+        / = render 'layouts/shared'
+      #vidjets-col.col-md-3.col-xs-3
+        = render 'layouts/vidjets_column'
+        = render 'layouts/manager'
+        = render 'layouts/you_watched'
 #seealso-part.container
   = render 'layouts/also'
 #countries-part.container

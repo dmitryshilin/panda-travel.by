@@ -3,4 +3,5 @@
     %h2.text-center Новые туры
     %ul.also-slider
       - @last_tours.each do |last|
-        %li=link_to image_tag(last.images.first.image.url(:medium), title: last.title), tour_path(last), title: last.title
+        %li
+          =link_to image_tag(last.images.first.image.url(:medium), title: "#{link_to last.short_title, tour_path(last)}"), tour_path(last), title: last.title

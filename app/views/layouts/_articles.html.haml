@@ -5,18 +5,20 @@
       - if @best_country.present?
         %li#art-stampped.art-item.stamp
           .home-best-country
-            %h2.text-center Страна месяца
+            %h2.text-center= link_to 'Страна месяца', country_path(@best_country), title: @best_country.title
             %h3
-              = @best_country.title
-            = @best_country.notes
+              = link_to @best_country.title, country_path(@best_country), title: @best_country.title
+            = link_to @best_country.notes, country_path(@best_country), title: @best_country.notes
           = link_to image_tag(@best_country.articles.first.poster.url(:medium)), country_path(@best_country)
         %li.art-item.art-max-height
           = link_to image_tag(x.poster.url(:small)), articles_path(x)
-          = link_to x.title, articles_path(x)
+          %h4
+            = link_to x.title, articles_path(x)
           = x.content
     - else
       %li.art-item.art-max-height
         = link_to image_tag(x.poster.url(:small)), article_path(x)
-        = link_to x.title, article_path(x)
+        %h4
+          = link_to x.title, article_path(x)
         = x.content
 
