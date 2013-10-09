@@ -3,4 +3,5 @@
     %ul.also-slider
       - @random_tours.each do |random|
         - unless random.images.first.image.nil?
-          %li=link_to image_tag(random.images.first.image.url(:medium), title: random.title), tour_path(random), title: random.title
+          %li
+            = link_to image_tag(random.images.first.image.url(:medium), title: "#{link_to random.short_title, tour_path(random)}"), tour_path(random), title: random.short_title
