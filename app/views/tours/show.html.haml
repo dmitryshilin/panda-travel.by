@@ -1,13 +1,13 @@
-.gradient-top.container
-  .container#tour-container
-    -if can? :read, @tour
-      #tour-col.col-md-8.col-sm-8.col-xs-8
-        = render 'layouts/tour_column'
-        / = render 'layouts/shared'
-      #vidjets-col.col-md-3.col-xs-3
-        = render 'layouts/vidjets_column'
-        = render 'layouts/manager'
-        = render 'layouts/you_watched'
+.gradient-top.main-wrapper
+.container#tour-container
+  -if can? :read, @tour
+    #tour-col.col-md-8.col-sm-8.col-xs-8
+      = render 'layouts/tour_column'
+      = render 'layouts/shared'
+    #vidjets-col.col-md-3.col-xs-3
+      = render 'layouts/vidjets_column'
+      = render 'layouts/manager'
+      = render 'layouts/you_watched'
 #seealso-part.container
   = render 'layouts/also'
 #countries-part.container

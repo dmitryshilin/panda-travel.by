@@ -7,8 +7,12 @@ class ToursController < ApplicationController
   end
 
   def byresttypes
-    @tours = RestType.find(params[:rest_type_id]).try(:tours)
-    render :index
+    if params[:rest_type_id].present?
+      @tours = RestType.find(params[:rest_type_id]).try(:tours)
+      render :index
+    else
+      render status: 404
+    end
   end
 
   def show
