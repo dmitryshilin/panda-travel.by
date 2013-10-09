@@ -1,9 +1,9 @@
 #you-watched
   %h4
     Вы смотрели:
-  %ul.list-unstyled
-    - @found_tours.each do |tour|
-      - if tour.present?
+  - if @found_tours.present?
+    %ul.list-unstyled
+      - @found_tours.each do |tour|
         %li
           .row
             .col-md-1

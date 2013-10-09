@@ -19,6 +19,11 @@ $('#myTab a').click(function (e) {
     $(this).tab('show');
 })
 
+// $('#mapTabs a').click(function (e) {
+//     e.preventDefault();
+//     $(this).tab('show');
+// })
+
 $(document).ready(function(){
     $('.also-slider').bxSlider({
         slideWidth: 320,

@@ -3,8 +3,18 @@
     .col-md-9
       %h1 Визы
       %ul
-      - @visas.each do |visa|
-        %li.list-unstyled= link_to visa.title, visa_path(visa), title: visa.title
+      - if @visas.present?
+        - @visas.each do |visa|
+          %li.list-unstyled
+            = link_to visa.title, '#' + visa.friendly_id.to_s
+        %ul
+        - @visas.each do |visa|
+          %li.list-unstyled
+            %h4
+              %a{ name: '#' + visa.friendly_id.to_s }
+              = visa.title
+            = visa.description
+
     .col-md-3
       = render 'layouts/news'
       = render 'layouts/best_country'
