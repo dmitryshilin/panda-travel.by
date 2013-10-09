@@ -5,9 +5,9 @@ PandatRavelBy::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   get '/resttypes/:rest_type_id', to: 'tours#byresttypes', as: :resttypes
-  get '/visas/for/:tour_id', to: 'visas#index', as: :visas_for_tour
+  # get '/visas/for/:tour_id', to: 'visas#index', as: :visas_for_tour
 
-  get '/resttypes/', to: 'tours#index'
+  # get '/resttypes/', to: 'tours#index'
 
   resources :tours, only: [:index, :show] do
     resources :orders, only: [:create]
@@ -15,7 +15,11 @@ PandatRavelBy::Application.routes.draw do
 
 
   resources :articles, only: [:index, :show]
-  resources :visas, only: [:index]
+  resources :visas, only: [:index] do
+    collection do
+      get '/for/:tour_id', to: 'visas#for', as: :tour
+    end
+  end
 
   resources :contacts, only: [:index]
   resources :countries, only: [:index, :show]
