@@ -1,11 +1,9 @@
-.shared.clearfix
-  / AddThis Button BEGIN
+.shared
   .addthis_toolbox.addthis_default_style.addthis_32x32_style.pull-left
     %a.addthis_button_facebook
     %a.addthis_button_google_plusone_share
     %a.addthis_button_twitter
     %a.addthis_button_vk
-  %script{:src => "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51ff7db122e508bb", :type => "text/javascript"}
-  / AddThis Button END
+  %script{ src: "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51ff7db122e508bb", type: "text/javascript"}
   .printer.pull-right
     =link_to 'Распечатать страницу', 'javascript:window.print();', title: 'Распечатать страницу'
