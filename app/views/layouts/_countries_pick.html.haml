@@ -1,0 +1,33 @@
+- if Country.exists?
+  .countries-select.hidden
+    .column
+      - if @europe.exists?
+        %ul
+          %li
+            %h3 Европа
+          - @europe.each do |country|
+            %li.flag.btn-link{:style => "background: url('#{country.flag.url(:small)}') no-repeat;"}= country.title
+      - if @asia.exists?
+        %ul
+          %li
+            %h3 Азия
+          - @asia.each do |country|
+            %li.flag.btn-link{:style => "background: url('#{country.flag.url(:small)}') no-repeat;"}= country.title
+      - if @africa.exists?
+        %ul
+          %li
+            %h3 Африка
+          - @africa.each do |country|
+            %li.flag.btn-link{:style => "background: url('#{country.flag.url(:small)}') no-repeat;"}= country.title
+      - if @america.exists?
+        %ul
+          %li
+            %h3 Южная Америка
+          - @america.each do |country|
+            %li.flag.btn-link{:style => "background: url('#{country.flag.url(:small)}') no-repeat;"}= country.title
+      - if @also.exists?
+        %ul
+          %li
+            %h3 А также
+          - @also.each do |country|
+            %li.flag.btn-link{:style => "background: url('#{country.flag.url(:small)}') no-repeat;"}= country.title

@@ -8,6 +8,7 @@ tour_1:
                фирмы не зависящими)."
   rating: 3
   published: true
+  notes: 'Новинка сезона!'
 
 tour_2:
   short_title: Будапешт - Вена - Прага
@@ -19,6 +20,7 @@ tour_2:
                фирмы не зависящими)."
   rating: 0
   published: true
+  notes: 'Новинка сезона! Открыты продажи'
 
 
 tour_3:
@@ -43,6 +45,7 @@ tour_4:
                фирмы не зависящими)."
   rating: 0
   published: true
+  notes: 'Новинка сезона! Тур в Москву'
 
 
 tour_5:
