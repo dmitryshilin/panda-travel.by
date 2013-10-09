@@ -37,5 +37,3 @@
         %p.text-muted #{File.extname(doc.document_file_name).delete('.').upcase}, #{number_to_human_size(doc.document_file_size)}
   .printer
     =link_to 'Распечатать страницу', 'javascript:window.print();', title: 'Распечатать страницу'
-= render 'layouts/manager'
-= render 'layouts/you_watched'
