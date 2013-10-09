@@ -14,12 +14,7 @@
 //= require jquery_ujs
 //= require_tree ./import
 
-$('#myTab a').click(function (e) {
-    e.preventDefault();
-    $(this).tab('show');
-})
-
-// $('#mapTabs a').click(function (e) {
+// $('#myTab a').click(function (e) {
 //     e.preventDefault();
 //     $(this).tab('show');
 // })
