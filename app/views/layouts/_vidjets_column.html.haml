@@ -24,6 +24,8 @@
           = Russian::strftime(date, '%d %B')
 #downloads
   %ul
+    %li
+      = link_to 'Визовые документы', visas_for_tour_path( @tour )
     %li.list-unstyled
       %i.icon-rocket.icon-large
       = link_to 'Маршрут на карте', modal_path('map', @tour.class.name, @tour.id), class: "b-modal"
