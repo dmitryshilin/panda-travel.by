@@ -16,6 +16,7 @@
 //= require jquery.ui.slider
 //= require_tree ./import
 
+
 $('#myTab a').click(function (e) {
     e.preventDefault();
     $(this).tab('show');
