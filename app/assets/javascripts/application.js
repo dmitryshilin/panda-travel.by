@@ -17,14 +17,7 @@
 //= require_tree ./import
 
 
-$('#myTab a').click(function (e) {
-    e.preventDefault();
-    $(this).tab('show');
-})
-
-
-//$(document).ready(function () {
-// $('#mapTabs a').click(function (e) {
+// $('#myTab a').click(function (e) {
 //     e.preventDefault();
 //     $(this).tab('show');
 // })
