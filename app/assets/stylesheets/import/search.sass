@@ -2,6 +2,7 @@
   span.search-link
     //word-wrap: break-word
     //width: 84px
+    margin-left: 15px
     font-size: 18px
     color: rgb( 173, 255, 76 )
     line-height: 1.111
@@ -9,10 +10,13 @@
   padding: 20px 20px 0px 20px
   position: absolute
   z-index: 1
-  background-color: #f5f5f5
-  -webkit-border-radius: 10px
-  -moz-border-radius: 10px
-  border-radius: 10px
+  background-color: white
+  -webkit-border-radius: 0px 10px 10px 10px
+  -moz-border-radius: 0px 10px 10px 10px
+  border-radius: 0px 10px 10px 10px
+  box-shadow: 0 6px 6px rgba(0, 0, 0, .4)
+  -webkit-box-shadow: 0 6px 6px rgba(0, 0, 0, .4)
+  -moz-box-shadow: 0 6px 6px rgba(0, 0, 0, .4)
   h3
     color: #858585
     font-size: 16px
@@ -29,7 +33,91 @@
       font-size: 16px
       margin-bottom: 27px
       padding: 4px 0 2px 32px
+.country-pick
+  color: white
+  font-size: 18px
+  height: 37px
+  width: 263px
+  border: none
+  border-radius: 10px 10px 10px 10px
+  background-color: #7bb847
+.country-pick.btn-default:active, .country-pick.btn-default:hover, .country-pick.btn-default:active
+  color: white
+  background-color: #95c66c
+.date-pick.btn-default:active, .date-pick.btn-default:hover, .date-pick.btn-default:active
+  color: white
+  background-color: #95c66c
+
+
+.date-pick
+  margin-left: 5px
+  color: white
+  font-size: 16px
+  height: 37px
+  border: none
+  border-radius: 10px
+  background-color: #7bb847
+.country-focus
+  border-radius: 10px 10px 0px 0px
+  background-color: white
+  color: #000000
+.country-focus.btn-default:active, .country-focus.btn-default:hover, .country-focus.btn-default:active
+  color: #000000
+  background-color: white
 #ui-datepicker-div
-  margin-top: 47px
+  margin-top: 37px
+
 .ui-datepicker-month
   width: 60% !important
+#ui-datepicker-div.ui-widget-content
+  border: none
+  box-shadow: 0 6px 6px rgba(0, 0, 0, .4)
+  -webkit-box-shadow: 0 6px 6px rgba(0, 0, 0, .4)
+  -moz-box-shadow: 0 6px 6px rgba(0, 0, 0, .4)
+.ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl
+  border-top-left-radius: 0 !important
+.price-slider
+  position: absolute
+  top: 15px
+  left: 15px
+  display: inline-block
+  width: 159px
+  height: 37px !important
+  background-color: #7bb847 !important
+  background-image: none
+  border: none
+  border-radius: 0px
+  &:before
+    content: ''
+    position: absolute
+    left: -10px
+    width: 10px
+    height: 100%
+    background-color: #7bb847 !important
+    border-radius: 90px 0px 0px 90px
+  &:after
+    content: ''
+    position: absolute
+    right: -10px
+    width: 10px
+    height: 100%
+    background-color: #7bb847!important
+    border-radius: 0px 90px 90px 0px
+.ui-slider-handle
+  background-color: #d7e9c7 !important
+  top: 0 !important
+  margin: 0px !important
+  width: 2px !important
+  height: 100% !important
+.ui-slider-range
+  background-color: #95c66c
+  background-image: none
+  border-radius: 0px
+.price-text
+  position: absolute
+  top: 5px
+  left: 24px
+  z-index: 3
+  font-size: 18px
+  color: white
+

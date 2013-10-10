@@ -1,15 +1,17 @@
 .search
   = form_tag  tours_path, method: :get do
     %input{name: '[search]countries', type: 'hidden', value: params[:search].try(:[], :countries)}
-    %span.btn.btn-default.btn-lg.country-pick
+    %span.btn.btn-default.country-pick
       %span.country-title Где хотелось бы отдохнуть?
       %span.caret
     =render 'layouts/countries_pick'
     %input.datepicker{name: '[search]start', type: 'hidden', value: params[:search].try(:[],:start)}
-    %span.btn.btn-default.btn-lg.date-pick
+    %span.btn.btn-default.date-pick
       %i.icon-calendar
       %span.date-title Дата отъезда
       %span.caret
-    = text_field_tag '[search]min', params[:search].try(:[],:min)
-    = text_field_tag '[search]max', params[:search].try(:[],:max)
+    .price-slider
+      .price-text
+    %input{name: '[search]min', type: 'hidden', value: params[:search].try(:[],:min)}
+    %input{name: '[search]max', type: 'hidden', value: params[:search].try(:[],:max)}
     %span.btn.btn-link.search-link Подобрать варианты
