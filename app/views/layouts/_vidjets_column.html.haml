@@ -1,8 +1,9 @@
 %ul.list-unstyled.back-gray
-  %li.price-styles
+  %li#vidj-prices.price-styles
     = render 'layouts/price'
-  %li#sp-vidjet-dates-of.special-color.price-styles
-    = render 'layouts/special_price'
+  - if @special_price.present?
+    %li#sp-price.special-color.price-styles.special-price-style
+      = render 'layouts/special_price'
   %link_to
     = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), class: "b-modal"
 #countries-vidjet.back-gray
@@ -23,10 +24,8 @@
         %h6
           = Russian::strftime(date, '%d %B')
 #downloads
-  %ul.list-unstyled
-    %li
-      %i.icon-list-alt.icon-medium
-      = link_to 'Визовые документы', tour_visas_path( @tour )
+  %i.icon-list-alt.icon-medium
+    = link_to 'Визовые документы', tour_visas_path( @tour )
   - @attaches.each do |doc|
     %ul.list-unstyled
       %li
