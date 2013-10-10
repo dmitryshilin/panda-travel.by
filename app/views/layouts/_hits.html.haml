@@ -4,7 +4,7 @@
     - if i==1
       - if @nearest.present?
         %li.hit-item.stamp#hit-stampped
-          %h3.centered Ближайший автобусный тур
+          %h3.text-center Ближайший автобусный тур
           %h6
             = @nearest.countries.first.title
             , отправление
@@ -15,7 +15,7 @@
                 = link_to @nearest.short_title, tour_path(@nearest)
             %div.go-right-pos
               %div.gradient
-              %p.price.on-a-stamp
+              .price.on-a-stamp
                 - n = @nearest.date_prices.order('price ASC').first
                 от
                 = n.price
@@ -26,15 +26,14 @@
           %br
           %h4
             = link_to hit.short_title, tour_path(hit)
-          %br
           .price
             %h5
               от
               - h = hit.date_prices.order('price ASC').first
               = h.try(:price)
               = h.try(:currency)
-          %br
-          = hit.title
+          %p
+            = hit.title
     - else
       %li.hit-item.hit-max-height
         = link_to image_tag(hit.images.first.image.url(:medium)), tour_path(hit)
@@ -47,5 +46,5 @@
             - h = hit.date_prices.order('price ASC').first
             = h.try(:price)
             = h.try(:currency)
-        %br
-        = hit.title
+        %p
+          = hit.title

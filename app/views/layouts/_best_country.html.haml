@@ -1,6 +1,8 @@
 - if @best_country.present? && @best_country.articles.any?
   #best-country
-    .best-country
+    .best-country.text-center
       %h2.text-center= link_to 'Страна месяца', country_path(@best_country), title: @best_country.title
-      %h3.text-center= link_to @best_country.title, country_path(@best_country), title: @best_country.title
+      %h3.text-center
+        = link_to @best_country.title, country_path(@best_country), title: @best_country.title
+      = link_to @best_country.notes, country_path(@best_country), title: @best_country.notes
     = link_to image_tag(@best_country.articles.first.poster.url(:small)), country_path(@best_country), title: @best_country.title
