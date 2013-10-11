@@ -12,8 +12,10 @@
     - if @special_price.present?
       = render 'layouts/special_price'
   .col-md-4.col-xs-4.col-sm-4
-    .btn.btn-default.navbar-btn.my-btn
-      = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), class: "b-modal"
+    .btn.btn-default.my-btn
+      %a{href: modal_path('form_order', @tour.class.name, @tour.id), class: "b-modal"}
+        Заказать тур
+      %i.icon-ok-sign.icon-2x
 #tour-notes
   %ul#mapTabs.nav.nav-tabs
     %li.active
