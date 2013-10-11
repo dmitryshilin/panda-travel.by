@@ -4,8 +4,10 @@
   - if @special_price.present?
     %li#sp-price.special-color.price-styles.special-price-style
       = render 'layouts/special_price'
-  %link_to
-    = link_to 'Заказать', modal_path('form_order', @tour.class.name, @tour.id), class: "b-modal"
+  .btn.btn-default.my-btn.vidjet-btn
+    %a{href: modal_path('form_order', @tour.class.name, @tour.id), class: "b-modal"}
+      Заказать тур
+    %i.icon-ok-sign.icon-2x
 #countries-vidjet.back-gray
   %h5 Страны
   - @countries.each do |country|
