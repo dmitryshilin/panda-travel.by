@@ -1,17 +1,15 @@
-.price-styles
-  - if @special_price.present?
-    %h5 Специальная цена
-    - unless @special_dates_of.empty?
-      %h5
-        на
-        - if @special_dates_of.count>1
-          - @special_dates_of.each_with_index do |x,i = 1|
-            = x.strftime('%d.%m')
-            - i +=1
-            -if i != @special_dates_of.count
-              ,
-        - else
-          = @special_dates_of[0].strftime('%d.%m')
-    %h3
-      = @special_price.try(:price)
-      = spell_currency + '!'
+%h5 Специальная цена
+- unless @special_dates_of.empty?
+  %h5
+    на
+    - if @special_dates_of.count>1
+      - @special_dates_of.each_with_index do |x,i = 1|
+        = x.strftime('%d.%m')
+        - i +=1
+        -if i != @special_dates_of.count
+          ,
+    - else
+      = @special_dates_of[0].strftime('%d.%m')
+%h3
+  = @special_price.try(:price)
+  = spell_currency + '!'
