@@ -5,14 +5,13 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    %header.main-wrapper
+    %header
       = render 'layouts/header'
       #navigational-bar
         = render 'layouts/mainmenu'
         = render 'layouts/address'
     = yield
-    .main-wrapper
-      #footer-wrapper
-        = render 'layouts/footer'
+    #footer-wrapper
+      = render 'layouts/footer'
     #ajax-modal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
 
