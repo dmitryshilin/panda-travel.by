@@ -1,14 +1,16 @@
 .search
+  form
+    display: inline-block
   span.search-link
-    //word-wrap: break-word
-    //width: 84px
-    margin-left: 15px
+    text-align: left
+    margin-left: 24px
     font-size: 18px
     color: rgb( 173, 255, 76 )
     line-height: 1.111
 .countries-select
   padding: 20px 20px 0px 20px
   position: absolute
+  top: 52px
   z-index: 1
   background-color: white
   -webkit-border-radius: 0px 10px 10px 10px
@@ -50,7 +52,7 @@
 
 
 .date-pick
-  margin-left: 5px
+  margin-left: 6px
   color: white
   font-size: 16px
   height: 37px
@@ -66,7 +68,50 @@
   background-color: white
 #ui-datepicker-div
   margin-top: 37px
-
+  font-family: NovaR
+  a.ui-datepicker-prev, a.ui-datepicker-next
+    background: none
+    border: none
+.ui-widget-header
+  background: none
+  border: none
+.ui-datepicker-title
+  span
+    font-size: 15px
+    margin-left: 10px
+  select
+    font-size: 13px !important
+.ui-datepicker-prev span.ui-icon
+  background: url(asset_path('datepicker-prev-arrow.png', image)) no-repeat
+  padding: 10px
+.ui-datepicker-next span.ui-icon
+  background: url(asset_path('datepicker-next-arrow.png', image)) no-repeat
+  padding: 10px
+.ui-datepicker-calendar
+  thead
+    color: #8a8a8a
+    font-size: 13px
+  tbody
+    font-size: 15px
+    a.ui-state-default
+      background: none
+      border: none
+      text-align: center
+      border-radius: 6px
+      padding: 8px
+      color: #0081bd
+    .ui-datepicker-week-end
+      a.ui-state-default
+        color: #ec9417
+      a:hover
+        color: white
+    .ui-datepicker-today
+      a
+        border: #ec9417 1px solid
+        border-radius: 6px !important
+    a:hover
+      background: #489c00
+      color: white
 .ui-datepicker-month
   width: 60% !important
 #ui-datepicker-div.ui-widget-content
@@ -79,7 +124,7 @@
 .price-slider
   position: absolute
   top: 15px
-  left: 15px
+  left: 16px
   display: inline-block
   width: 159px
   height: 37px !important
@@ -115,9 +160,23 @@
   border-radius: 0px
 .price-text
   position: absolute
-  top: 5px
-  left: 24px
+  top: 8px
+  left: 40px
   z-index: 3
-  font-size: 18px
+  font-size: 16px
+  font-family: novar
   color: white
 
+.tourtrans
+  display: inline-block
+  position: relative
+  top: 12px
+  left: 40px
+  background: url(asset_path('tourtrans.png', image)) no-repeat
+  padding-left: 50px
+  line-height: 20px
+  a
+    font-size: 18px
+    color: white
+    span
+      color: #ffec18

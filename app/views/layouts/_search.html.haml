@@ -14,4 +14,13 @@
       .price-text
     %input{name: '[search]min', type: 'hidden', value: params[:search].try(:[],:min)}
     %input{name: '[search]max', type: 'hidden', value: params[:search].try(:[],:max)}
-    %span.btn.btn-link.search-link Подобрать варианты
+    %span.btn.btn-link.search-link
+      Подобрать
+      %br
+      варианты
+  .tourtrans
+    %a{href: 'http://www.tourtrans.ru/tours/search.html', title: 'tourtrans.ru'}
+      Найти тур
+      %br
+      на
+      %span tourtrans.ru
