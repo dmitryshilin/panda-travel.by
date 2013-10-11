@@ -2,8 +2,12 @@
   = @tour.short_title
 .fotorama_shadow
   #foto-tour
-    - @tour.images.each do |x|
-      = image_tag(image_path(x.image(:medium)))
+    .fotorama
+      -if @tour.images.present?
+        - @tour.images.each do |x|
+          .caption{ 'data-img'  =>  image_path(x.image(:medium)), 'data-height' => 'auto' }
+            %p.caption__title.text-center
+              = x.title
 = render 'layouts/steps'
 .row#prices
   .col-md-4.col-xs-4.col-sm-4.price-styles

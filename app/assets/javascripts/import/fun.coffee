@@ -12,9 +12,11 @@ $ ->
     Gmaps.loadMaps()
 
   # init fotorama
+
   $("#foto-tour").imagesLoaded ->
     $("#foto-tour").fotorama
       width: '100%'
+      height: auto
       nav: 'arrows'
       margin: 0
 
